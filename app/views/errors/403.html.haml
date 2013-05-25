@@ -1,0 +1,8 @@
+.hero-unit.center
+  %h1 Forbidden
+  - if @exception
+    %p= @exception.message
+  - else
+    %p You are not authorized to perform that action.
+  %p
+    Go #{link_to 'back', :back} to what you were doing.

@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
+    %title= content_for?(:title) ? yield(:title) : "Expensiv"
+    %meta{content: content_for?(:description) ? yield(:description) : "Expensiv", name: "description"}
+    %meta{content: content_for?(:keywords) ? yield(:keywords) : "Expensiv", name: "keywords"}
+    = stylesheet_link_tag :application, :media => "all"
+    = javascript_include_tag :application
+    = csrf_meta_tags
+    = yield(:head)
+  %body{class: "#{controller_name}", "data-action" => action_name, "data-controller" => controller_path}
+    %header.navbar.navbar-fixed-top.navbar-inverse
+      %nav.navbar-inner
+        .container
+          = render 'layouts/navigation'
+    #main{:role => "main"}
+      .container
+        .content
+          .row
+            .span12
+              = render 'layouts/messages'
+              = yield
+          %footer.navbar.navbar-fixed-bottom.navbar-inverse
+            .navbar-inner
+              .container
+                = render 'layouts/footer'
