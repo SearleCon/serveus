@@ -4,12 +4,9 @@ ruby '2.0.0'
 
 
 group :development do
- gem 'puma'
  gem "better_errors"
  gem 'annotate', ">=2.5.0"
  gem 'sqlite3'
-
-
 end
 
 gem 'rename'
@@ -55,6 +52,9 @@ gem 'jbuilder', '~> 1.0.1'
 
 
 gem "tagmanager-rails", "~> 0.0.1"
+
+gem 'puma'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
