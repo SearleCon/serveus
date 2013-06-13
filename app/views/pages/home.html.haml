@@ -1,1 +1,52 @@
-%H1 Home
+- content_for(:sidebar) do
+  %h4 Unresolved interactions
+  %p= link_to 'Absa credit card'
+  %p= link_to 'Mercedes Benz service'
+
+
+%form.well.span8
+  .row
+    .span3
+      %label Title
+      %input.span3{value: "Follow up with technician", type: "text"}
+      %label Contact Person
+      %input.span3{value: "Jim jones", type: "text"}
+      %label Start Time
+      %input.span3{type: "text", disabled: true, value: l(Time.zone.now)}
+      %label Tags
+      %input.span1{type: "text", name: 'tags', class: 'tm-input'}
+
+    .span5
+      %label Message
+      %textarea#message.input-xlarge.span5{:name => "message", :rows => "10"}
+      %button.btn.btn-primary.pull-right{:type => "submit"} Send
+.span8
+  %h1 Renew Credit Card at Absa
+  %p
+    'Spoke to call centre at Absa,' added the Gryphon; and then they both sat silent and looked at poor Alice, who felt ready to sink into the earth. At last the Gryphon said to the Mock Turtle, 'Drive on, old fellow! Don't be all day about it!' and he went on in these words:
+    'Yes, we went to school in the sea, though you mayn't believe it—'
+    'I never said I didn't!' interrupted Alice.
+    'You did,' said the Mock Turtle.
+  %div
+    %span.badge.badge-success Posted 2012-08-02 20:47:04
+    .pull-right
+      %span.label credit card
+      %span.label bank
+      %span.label phone call
+      %span.label first contact
+  %hr
+  %h1 Revolution has begun!
+  %p
+    'I am bound to Tahiti for more men.'
+    'Very good. Let me board you a moment—I come in peace.' With that he leaped from the canoe, swam to the boat; and climbing the gunwale, stood face to face with the captain.
+    'Cross your arms, sir; throw back your head. Now, repeat after me. As soon as Steelkilt leaves me, I swear to beach this boat on yonder island, and remain there six days. If I do not, may lightning strike me!'A pretty scholar,' laughed the Lakeman. 'Adios, Senor!' and leaping into the sea, he swam back to his comrades.
+  %div
+    %span.badge.badge-success Posted 2012-08-02 20:47:04
+    .pull-right
+      %span.label credit card
+      %span.label email
+      %span.label follow up
+      %span.label personal
+  %hr
+
+  = render 'pages/form'

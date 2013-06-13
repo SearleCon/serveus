@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Expensiv::Application.load_tasks
+Serveus::Application.load_tasks

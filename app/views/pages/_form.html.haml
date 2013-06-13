@@ -1,0 +1,30 @@
+%a.btn{data: {toggle: "modal"}, href: "#myModal", role: "button"} Launch demo modal
+
+
+#myModal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", data: {dismiss: "modal"}, type: "button"} ×
+    %h3 Modal header
+  .modal-body
+    %form.well.span8
+      .row
+        .span3
+          %label First Name
+          %input.span3{:placeholder => "Your First Name", :type => "text"}/
+          %label Last Name
+          %input.span3{:placeholder => "Your Last Name", :type => "text"}/
+          %label Email Address
+          %input.span3{:placeholder => "Your email address", :type => "text"}/
+          %label Subject
+          %select#subject.span3{:name => "subject"}
+            %option{:selected => "", :value => "na"} Choose One:
+            %option{:value => "service"} General Customer Service
+            %option{:value => "suggestions"} Suggestions
+            %option{:value => "product"} Product Support
+        .span5
+          %label Message
+          %textarea#message.input-xlarge.span5{:name => "message", :rows => "10"}
+        %button.btn.btn-primary.pull-right{:type => "submit"} Send
+  .modal-footer
+    %a.btn{href: "#"} Close
+    %a.btn.btn-primary{href: "#"} Save changes

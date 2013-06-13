@@ -2,7 +2,7 @@
 %html
   %head
     %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
-    %title= content_for?(:title) ? yield(:title) : "Expensiv"
+    %title= content_for?(:title) ? yield(:title) : "ServeUs"
     %meta{content: content_for?(:description) ? yield(:description) : "Expensiv", name: "description"}
     %meta{content: content_for?(:keywords) ? yield(:keywords) : "Expensiv", name: "keywords"}
     = stylesheet_link_tag :application, :media => "all"
@@ -18,9 +18,16 @@
       .container
         .content
           .row
-            .span12
-              = render 'layouts/messages'
-              = yield
+            - if content_for?(:sidebar)
+              .span2.well
+                = yield(:sidebar)
+              .span9
+                = render 'layouts/messages'
+                = yield
+            - else
+              .span12
+                = render 'layouts/messages'
+                = yield
           %footer.navbar.navbar-fixed-bottom.navbar-inverse
             .navbar-inner
               .container

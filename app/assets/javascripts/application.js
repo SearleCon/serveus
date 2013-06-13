@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
+//= require bootstrap-tagmanager
 //= require_tree .
+
+
+$(document).ready(function() {
+    jQuery(".tm-input").tagsManager({delimiters: [9, 13, 44]});
+});

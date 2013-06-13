@@ -24,7 +24,7 @@ describe "ContactForm" do
     fill_in 'Name', with: Faker::Name.name
     fill_in 'Message', with: Faker::Lorem.sentence(4)
     click_button 'Send message'
-    page.body.should have_content("Emailcan't be blank")
+    page.body.should have_content("Email can't be blank")
     last_email.should be_nil
   end
 

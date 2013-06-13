@@ -7,6 +7,7 @@ group :development do
 
 end
 
+gem 'rename'
 gem 'devise', "3.0.0.rc"
 gem 'simple_form', "3.0.0.rc"
 gem 'mail_form', '1.5.0.rc'
@@ -49,6 +50,9 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.0.1'
+
+
+gem "tagmanager-rails", "~> 0.0.1"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
