@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def errors_for(model)
-    if model.errors.any?
+    if model && model.errors.any?
       content_tag(:div, class: 'error_explanation') do
         concat (content_tag(:div, "#{pluralize(model.errors.count, 'error')} prevented this record from being saved:", class: 'alert alert-error' ))
         concat ( content_tag(:ul) { model.errors.full_messages.map do |msg|

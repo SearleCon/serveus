@@ -27,10 +27,10 @@ gem 'haml-rails'
 gem 'bootstrap-sass', '~> 2.3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0.rc2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'sass-rails', '~> 4.0.0.rc2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -57,21 +57,8 @@ gem 'puma'
 
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
@@ -85,8 +72,8 @@ group :production do
 end
 
 group :test do
- gem "faker", "~> 1.1.2"
- gem "capybara", "~> 2.0.2"
- gem "database_cleaner", '1.0.0.RC1'
- gem "launchy", "~> 2.2.0"
+   gem "faker", "~> 1.1.2"
+   gem "capybara", "~> 2.0.2"
+   gem "database_cleaner", '1.0.0.RC1'
+   gem "launchy", "~> 2.2.0"
  end

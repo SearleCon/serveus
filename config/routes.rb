@@ -1,9 +1,19 @@
 Serveus::Application.routes.draw do
 
-  root to: 'high_voltage/pages#show', id: 'home'
+
+  get "interactions/create"
+  resources :incidents, except: [:edit, :new, :update] do
+    resources :interactions, only: :create
+  end
 
   # Devise routes
   devise_for :users
+
+  authenticated :user do
+    root to: 'incidents#index', as: :authenticated_root
+  end
+
+  root to: 'high_voltage/pages#show', id: 'home'
 
   # Contact Us
   resources :contact_forms, controller: :contact_form, only: [:new, :create]
@@ -61,9 +71,14 @@ Serveus::Application.routes.draw do
   #   end
 end
 #== Route Map
-# Generated on 24 May 2013 12:55
+# Generated on 14 Jun 2013 11:26
 #
-#                     root GET    /                              high_voltage/pages#show {:id=>"home"}
+#                incidents GET    /incidents(.:format)           incidents#index
+#                          POST   /incidents(.:format)           incidents#create
+#                 incident GET    /incidents/:id(.:format)       incidents#show
+#                          PATCH  /incidents/:id(.:format)       incidents#update
+#                          PUT    /incidents/:id(.:format)       incidents#update
+#                          DELETE /incidents/:id(.:format)       incidents#destroy
 #         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)       devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -79,6 +94,8 @@ end
 #                          PATCH  /users(.:format)               devise/registrations#update
 #                          PUT    /users(.:format)               devise/registrations#update
 #                          DELETE /users(.:format)               devise/registrations#destroy
+#       authenticated_root GET    /                              incidents#index
+#                     root GET    /                              high_voltage/pages#show {:id=>"home"}
 #            contact_forms POST   /contact_forms(.:format)       contact_form#create
 #         new_contact_form GET    /contact_forms/new(.:format)   contact_form#new
 #                                 (/errors)/:status(.:format)    errors#show {:status=>/\d{3}/}

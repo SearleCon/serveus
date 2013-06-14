@@ -1,0 +1,13 @@
+= simple_form_for :interaction, html: {class: 'well span8'} do |f|
+  %h4 New Interaction
+  .row
+    .span3
+      = f.input :title, required: false
+      = f.input :start_at, required: false
+      = f.input :contact_person, required: false
+      = f.input :contact_detail, required: false
+      = f.input :target_date, required: false
+
+    .span5
+      = f.input :content, as: :text, input_html: { rows: 12 ,class: 'input-xlarge span5' }, required: false
+      = f.button :submit, 'Create interaction', class: 'btn btn-small btn-primary'

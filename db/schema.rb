@@ -11,7 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130524060037) do
+ActiveRecord::Schema.define(version: 20130614115930) do
+
+  create_table "incidents", force: true do |t|
+    t.string   "name"
+    t.boolean  "open"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interactions", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "start_at"
+    t.string   "contact_person"
+    t.string   "contact_detail"
+    t.datetime "target_date"
+    t.integer  "incident_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
