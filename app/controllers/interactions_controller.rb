@@ -4,17 +4,17 @@ class InteractionsController < ApplicationController
   before_action :get_parent_resource, :new_resource, only: [:create]
 
   def create
-    @interaction.tag(params[:tags]) if @interaction.save
+    @interaction.tag(params['hidden-tags']) if @interaction.save
     respond_with(@interaction)
   end
 
   private
   def get_parent_resource
-    @parent = Incident.find(params[:incident_id])
+    @incident = Incident.find(params[:incident_id])
   end
 
   def new_resource
-    @interaction = @parent.build(interaction_params)
+    @interaction = @incident.interactions.build(interaction_params)
   end
 
   def interaction_params

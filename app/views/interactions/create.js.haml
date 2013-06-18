@@ -1,0 +1,3 @@
+$('#new_interaction').html("#{j render 'interactions/form'}");
+$('#interactions').prepend("#{j render @interaction }");
+$("##{dom_id(@interaction)}").effect("highlight", {}, 1500);

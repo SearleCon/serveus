@@ -1,13 +1,23 @@
-= simple_form_for :interaction, html: {class: 'well span8'} do |f|
+= simple_form_for :interaction, url: incident_interactions_path(@incident), html: {class: 'well span8'}, remote: true do |f|
   %h4 New Interaction
   .row
     .span3
       = f.input :title, required: false
-      = f.input :start_at, required: false
+      .datetime.input-append
+        = f.input :start_at, required: false,:wrapper => :append do
+          = f.input_field :start_at, :as => :string, "data-format" => "yyyy/MM/dd hh:mm:ss"
+          %span.add-on
+            %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+
       = f.input :contact_person, required: false
       = f.input :contact_detail, required: false
-      = f.input :target_date, required: false
-
+      .datetime.input-append
+        = f.input :target_date, required: false, :wrapper => :append do
+          = f.input_field :target_date, :as => :string, "data-format" => "yyyy/MM/dd hh:mm:ss"
+          %span.add-on
+            %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+      %label Tags
+      %input.span1{type: "text", name: 'tags', class: 'tm-input'}
     .span5
       = f.input :content, as: :text, input_html: { rows: 12 ,class: 'input-xlarge span5' }, required: false
       = f.button :submit, 'Create interaction', class: 'btn btn-small btn-primary'

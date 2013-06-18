@@ -1,0 +1,11 @@
+= div_for interaction do
+  %h3= interaction.title
+  %p= simple_format(interaction.content)
+  %div
+    %span.badge.badge-success= "Started #{l interaction.start_at}"
+    .pull-right
+      - interaction.tag_names.each do |tag_name|
+        %span.label
+          =tag_name
+%hr
+

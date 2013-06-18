@@ -1,5 +1,6 @@
 %h1 Open Incidents
 
+
 %table.table.table-bordered
   %thead
     %tr
@@ -12,9 +13,9 @@
       = content_tag_for(:tr, incident) do
         %td= incident.name.titleize
         %td= l incident.created_at
-        %td= 3
+        %td= incident.interactions.size
         %td= link_to 'View', incident
-        %td= link_to 'Remove', incident ,method: :delete, confirm: 'Are you sure?'
+        %td= link_to 'Remove', incident ,method: :delete, data: {confirm: 'Are you sure?'}
 
 
 #new_incident.well

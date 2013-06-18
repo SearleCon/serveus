@@ -13,11 +13,19 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.ui.effect-highlight
 //= require bootstrap
+//= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
 //= require_tree .
 
 
 $(document).ready(function() {
-    jQuery(".tm-input").tagsManager({delimiters: [9, 13, 44]});
+    jQuery(".tm-input").tagsManager({
+        typeaheadAjaxSource: '/tags',
+        typeaheadAjaxMethod: 'GET',
+        typeahead: true
+    });
+
+    $('.datetime').datetimepicker();
 });

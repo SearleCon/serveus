@@ -17,11 +17,13 @@
 class Interaction < ActiveRecord::Base
   include Taggable
 
-  belongs_to :incident
+  belongs_to :incident, counter_cache: true
 
   validates :title, :content, presence: true
 
   after_initialize :init, if: :new_record?
+
+  default_scope -> { order(created_at: :desc) }
 
   private
   def init

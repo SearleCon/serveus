@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130614115930) do
+ActiveRecord::Schema.define(version: 20130614125137) do
 
   create_table "incidents", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130614115930) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "interactions_count", default: 0
   end
 
   create_table "interactions", force: true do |t|
