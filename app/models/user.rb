@@ -18,13 +18,30 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :incidents
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  has_many :incidents
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers:  [:google_oauth2]
 
 
+
+  def self.from_omniauth(auth)
+    user = find_by(email: auth.info.email)
+    if user
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user
+    else
+      user = create do |new_user|
+        new_user.provider = auth.provider
+        new_user.uid = auth.uid
+        new_user.email = auth.info.email
+        new_user.password =  Devise.friendly_token[0,20]
+      end
+    end
+    user
+  end
 end

@@ -3,7 +3,6 @@ class IncidentsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :get_resource, only: [:show, :destroy]
-  before_action :build_resource, only: [:create]
 
   def index
     @incidents = current_user.incidents
@@ -14,7 +13,7 @@ class IncidentsController < ApplicationController
   end
 
   def create
-    @incident.save
+    @incident = current_user.incidents.create(incident_params)
     respond_with(@incident)
   end
 
@@ -28,9 +27,7 @@ class IncidentsController < ApplicationController
     @incident = Incident.includes(:interactions => :tags).find(params[:id])
   end
 
-  def build_resource
-    @incident = current_user.incidents.build(incident_params)
-  end
+
 
   def incident_params
     params.require(:incident).permit(:name)

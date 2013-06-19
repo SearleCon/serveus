@@ -23,7 +23,6 @@
 $(document).ready(function() {
     jQuery(".tm-input").tagsManager({
         typeaheadAjaxSource: '/tags',
-        typeaheadAjaxMethod: 'GET',
         typeahead: true
     });
 

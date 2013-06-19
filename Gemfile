@@ -24,7 +24,10 @@ gem "high_voltage"
 gem 'responders', '1.0.0.rc'
 gem 'haml-rails'
 
-gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'bootstrap-sass', '~> 2.3.2.0'
+
+
+gem 'placeholdit'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc2'
@@ -45,6 +48,14 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'normalize-rails'
+
+
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

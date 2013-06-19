@@ -27,6 +27,7 @@ class Interaction < ActiveRecord::Base
 
   private
   def init
-    self.start_at = Time.zone.now
+    self.start_at = Time.current.strftime("%d/%m/%Y %H:%M:%S %p")
+    self.target_date = Time.current.strftime("%d/%m/%Y %H:%M:%S %p")
   end
 end

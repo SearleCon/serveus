@@ -2,3 +2,31 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 @import 'bootstrap-datetimepicker';
+
+/* Layout */
+.sidebar{
+  @include makeColumn(2);
+}
+
+.main-section-with-sidebar{
+  @include makeColumn(9);
+}
+.main-section{
+  @include makeColumn(12);
+}
+
+tags {
+  @extend .label;
+  @extend .label-important;
+}
+
+contact_detail{
+  @extend .badge;
+  @extend .badge-info;
+}
+
+start_date{
+  @extend .badge;
+  @extend .badge-success;
+}
+

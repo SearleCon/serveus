@@ -8,7 +8,8 @@ Serveus::Application.routes.draw do
   end
 
   # Devise routes
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
 
   authenticated :user do
     root to: 'incidents#index', as: :authenticated_root
@@ -72,32 +73,34 @@ Serveus::Application.routes.draw do
   #   end
 end
 #== Route Map
-# Generated on 18 Jun 2013 14:27
+# Generated on 19 Jun 2013 13:36
 #
-#                     tags POST   /tags(.:format)                                tags#index
-#    incident_interactions POST   /incidents/:incident_id/interactions(.:format) interactions#create
-#                incidents GET    /incidents(.:format)                           incidents#index
-#                          POST   /incidents(.:format)                           incidents#create
-#                 incident GET    /incidents/:id(.:format)                       incidents#show
-#                          DELETE /incidents/:id(.:format)                       incidents#destroy
-#         new_user_session GET    /users/sign_in(.:format)                       devise/sessions#new
-#             user_session POST   /users/sign_in(.:format)                       devise/sessions#create
-#     destroy_user_session DELETE /users/sign_out(.:format)                      devise/sessions#destroy
-#            user_password POST   /users/password(.:format)                      devise/passwords#create
-#        new_user_password GET    /users/password/new(.:format)                  devise/passwords#new
-#       edit_user_password GET    /users/password/edit(.:format)                 devise/passwords#edit
-#                          PATCH  /users/password(.:format)                      devise/passwords#update
-#                          PUT    /users/password(.:format)                      devise/passwords#update
-# cancel_user_registration GET    /users/cancel(.:format)                        devise/registrations#cancel
-#        user_registration POST   /users(.:format)                               devise/registrations#create
-#    new_user_registration GET    /users/sign_up(.:format)                       devise/registrations#new
-#   edit_user_registration GET    /users/edit(.:format)                          devise/registrations#edit
-#                          PATCH  /users(.:format)                               devise/registrations#update
-#                          PUT    /users(.:format)                               devise/registrations#update
-#                          DELETE /users(.:format)                               devise/registrations#destroy
-#       authenticated_root GET    /                                              incidents#index
-#                     root GET    /                                              high_voltage/pages#show {:id=>"home"}
-#            contact_forms POST   /contact_forms(.:format)                       contact_form#create
-#         new_contact_form GET    /contact_forms/new(.:format)                   contact_form#new
-#                                 (/errors)/:status(.:format)                    errors#show {:status=>/\d{3}/}
-#                     page GET    /pages/*id                                     high_voltage/pages#show
+#                     tags POST     /tags(.:format)                                tags#index
+#    incident_interactions POST     /incidents/:incident_id/interactions(.:format) interactions#create
+#                incidents GET      /incidents(.:format)                           incidents#index
+#                          POST     /incidents(.:format)                           incidents#create
+#                 incident GET      /incidents/:id(.:format)                       incidents#show
+#                          DELETE   /incidents/:id(.:format)                       incidents#destroy
+#         new_user_session GET      /users/sign_in(.:format)                       devise/sessions#new
+#             user_session POST     /users/sign_in(.:format)                       devise/sessions#create
+#     destroy_user_session DELETE   /users/sign_out(.:format)                      devise/sessions#destroy
+#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)                users/omniauth_callbacks#passthru {:provider=>/google_oauth2/}
+#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format)         users/omniauth_callbacks#(?-mix:google_oauth2)
+#            user_password POST     /users/password(.:format)                      devise/passwords#create
+#        new_user_password GET      /users/password/new(.:format)                  devise/passwords#new
+#       edit_user_password GET      /users/password/edit(.:format)                 devise/passwords#edit
+#                          PATCH    /users/password(.:format)                      devise/passwords#update
+#                          PUT      /users/password(.:format)                      devise/passwords#update
+# cancel_user_registration GET      /users/cancel(.:format)                        devise/registrations#cancel
+#        user_registration POST     /users(.:format)                               devise/registrations#create
+#    new_user_registration GET      /users/sign_up(.:format)                       devise/registrations#new
+#   edit_user_registration GET      /users/edit(.:format)                          devise/registrations#edit
+#                          PATCH    /users(.:format)                               devise/registrations#update
+#                          PUT      /users(.:format)                               devise/registrations#update
+#                          DELETE   /users(.:format)                               devise/registrations#destroy
+#       authenticated_root GET      /                                              incidents#index
+#                     root GET      /                                              high_voltage/pages#show {:id=>"home"}
+#            contact_forms POST     /contact_forms(.:format)                       contact_form#create
+#         new_contact_form GET      /contact_forms/new(.:format)                   contact_form#new
+#                                   (/errors)/:status(.:format)                    errors#show {:status=>/\d{3}/}
+#                     page GET      /pages/*id                                     high_voltage/pages#show

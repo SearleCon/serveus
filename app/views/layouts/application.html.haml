@@ -19,13 +19,13 @@
         .content
           .row
             - if content_for?(:sidebar)
-              .span2.well
+              .sidebar.well
                 = yield(:sidebar)
-              .span9
+              .main-section-with-sidebar
                 = render 'layouts/messages'
                 = yield
             - else
-              .span12
+              .main-section
                 = render 'layouts/messages'
                 = yield
           %footer.navbar.navbar-fixed-bottom.navbar-inverse

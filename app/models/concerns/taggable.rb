@@ -15,6 +15,6 @@ module Taggable
   end
 
   def tag_names
-    tags.collect(&:name)
+    tags.map(&:name)
   end
 end

@@ -1,6 +1,7 @@
 class InteractionsController < ApplicationController
   respond_to :js
 
+  before_action :authenticate_user!
   before_action :get_parent_resource, :new_resource, only: [:create]
 
   def create
