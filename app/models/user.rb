@@ -18,7 +18,8 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :incidents
+  has_many :incidents, -> { includes :interactions}
+  has_many :tags
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

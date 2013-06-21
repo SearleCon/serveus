@@ -5,7 +5,7 @@ class InteractionsController < ApplicationController
   before_action :get_parent_resource, :new_resource, only: [:create]
 
   def create
-    @interaction.tag(params['hidden-tags']) if @interaction.save
+    @interaction.tag(params['hidden-tags'], current_user) if @interaction.save && params['hidden-tags']
     respond_with(@interaction)
   end
 

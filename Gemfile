@@ -55,6 +55,10 @@ gem 'omniauth-google-oauth2'
 
 gem 'normalize-rails'
 
+gem 'memcachier'
+gem 'dalli'
+
+
 
 
 
@@ -81,6 +85,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem "factory_girl_rails", "~> 4.2.1"
   gem "shoulda-matchers"
+  gem 'json_spec'
 end
 
 

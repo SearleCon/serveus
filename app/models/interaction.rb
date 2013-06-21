@@ -17,7 +17,7 @@
 class Interaction < ActiveRecord::Base
   include Taggable
 
-  belongs_to :incident, counter_cache: true
+  belongs_to :incident, counter_cache: true, touch: true
 
   validates :title, :content, presence: true
 
@@ -28,6 +28,5 @@ class Interaction < ActiveRecord::Base
   private
   def init
     self.start_at = Time.current.strftime("%d/%m/%Y %H:%M:%S %p")
-    self.target_date = Time.current.strftime("%d/%m/%Y %H:%M:%S %p")
   end
 end

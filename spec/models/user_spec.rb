@@ -25,4 +25,6 @@ describe User do
  end
 
  it {should have_many(:incidents)}
+ it {should have_many(:tags)}
+
 end

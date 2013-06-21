@@ -1,7 +1,8 @@
-%h1= @incident.name.titleize
+- cache @incident do
+  %h1= @incident.name.titleize
 
-#new_interaction
-  = render 'interactions/form'
-.span8
-  #interactions
-    = render @incident.interactions
+  #new_interaction
+    = render 'interactions/form'
+  .span8
+    #interactions
+      = render @incident.interactions

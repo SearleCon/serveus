@@ -24,7 +24,7 @@ class IncidentsController < ApplicationController
 
   private
   def get_resource
-    @incident = Incident.includes(:interactions => :tags).find(params[:id])
+    @incident = Incident.find(params[:id])
   end
 
 

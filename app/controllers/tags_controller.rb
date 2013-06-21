@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
+
+
   def index
-    @tags = Tag.pluck(:name)
+    @tags = current_user.tags.pluck(:name)
   end
 end
