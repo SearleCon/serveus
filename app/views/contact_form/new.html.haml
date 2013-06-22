@@ -1,5 +1,5 @@
-= simple_form_for @contact_form do |f|
-  = errors_for @contact_form
+= simple_form_for contact_form do |f|
+  = errors_for contact_form
   = f.input :name, error: false, required: false
   = f.input :email, error: false, required: false
   = f.input :message, as: :text, required: false

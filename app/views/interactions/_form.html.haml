@@ -1,9 +1,10 @@
-= simple_form_for Interaction.new, url: incident_interactions_path(@incident), html: {class: 'well span8'}, remote: true do |f|
+= simple_form_for Interaction.new, url: incident_interactions_path(incident), html: {class: 'well span8', multipart: true} do |f|
   %h4 New Interaction
   #errors
   .row
     .span3
       = f.input :title, required: false
+      = f.file_field :local_image
       .datetime.input-append
         = f.input :start_at, required: false,wrapper: :append do
           = f.input_field :start_at, :as => :string, "data-format" => "dd/MM/yyyy hh:mm:ss PP"

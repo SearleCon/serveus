@@ -12,7 +12,7 @@ describe IncidentsController do
     it "populates an array of incidents" do
       incident = create(:incident, user: @user)
       get :index
-      expect(assigns(:incidents)).to match_array [incident]
+      expect(controller.incidents).to match_array [incident]
     end
 
     it "renders the index view" do
@@ -23,13 +23,13 @@ describe IncidentsController do
 
   describe "Get '#show'" do
     it "assigns the requested incident to @incident" do
-      incident = create(:incident)
+      incident = create(:incident,  user: @user)
       get :show, id: incident
-      expect(assigns(:incident)).to eq incident
+      expect(controller.incident).to eq incident
     end
 
     it "renders the show view" do
-      incident = create(:incident)
+      incident = create(:incident, user: @user)
       get :show, id: incident
       expect(response).to render_template :show
     end
@@ -50,7 +50,7 @@ describe IncidentsController do
 
   describe "DELETE destroy" do
     before :each do
-      @incident = create(:incident)
+      @incident = create(:incident, user: @user)
     end
 
     it "deletes the incident" do

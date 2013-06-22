@@ -1,8 +1,8 @@
-- if @interaction.errors.any?
-  $('#errors').html("#{j errors_for(@interaction)}");
+- if interaction.errors.any?
+  $('#errors').html("#{j errors_for(interaction)}");
 - else
-  $('#interactions').prepend("#{j render @interaction }");
-  $("##{dom_id(@interaction)}").effect("highlight", {}, 1500);
+  $('#interactions').prepend("#{j render interaction }");
+  $("##{dom_id(interaction)}").effect("highlight", {}, 1500);
   $('#new_interaction').html("#{escape_javascript(render 'interactions/form')}");
 
 

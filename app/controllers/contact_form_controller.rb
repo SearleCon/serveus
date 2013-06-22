@@ -1,13 +1,11 @@
 class ContactFormController < ApplicationController
-  def new
-    @contact_form = ContactForm.new
-  end
+  expose(:contact_form, strategy: MailFormStrategy)
+
 
   def create
     begin
-      @contact_form = ContactForm.new(contact_form_params)
-      @contact_form.request = request
-      if @contact_form.deliver
+      contact_form.request = request
+      if contact_form.deliver
         flash.now[:notice] = 'Thank you for your message!'
       else
         render :new

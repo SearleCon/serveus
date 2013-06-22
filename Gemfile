@@ -58,6 +58,12 @@ gem 'normalize-rails'
 gem 'memcachier'
 gem 'dalli'
 
+gem 'decent_exposure'
+
+gem "paperclip", "~> 3.0"
+gem 'aws-sdk'
+
+
 
 
 

@@ -23,6 +23,9 @@ module Serveus
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.exceptions_app = self.routes
 
+    config.autoload_paths << "#{Rails.root}/app/jobs"
+
+
     config.generators do |g|
        g.test_framework :rspec,
        fixtures: true,
@@ -33,5 +36,17 @@ module Serveus
        request_specs: false
        g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    config.paperclip_defaults = {
+        s3_credentials: {
+            bucket: 'searlecon',
+            access_key_id: 'AKIAJTDIXL57Z4GG4IKA',
+            secret_access_key: '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'
+        },
+        s3_permissions:  :public_read,
+        s3_host_name:    's3-eu-west-1.amazonaws.com',
+        s3_headers:      {'Expires' => 1.year.from_now.httpdate,
+                          'Content-Disposition' => 'attachment'},
+    }
   end
 end

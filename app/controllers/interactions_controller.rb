@@ -1,24 +1,21 @@
 class InteractionsController < ApplicationController
-  respond_to :js
+  respond_to :js, :html
+
+  expose(:incident)
+  expose(:interactions, ancestor: :incident)
+  expose(:interaction, attributes: :interaction_params)
 
   before_action :authenticate_user!
-  before_action :get_parent_resource, :new_resource, only: [:create]
+
+
 
   def create
-    @interaction.tag(params['hidden-tags'], current_user) if @interaction.save && params['hidden-tags']
-    respond_with(@interaction)
+    interaction.tag(params['hidden-tags'], current_user) if interaction.save && params['hidden-tags']
+    respond_with(interaction, location: incident_url(incident))
   end
 
   private
-  def get_parent_resource
-    @incident = Incident.find(params[:incident_id])
-  end
-
-  def new_resource
-    @interaction = @incident.interactions.build(interaction_params)
-  end
-
   def interaction_params
-    params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail)
+    params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail, :local_image)
   end
 end

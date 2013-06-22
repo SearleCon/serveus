@@ -13,7 +13,7 @@ describe TagsController do
   describe "GET '#index'" do
     it "populates an array of tags" do
       get :index, format: :json
-      expect(assigns(:tags)).to match_array [@tag.name]
+      expect(controller.tags).to match_array [@tag.name]
     end
 
     it "renders the index view" do
