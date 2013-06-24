@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
+//= require turbolinks
 //= require_tree .
 
 

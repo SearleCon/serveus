@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130622100637) do
+ActiveRecord::Schema.define(version: 20130624090119) do
+
+  create_table "attachments", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "local_image_file_name"
+    t.string   "local_image_content_type"
+    t.integer  "local_image_file_size"
+    t.datetime "local_image_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "interaction_id"
+  end
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -48,14 +63,6 @@ ActiveRecord::Schema.define(version: 20130622100637) do
     t.integer  "incident_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "local_image_file_name"
-    t.string   "local_image_content_type"
-    t.integer  "local_image_file_size"
-    t.datetime "local_image_updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "taggings", force: true do |t|

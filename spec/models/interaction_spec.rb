@@ -22,6 +22,8 @@ describe Interaction do
   end
 
   it { should belong_to(:incident) }
+  it { should have_many(:attachments) }
+
 
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:content) }

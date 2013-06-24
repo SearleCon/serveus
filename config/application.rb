@@ -27,26 +27,26 @@ module Serveus
 
 
     config.generators do |g|
-       g.test_framework :rspec,
-       fixtures: true,
-       view_specs: false,
-       helper_specs: false,
-       routing_specs: false,
-       controller_specs: true,
-       request_specs: false
-       g.fixture_replacement :factory_girl, dir: "spec/factories"
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: false
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
     config.paperclip_defaults = {
         s3_credentials: {
-            bucket: 'searlecon',
-            access_key_id: 'AKIAJTDIXL57Z4GG4IKA',
-            secret_access_key: '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'
+            bucket: ENV["S3_BUCKET"],
+            access_key_id: ENV["S3_ACCESS_KEY_ID"],
+            secret_access_key: ENV["S3_SECRET_ACCESS_KEY"]
         },
-        s3_permissions:  :public_read,
-        s3_host_name:    's3-eu-west-1.amazonaws.com',
-        s3_headers:      {'Expires' => 1.year.from_now.httpdate,
-                          'Content-Disposition' => 'attachment'},
+        s3_permissions: :private,
+        s3_host_name: ENV["S3_HOST_NAME"],
+        s3_headers: {'Expires' => 1.year.from_now.httpdate,
+                     'Content-Disposition' => 'inline'}
     }
   end
 end

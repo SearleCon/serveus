@@ -4,7 +4,11 @@ Serveus::Application.routes.draw do
   match '/tags', to: 'tags#index', via: :post
 
   resources :incidents, except: [:edit, :new, :update] do
-    resources :interactions, only: :create
+    resources :interactions, only: :create do
+      member do
+        get :attachment
+      end
+    end
   end
 
   # Devise routes
@@ -20,7 +24,12 @@ Serveus::Application.routes.draw do
   # Contact Us
   resources :contact_forms, controller: :contact_form, only: [:new, :create]
 
-  # Handler errors
+  # Mail Preview
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
+
+  # Handle errors
   match '(errors)/:status', to: 'errors#show', constraints: {status: /\d{3}/}, via: :all
 
 
@@ -73,7 +82,7 @@ Serveus::Application.routes.draw do
   #   end
 end
 #== Route Map
-# Generated on 19 Jun 2013 13:36
+# Generated on 22 Jun 2013 13:05
 #
 #                     tags POST     /tags(.:format)                                tags#index
 #    incident_interactions POST     /incidents/:incident_id/interactions(.:format) interactions#create

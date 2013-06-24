@@ -25,8 +25,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers:  [:google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers:  [:google_oauth2, :facebook]
 
+
+  after_commit :send_welcome_mail, on: :create
 
 
   def self.from_omniauth(auth)
@@ -34,7 +36,6 @@ class User < ActiveRecord::Base
     if user
       user.provider = auth.provider
       user.uid = auth.uid
-      user
     else
       user = create do |new_user|
         new_user.provider = auth.provider
@@ -44,5 +45,10 @@ class User < ActiveRecord::Base
       end
     end
     user
+  end
+
+  private
+  def send_welcome_mail
+    UserMailer.delay.welcome(self) if persisted?
   end
 end

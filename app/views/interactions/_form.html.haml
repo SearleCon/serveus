@@ -4,12 +4,11 @@
   .row
     .span3
       = f.input :title, required: false
-      = f.file_field :local_image
       .datetime.input-append
         = f.input :start_at, required: false,wrapper: :append do
-          = f.input_field :start_at, :as => :string, "data-format" => "dd/MM/yyyy hh:mm:ss PP"
+          = f.input_field :start_at, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
           %span.add-on
-            %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+            %i{data: {"date-icon" => "icon-calendar", "data-time-icon" => "icon-time"} }
 
       = f.input :contact_person, required: false
       = f.input :contact_detail, required: false
@@ -20,6 +19,9 @@
             %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
       %label Tags
       %input.span1{type: "text", name: 'tags', class: 'tm-input'}
+      %br
+      %br
+      = f.input :attachments_array, as: :file, input_html: {title: 'Attach Files', multiple: true}, label: false
     .span5
       = f.input :content, as: :text, input_html: { rows: 12 ,class: 'input-xlarge span5' }, required: false
       = f.button :submit, 'Create interaction', class: 'btn btn-small btn-primary'

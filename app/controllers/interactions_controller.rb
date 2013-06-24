@@ -14,8 +14,12 @@ class InteractionsController < ApplicationController
     respond_with(interaction, location: incident_url(incident))
   end
 
+  def attachment
+    redirect_to interaction.image.expiring_url(10)
+  end
+
   private
   def interaction_params
-    params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail, :local_image)
+    params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail, :attachments_array => [])
   end
 end

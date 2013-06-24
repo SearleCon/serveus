@@ -7,6 +7,7 @@ group :development do
  gem "better_errors"
  gem 'annotate', ">=2.5.0"
  gem 'sqlite3'
+
 end
 
 gem 'rename'
@@ -63,12 +64,6 @@ gem 'decent_exposure'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 
-
-
-
-
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -80,6 +75,14 @@ gem "tagmanager-rails", "~> 0.0.1"
 gem 'puma'
 
 gem 'bootstrap-datetimepicker-rails'
+
+gem "figaro"
+
+gem 'premailer-rails'
+
+gem "mail_view", "~> 1.0.3"
+
+
 
 
 group :doc do
