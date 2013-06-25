@@ -18,6 +18,8 @@ gem 'mail_form', '1.5.0.rc'
 gem 'delayed_job', git: 'git://github.com/collectiveidea/delayed_job.git', branch: 'master'
 gem 'delayed_job_active_record', git: 'git://github.com/collectiveidea/delayed_job_active_record.git', branch: 'master'
 
+
+
 gem 'jquery-turbolinks'
 
 gem "high_voltage"
@@ -82,7 +84,9 @@ gem 'premailer-rails'
 
 gem "mail_view", "~> 1.0.3"
 
+gem "jquery-validation-rails"
 
+gem "remotipart", "~> 1.0"
 
 
 group :doc do
@@ -106,4 +110,5 @@ group :test do
    gem "capybara", "~> 2.0.2"
    gem "database_cleaner", '1.0.0.RC1'
    gem "launchy", "~> 2.2.0"
+   gem 'email_spec'
  end

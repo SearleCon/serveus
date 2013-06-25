@@ -1,6 +1,7 @@
-= simple_form_for Interaction.new, url: incident_interactions_path(incident), html: {class: 'well span8', multipart: true} do |f|
+= simple_form_for interaction, url: incident_interactions_path(incident), html: {class: 'well span8', multipart: true}, remote: true do |f|
+  = token_tag
   %h4 New Interaction
-  #errors
+  #errors= errors_for interaction
   .row
     .span3
       = f.input :title, required: false

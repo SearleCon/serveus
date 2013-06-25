@@ -1,7 +1,7 @@
-class ImageJob < Struct.new(:interaction_id)
+class ImageJob < Struct.new(:attachment_id)
   def perform
-    interaction = Interaction.find interaction_id
-    interaction.upload_to_s3
-    interaction.local_image.destroy
+    attachment = Attachment.find attachment_id
+    attachment.upload_to_s3
+    attachment.local_image.destroy
   end
 end

@@ -18,7 +18,7 @@ class Interaction < ActiveRecord::Base
   include Taggable
 
   belongs_to :incident, counter_cache: true, touch: true
-  has_many :attachments
+  has_many :attachments, dependent: :destroy
 
   validates :title, :content, presence: true
 

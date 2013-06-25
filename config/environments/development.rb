@@ -45,4 +45,5 @@ Serveus::Application.configure do
       user_name:ENV["GMAIL_USER_NAME"],
       password: ENV["GMAIL_PASSWORD"]
   }
+
 end

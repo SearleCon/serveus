@@ -23,6 +23,9 @@ module ApplicationHelper
     end
   end
 
+
+
+  #Devise
   def resource_name
     :user
   end

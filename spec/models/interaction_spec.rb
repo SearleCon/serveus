@@ -21,7 +21,7 @@ describe Interaction do
     expect(create(:interaction)).to be_valid
   end
 
-  it { should belong_to(:incident) }
+  it { should belong_to(:incident).touch(true) }
   it { should have_many(:attachments) }
 
 

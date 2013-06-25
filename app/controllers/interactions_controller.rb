@@ -1,22 +1,20 @@
 class InteractionsController < ApplicationController
   respond_to :js, :html
 
+  layout false
+
+
   expose(:incident)
   expose(:interactions, ancestor: :incident)
   expose(:interaction, attributes: :interaction_params)
 
   before_action :authenticate_user!
 
-
-
   def create
     interaction.tag(params['hidden-tags'], current_user) if interaction.save && params['hidden-tags']
     respond_with(interaction, location: incident_url(incident))
   end
 
-  def attachment
-    redirect_to interaction.image.expiring_url(10)
-  end
 
   private
   def interaction_params

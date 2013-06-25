@@ -2,12 +2,13 @@
 #
 # Table name: incidents
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  open       :boolean
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer          not null, primary key
+#  name               :string(255)
+#  open               :boolean
+#  user_id            :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  interactions_count :integer          default(0)
 #
 
 require 'spec_helper'

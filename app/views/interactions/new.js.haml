@@ -1,0 +1,5 @@
+$('#add_interaction').html("#{escape_javascript(render 'interactions/form')}").hide().slideDown('slow');
+$('#new_interaction').validate({ debug:true, rules:{ 'interaction[title]': {required: true},'interaction[content]': {required: true}}, messages: {'interaction[title]': "Title can't be blank",'interaction[content]': "Content can't be blank"}});
+
+
+

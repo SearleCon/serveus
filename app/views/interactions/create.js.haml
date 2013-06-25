@@ -1,9 +1,9 @@
 - if interaction.errors.any?
   $('#errors').html("#{j errors_for(interaction)}");
 - else
+  $('#add_interaction').slideUp("slow", function(){$(this).html("")});
   $('#interactions').prepend("#{j render interaction }");
   $("##{dom_id(interaction)}").effect("highlight", {}, 1500);
-  $('#new_interaction').html("#{escape_javascript(render 'interactions/form')}");
 
 
 jQuery(".tm-input").tagsManager({ typeaheadAjaxSource: '/tags', typeahead: true });

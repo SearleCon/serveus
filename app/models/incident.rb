@@ -2,17 +2,18 @@
 #
 # Table name: incidents
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  open       :boolean
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer          not null, primary key
+#  name               :string(255)
+#  open               :boolean
+#  user_id            :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  interactions_count :integer          default(0)
 #
 
 class Incident < ActiveRecord::Base
   belongs_to :user
-  has_many :interactions, -> { includes :tags }
+  has_many :interactions,-> { includes :tags },dependent: :destroy
 
   validates :name, presence: true
   validates :user, presence: true

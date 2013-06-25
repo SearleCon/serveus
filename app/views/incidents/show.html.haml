@@ -1,8 +1,15 @@
-- cache incident do
-  %h1= incident.name.titleize
+= content_for :sidebar do
+  - nav_list do
+    %li= link_to glyph(:home).concat(" My Incidents"), incidents_path
+    %li= link_to glyph(:plus_sign).concat(' New Interaction'), new_incident_interaction_path(incident), remote: true
+    %li= link_to glyph(:print).concat(' Print to PDF'), new_incident_interaction_path(incident)
 
-  #new_interaction
-    = render 'interactions/form'
+
+
+- cache incident do
+  %h1.text-center= incident.name.titleize
+
+  #add_interaction
   .span8
     #interactions
       = render incident.interactions
