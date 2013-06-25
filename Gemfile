@@ -84,8 +84,6 @@ gem 'premailer-rails'
 
 gem "mail_view", "~> 1.0.3"
 
-gem "jquery-validation-rails"
-
 gem "remotipart", "~> 1.0"
 
 

@@ -14,7 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.ui.effect-highlight
-//= require jquery.validate
 //= require jquery.remotipart
 //= require bootstrap
 //= require bootstrap-datetimepicker
@@ -23,32 +22,3 @@
 //= require_tree .
 
 
-$(document).ready(function() {
-    jQuery(".tm-input").tagsManager({
-        typeaheadAjaxSource: '/tags',
-        typeahead: true
-    });
-
-    $('.datetime').datetimepicker();
-
-
-        $('#new_incident').validate({
-            rules: {
-            'incident[name]': {required : true}
-            },
-            messages: {
-                'incident[name]': "Title can't be blank"
-            } ,
-            errorPlacement: function (error, element) {
-                error.insertBefore(element);
-            },
-            highlight: function(element) {
-                $(element).closest('.control-group').removeClass('success').addClass('error');
-            },
-            success: function(element) {
-                element
-                    .text('OK!').addClass('valid')
-                    .closest('.control-group').removeClass('error').addClass('success');
-            }
-        });
-});
