@@ -23,7 +23,7 @@ class IncidentsController < ApplicationController
 
   def destroy
     incident.destroy
-    respond_with(incident)
+    respond_with(incident, location: incidents_url)
   end
 
   private
