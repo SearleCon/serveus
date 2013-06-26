@@ -1,7 +1,7 @@
 class InteractionsController < ApplicationController
   respond_to :js, :html
 
-  layout false
+
 
 
   expose(:incident)

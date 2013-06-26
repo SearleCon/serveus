@@ -1,12 +1,20 @@
 class IncidentsController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
 
   expose(:incidents) { current_user.incidents }
   expose(:incident, attributes: :incident_params)
 
+  etag { current_user.id }
+
   before_action :authenticate_user!
 
+  def index
+    fresh_when(incidents)
+  end
 
+  def show
+    fresh_when(incident)
+  end
 
   def create
     incident.save

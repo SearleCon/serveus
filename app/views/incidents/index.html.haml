@@ -1,23 +1,16 @@
-%h1 Open Incidents
+- cache incidents do
+  %h1 Open Incidents
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Total Interactions
+        %th Created
+        %th Updated
+    %tbody
+      = render incidents
 
 
-%table.table.table-bordered
-  %thead
-    %tr
-      %td Name
-      %td Created
-      %td Interactions
-      %td
-  %tbody
-    - incidents.each do |incident|
-      = content_tag_for(:tr, incident) do
-        %td= incident.name.titleize
-        %td= l incident.created_at
-        %td= incident.interactions.size
-        %td= link_to 'View', incident
-        %td= link_to 'Remove', incident ,method: :delete, data: {confirm: 'Are you sure?'}
-
-
-#add_incident.well
-  %h5 New Incident
-  = render 'form'
+  #new_incident.well
+    %h5 New Incident
+    = render 'form'

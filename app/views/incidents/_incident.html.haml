@@ -1,0 +1,8 @@
+- cache incident do
+  = content_tag_for(:tr, incident) do
+    %td= incident.name.titleize
+    %td= incident.interactions.size
+    %td= l incident.created_at
+    %td= l incident.updated_at
+    %td= link_to 'View', incident
+    %td= link_to 'Remove', incident ,method: :delete, data: {confirm: 'Are you sure?'}

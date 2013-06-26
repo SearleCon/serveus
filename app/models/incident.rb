@@ -13,7 +13,7 @@
 
 class Incident < ActiveRecord::Base
   belongs_to :user
-  has_many :interactions,-> { includes :tags },dependent: :destroy
+  has_many :interactions,-> { includes :attachments, :tags },dependent: :destroy
 
   validates :name, presence: true
   validates :user, presence: true
@@ -21,8 +21,13 @@ class Incident < ActiveRecord::Base
   default_scope -> { where(open: true) }
 
 
+
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  def tag_cloud
+   interactions.map(&:tag_names).uniq.flatten
   end
 
 end
