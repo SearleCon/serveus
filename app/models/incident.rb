@@ -21,6 +21,7 @@ class Incident < ActiveRecord::Base
   scope :open, -> { where(open: true) }
   scope :closed, -> { where(open: false) }
 
+  after_initialize :init
 
   def to_s
    self.name.titleize
@@ -32,6 +33,13 @@ class Incident < ActiveRecord::Base
 
   def tag_cloud
    interactions.map(&:tag_names).uniq.flatten
+  end
+
+  private
+  def init
+    if new_record?
+     self.open = true
+    end
   end
 
 end
