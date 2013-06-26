@@ -18,10 +18,40 @@
 //= require bootstrap
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
+//= require bootbox
 //= require temporal
+//= require turbolinks
 //= require_tree .
 
 
-$(document).ready(function(){
+$(document).ready(function() {
+    $.rails.allowAction = function(element) {
+        var message = element.data('confirm'),
+            answer = false, callback;
+        if (!message) { return true; }
+
+        if ($.rails.fire(element, 'confirm')) {
+            myCustomConfirmBox(message, function() {
+                callback = $.rails.fire(element,
+                    'confirm:complete', [answer]);
+                if(callback) {
+                    var oldAllowAction = $.rails.allowAction;
+                    $.rails.allowAction = function() { return true; };
+                    element.trigger('click');
+                    $.rails.allowAction = oldAllowAction;
+                }
+            });
+        }
+        return false;
+    }
+
+    function myCustomConfirmBox(message, callback) {
+        bootbox.confirm(message, "Cancel", "Yes", function(confirmed) {
+            if(confirmed){
+                callback();
+            }
+        });
+    }
+
     Temporal.detect();
 });

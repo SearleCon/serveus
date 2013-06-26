@@ -4,6 +4,10 @@ Serveus::Application.routes.draw do
   match '/tags', to: 'tags#index', via: :post
 
   resources :incidents, except: [:edit, :new, :update], shallow: true do
+    patch :reopen, on: :member
+    patch :close, on: :member
+    patch :reopen_all, on: :collection
+    patch :close_all, on: :collection
     resources :interactions, only: [:create, :new, :edit, :destroy]
   end
 

@@ -87,6 +87,10 @@ gem 'bootswatch-rails'
 
 gem 'temporal-rails'
 
+gem 'bootbox-rails'
+
+gem 'turbolinks', '~> 1.2.0'
+
 group :doc do
   gem 'sdoc', require: false
 end

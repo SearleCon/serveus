@@ -1,14 +1,36 @@
 - cache incidents do
-  %h1 Open Incidents
-  %table.table.table-bordered.table-striped
+  %h3= "Open Incidents (#{incidents.open.size})"
+  = link_to glyph(:folder_close).concat(' Close All'), close_all_incidents_path,  method: :patch, data: {confirm: 'Are you sure?'}
+  %br
+  %br
+  %table.table.table-bordered.table-striped.sortable
     %thead
       %tr
         %th Name
         %th Total Interactions
         %th Created
         %th Last Updated
+        %td
+        %td
     %tbody
-      = render incidents
+      = render incidents.open
+  %hr
+
+  %h3= "Closed Incidents (#{incidents.closed.size})"
+  = link_to glyph(:folder_open).concat(' Reopen All'), reopen_all_incidents_path  ,method: :patch, data: {confirm: 'Are you sure?'}
+  %br
+  %br
+  %table.table.table-bordered.table-striped.sortable
+    %thead
+      %tr
+        %th Name
+        %th Total Interactions
+        %th Created
+        %th Last Updated
+        %td
+        %td
+      %tbody
+        = render incidents.closed
 
 
   #new_incident.well

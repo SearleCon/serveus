@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers:  [:google_oauth2, :facebook]
 
 
-  after_commit :send_welcome_mail, on: :create
+  #after_commit :send_welcome_mail, on: :create
   after_initialize :init
 
 

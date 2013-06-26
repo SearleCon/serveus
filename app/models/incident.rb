@@ -18,7 +18,8 @@ class Incident < ActiveRecord::Base
   validates :name, presence: true
   validates :user, presence: true
 
-  default_scope -> { where(open: true) }
+  scope :open, -> { where(open: true) }
+  scope :closed, -> { where(open: false) }
 
 
   def to_s
