@@ -9,7 +9,7 @@ class IncidentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    fresh_when(incidents)
+    fresh_when(incidents, last_modified: incidents.maximum(:updated_at))
   end
 
   def show
