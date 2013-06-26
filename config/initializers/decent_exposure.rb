@@ -1,1 +1,1 @@
-require 'mail_form_strategy'
+require "#{Rails.application.root}/lib/mail_form_strategy.rb"
