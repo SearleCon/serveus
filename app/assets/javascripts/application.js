@@ -18,7 +18,10 @@
 //= require bootstrap
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
-//= require turbolinks
+//= require temporal
 //= require_tree .
 
 
+$(document).ready(function(){
+    Temporal.detect();
+});

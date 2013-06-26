@@ -7,9 +7,12 @@
 
 
 - cache incident do
-  %h1.text-center= incident.name.titleize
+  %h2.text-center= incident.name.titleize
+  .alert.alert-info.text-center
+    %strong New Interactions
+    =simple_format("To add a new interaction click the button below or select New Interaction from the side menu.")
+    =link_to glyph(:plus_sign).concat(' New Interaction'), new_incident_interaction_path(incident), class: 'btn btn-small btn-primary' ,remote: true
 
   #add_interaction
-  .span8
-    #interactions
-      = render incident.interactions
+  #interactions
+    = render incident.interactions

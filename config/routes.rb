@@ -4,7 +4,7 @@ Serveus::Application.routes.draw do
   match '/tags', to: 'tags#index', via: :post
 
   resources :incidents, except: [:edit, :new, :update], shallow: true do
-    resources :interactions, only: [:create, :new]
+    resources :interactions, only: [:create, :new, :edit, :destroy]
   end
 
   resources :attachments, only: :none do
@@ -82,36 +82,39 @@ Serveus::Application.routes.draw do
   #   end
 end
 #== Route Map
-# Generated on 24 Jun 2013 17:22
+# Generated on 26 Jun 2013 17:12
 #
-#                     tags POST     /tags(.:format)                                tags#index
-#    incident_interactions POST     /incidents/:incident_id/interactions(.:format) interactions#create
-#                incidents GET      /incidents(.:format)                           incidents#index
-#                          POST     /incidents(.:format)                           incidents#create
-#                 incident GET      /incidents/:id(.:format)                       incidents#show
-#                          DELETE   /incidents/:id(.:format)                       incidents#destroy
-#      download_attachment GET      /attachments/:id/download(.:format)            attachments#download
-#         new_user_session GET      /users/sign_in(.:format)                       devise/sessions#new
-#             user_session POST     /users/sign_in(.:format)                       devise/sessions#create
-#     destroy_user_session DELETE   /users/sign_out(.:format)                      devise/sessions#destroy
-#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)                users/omniauth_callbacks#passthru {:provider=>/google_oauth2|facebook/}
-#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format)         users/omniauth_callbacks#(?-mix:google_oauth2|facebook)
-#            user_password POST     /users/password(.:format)                      devise/passwords#create
-#        new_user_password GET      /users/password/new(.:format)                  devise/passwords#new
-#       edit_user_password GET      /users/password/edit(.:format)                 devise/passwords#edit
-#                          PATCH    /users/password(.:format)                      devise/passwords#update
-#                          PUT      /users/password(.:format)                      devise/passwords#update
-# cancel_user_registration GET      /users/cancel(.:format)                        devise/registrations#cancel
-#        user_registration POST     /users(.:format)                               devise/registrations#create
-#    new_user_registration GET      /users/sign_up(.:format)                       devise/registrations#new
-#   edit_user_registration GET      /users/edit(.:format)                          devise/registrations#edit
-#                          PATCH    /users(.:format)                               devise/registrations#update
-#                          PUT      /users(.:format)                               devise/registrations#update
-#                          DELETE   /users(.:format)                               devise/registrations#destroy
-#       authenticated_root GET      /                                              incidents#index
-#                     root GET      /                                              high_voltage/pages#show {:id=>"home"}
-#            contact_forms POST     /contact_forms(.:format)                       contact_form#create
-#         new_contact_form GET      /contact_forms/new(.:format)                   contact_form#new
-#                                   /mail_view                                     MailPreview
-#                                   (/errors)/:status(.:format)                    errors#show {:status=>/\d{3}/}
-#                     page GET      /pages/*id                                     high_voltage/pages#show
+#                     tags POST     /tags(.:format)                                    tags#index
+#    incident_interactions POST     /incidents/:incident_id/interactions(.:format)     interactions#create
+# new_incident_interaction GET      /incidents/:incident_id/interactions/new(.:format) interactions#new
+#         edit_interaction GET      /interactions/:id/edit(.:format)                   interactions#edit
+#              interaction DELETE   /interactions/:id(.:format)                        interactions#destroy
+#                incidents GET      /incidents(.:format)                               incidents#index
+#                          POST     /incidents(.:format)                               incidents#create
+#                 incident GET      /incidents/:id(.:format)                           incidents#show
+#                          DELETE   /incidents/:id(.:format)                           incidents#destroy
+#      download_attachment GET      /attachments/:id/download(.:format)                attachments#download
+#         new_user_session GET      /users/sign_in(.:format)                           devise/sessions#new
+#             user_session POST     /users/sign_in(.:format)                           devise/sessions#create
+#     destroy_user_session DELETE   /users/sign_out(.:format)                          devise/sessions#destroy
+#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)                    users/omniauth_callbacks#passthru {:provider=>/google_oauth2|facebook/}
+#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format)             users/omniauth_callbacks#(?-mix:google_oauth2|facebook)
+#            user_password POST     /users/password(.:format)                          devise/passwords#create
+#        new_user_password GET      /users/password/new(.:format)                      devise/passwords#new
+#       edit_user_password GET      /users/password/edit(.:format)                     devise/passwords#edit
+#                          PATCH    /users/password(.:format)                          devise/passwords#update
+#                          PUT      /users/password(.:format)                          devise/passwords#update
+# cancel_user_registration GET      /users/cancel(.:format)                            devise/registrations#cancel
+#        user_registration POST     /users(.:format)                                   devise/registrations#create
+#    new_user_registration GET      /users/sign_up(.:format)                           devise/registrations#new
+#   edit_user_registration GET      /users/edit(.:format)                              devise/registrations#edit
+#                          PATCH    /users(.:format)                                   devise/registrations#update
+#                          PUT      /users(.:format)                                   devise/registrations#update
+#                          DELETE   /users(.:format)                                   devise/registrations#destroy
+#       authenticated_root GET      /                                                  incidents#index
+#                     root GET      /                                                  high_voltage/pages#show {:id=>"home"}
+#            contact_forms POST     /contact_forms(.:format)                           contact_form#create
+#         new_contact_form GET      /contact_forms/new(.:format)                       contact_form#new
+#                                   /mail_view                                         MailPreview
+#                                   (/errors)/:status(.:format)                        errors#show {:status=>/\d{3}/}
+#                     page GET      /pages/*id                                         high_voltage/pages#show

@@ -1,13 +1,13 @@
 - cache interaction do
   = div_for interaction do
-    %h3= interaction.title.titleize
+    %h4= interaction.title.titleize
     #attachments
       - interaction.attachments.each do |a|
         = link_to a.name.titleize, download_attachment_path(a), target: '_blank'
     %p= simple_format(interaction.content)
     %div
-      %contact_detail= "Contacted #{interaction.contact_person} via #{interaction.contact_detail}" if interaction.contact_person?
-      %start_date= "Started #{l interaction.start_at}"
+      %contact_detail= interaction.contact_info.presence
+      %start_date= "Started #{l Time.zone.at(interaction.start_at)}"
       .pull-right
         - interaction.tag_names.each do |tag_name|
           %tags

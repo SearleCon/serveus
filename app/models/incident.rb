@@ -21,6 +21,9 @@ class Incident < ActiveRecord::Base
   default_scope -> { where(open: true) }
 
 
+  def to_s
+   self.name.titleize
+  end
 
   def to_param
     "#{id}-#{name.parameterize}"

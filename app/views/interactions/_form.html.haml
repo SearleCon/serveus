@@ -1,5 +1,4 @@
 = simple_form_for interaction, url: incident_interactions_path(incident), html: {class: 'well span8', multipart: true}, remote: true do |f|
-  = token_tag
   %h4 New Interaction
   #errors= errors_for interaction
   .row
@@ -25,4 +24,5 @@
       = f.input :attachments_array, as: :file, input_html: { multiple: true}, label: false
     .span5
       = f.input :content, as: :text, input_html: { rows: 12 ,class: 'input-xlarge span5' }, required: false
+      = token_tag
       = f.button :submit, 'Create interaction', class: 'btn btn-small btn-primary'

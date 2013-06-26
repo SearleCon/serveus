@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 
 
   after_commit :send_welcome_mail, on: :create
+  after_initialize :init
 
 
   def self.from_omniauth(auth)
@@ -50,6 +51,13 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def init
+   if new_record?
+     self.time_zone = Time.zone.name
+   end
+  end
+
   def send_welcome_mail
     UserMailer.delay.welcome(self) if persisted?
   end

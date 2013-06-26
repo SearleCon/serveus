@@ -31,8 +31,13 @@ class Interaction < ActiveRecord::Base
     array.each { |file| attachments.build(local_image: file) }
   end
 
+  def contact_info
+    "Contacted #{self.contact_person} via #{self.contact_detail}" if self.contact_person?
+  end
+
   private
   def init
-    self.start_at = Time.current.strftime("%d/%m/%Y %H:%M:%S %p")
+    self.start_at = Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p")
+    self.title = "Interaction#{Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p")}"
   end
 end

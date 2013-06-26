@@ -66,9 +66,6 @@ gem 'decent_exposure'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 
-gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.0.1'
 
 
@@ -88,7 +85,7 @@ gem "remotipart", "~> 1.0"
 
 gem 'bootswatch-rails'
 
-
+gem 'temporal-rails'
 
 group :doc do
   gem 'sdoc', require: false
