@@ -7,7 +7,8 @@
 
 
 - cache incident do
-  %h2.text-center= incident
+  %a{href: "#"}
+    %h2.text-center.editable{data: { type: 'text', model: 'incident', name: 'name', url: incident_path(incident),original_title: "Your info here" }}= incident
   - if incident.open?
     .alert.alert-info.text-center
       %strong New Interactions
