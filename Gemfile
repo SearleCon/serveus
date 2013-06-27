@@ -9,7 +9,6 @@ group :development do
  gem 'sqlite3'
  gem 'traceroute'
  gem 'rails-footnotes', '>= 3.7.9'
- gem "mail_view", "~> 1.0.3"
 end
 
 # Authentication
@@ -20,6 +19,10 @@ gem 'simple_form', "3.0.0.rc"
 
 # Contact Form
 gem 'mail_form', '1.5.0.rc'
+
+# Preview Mail
+gem "mail_view", "~> 1.0.3"
+
 
 # Background Processing
 gem 'delayed_job', git: 'git://github.com/collectiveidea/delayed_job.git', branch: 'master'
