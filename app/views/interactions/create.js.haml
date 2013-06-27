@@ -1,7 +1,10 @@
 - if interaction.errors.any?
   $('#errors').html("#{j errors_for(interaction)}");
 - else
-  $('#add_interaction').slideUp("slow", function(){$(this).html("")});
+  $('#add_interaction').slideUp("slow", function(){
+  $(this).html("");
   $('#interactions').prepend("#{j render interaction }");
-  $("##{dom_id(interaction)}").effect("highlight", {}, 1500);
+  $("##{dom_id(interaction)}").fadeIn('slow', function(){$(this).effect("highlight", {}, 1500);});
+  });
+
 

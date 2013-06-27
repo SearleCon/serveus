@@ -28,7 +28,7 @@ class Incident < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    [id, name.parameterize].join("-")
   end
 
   def tag_cloud

@@ -3,14 +3,16 @@ Serveus::Application.routes.draw do
 
   match '/tags', to: 'tags#index', via: :post
 
-  resources :incidents, except: [:edit, :new, :update], shallow: true do
+  # Incidents and Interactions
+  resources :incidents, except: [:edit, :new] do
     patch :reopen, on: :member
     patch :close, on: :member
     patch :reopen_all, on: :collection
     patch :close_all, on: :collection
-    resources :interactions, only: [:create, :new, :edit, :destroy]
+    resources :interactions, only: [:create, :new, :edit, :destroy, :update]
   end
 
+  # Attachments
   resources :attachments, only: :none do
     get :download, on: :member
   end
@@ -18,7 +20,7 @@ Serveus::Application.routes.draw do
   # Devise routes
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-
+  # Root paths
   authenticated :user do
     root to: 'incidents#index', as: :authenticated_root
   end

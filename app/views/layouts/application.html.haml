@@ -14,10 +14,11 @@
       %nav.navbar-inner
         .container
           = render 'layouts/navigation'
-    #main{:role => "main"}
+    #main{role: "main"}
       .container
         .content
           .row
+            #footnotes_holder
             - if content_for?(:sidebar)
               .sidebar.well
                 = yield(:sidebar)

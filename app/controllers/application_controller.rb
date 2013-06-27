@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
-  respond_to :html
 
   layout :has_layout?
 

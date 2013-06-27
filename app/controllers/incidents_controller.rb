@@ -1,5 +1,5 @@
 class IncidentsController < ApplicationController
-  respond_to :html, :js
+  respond_to :html, :js, :json
 
   expose(:incidents) { current_user.incidents.order(created_at: :desc) }
   expose(:incident, attributes: :incident_params)
@@ -17,6 +17,11 @@ class IncidentsController < ApplicationController
   end
 
   def create
+    incident.save
+    respond_with(incident)
+  end
+
+  def update
     incident.save
     respond_with(incident)
   end

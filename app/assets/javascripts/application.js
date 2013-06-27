@@ -15,14 +15,19 @@
 //= require jquery_ujs
 //= require jquery.ui.effect-highlight
 //= require jquery.remotipart
+//= require jquery.blockUI
 //= require bootstrap
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
 //= require bootbox
+//= require bootstrap-editable
+//= require rails-editable
 //= require temporal
 //= require turbolinks
 //= require_tree .
 
+
+$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 
 $(document).ready(function() {
     $.rails.allowAction = function(element) {
@@ -54,4 +59,10 @@ $(document).ready(function() {
     }
 
     Temporal.detect();
+
+    $('.editable').editable({
+        ajaxOptions: {
+            type: 'patch'
+        }
+    });
 });

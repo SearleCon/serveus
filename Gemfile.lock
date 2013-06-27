@@ -15,6 +15,13 @@ GIT
       activerecord (>= 3.0, < 4.1)
       delayed_job (>= 3.0, < 4.1)
 
+GIT
+  remote: git://github.com/rusanu/blockuijs-rails.git
+  revision: 5deb1d36a861327dd54002d559fcd0e6197a3c83
+  specs:
+    blockuijs-rails (0.1.0)
+      rails (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,11 +49,11 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    addressable (2.3.4)
+    addressable (2.3.5)
     annotate (2.5.0)
       rake
     arel (4.0.0)
-    atomic (1.1.9)
+    atomic (1.1.10)
     aws-sdk (1.11.1)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -174,7 +181,7 @@ GEM
       rack
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
-    omniauth-google-oauth2 (0.1.19)
+    omniauth-google-oauth2 (0.2.0)
       omniauth (~> 1.0)
       omniauth-oauth2
     omniauth-oauth2 (1.1.1)
@@ -209,6 +216,8 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
+    rails-footnotes (3.7.9)
+      rails (>= 3.0.0)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -218,8 +227,6 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     remotipart (1.0.5)
-    rename (1.0.0)
-      rails (>= 3.0.0)
     responders (1.0.0.rc)
       railties (>= 3.2, < 5)
     rspec (2.13.0)
@@ -275,6 +282,8 @@ GEM
     thread_safe (0.1.0)
       atomic
     tilt (1.4.1)
+    traceroute (0.3.0)
+      rails (>= 3.0.0)
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
@@ -288,6 +297,7 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.7)
+    x-editable-rails (0.0.3)
     xpath (1.0.0)
       nokogiri (~> 1.3)
 
@@ -298,6 +308,7 @@ DEPENDENCIES
   annotate (>= 2.5.0)
   aws-sdk
   better_errors
+  blockuijs-rails!
   bootbox-rails
   bootstrap-datetimepicker-rails
   bootstrap-sass (~> 2.3.2.0)
@@ -335,8 +346,8 @@ DEPENDENCIES
   premailer-rails
   puma
   rails (= 4.0.0)
+  rails-footnotes (>= 3.7.9)
   remotipart (~> 1.0)
-  rename
   responders (= 1.0.0.rc)
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.0)
@@ -346,5 +357,7 @@ DEPENDENCIES
   sqlite3
   tagmanager-rails (~> 0.0.1)
   temporal-rails
+  traceroute
   turbolinks (~> 1.2.0)
   uglifier (>= 1.3.0)
+  x-editable-rails
