@@ -4,11 +4,8 @@ module Delayed
 
       class Null < Base
 
-        def self.up
-        end
-
-        def self.down
-        end
+       def self.scale
+       end
 
       end
 

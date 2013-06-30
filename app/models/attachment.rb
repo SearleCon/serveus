@@ -22,7 +22,7 @@ class Attachment < ActiveRecord::Base
 
   before_create :set_name_to_file_name
   before_destroy :destroy_images
-  #after_save :queue_upload_to_s3
+  after_save :queue_upload_to_s3
 
 
   #PaperClip
