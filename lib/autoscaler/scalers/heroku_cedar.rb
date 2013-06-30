@@ -14,20 +14,11 @@ module Delayed
         end
 
         def self.down
-          client.post_ps_scale(ENV['APP_NAME'], 'worker',0) unless self.jobs.count > 0 || self.workers == 0
+          client.post_ps_scale(ENV['APP_NAME'], 'worker', 0) unless self.jobs.count > 0 || self.workers == 0
         end
 
         def self.workers
           client.get_ps(ENV['APP_NAME']).body.count { |p| p["process"] =~ /worker\.\d?/ }
-        end
-
-
-        def self.max_workers
-          1
-        end
-
-        def self.min_workers
-          0
         end
       end
     end
