@@ -1,5 +1,5 @@
 require 'autoscaler/scalers/local'
-require 'autoscaler/scalers/heroku'
+require 'autoscaler/scalers/heroku_cedar'
 require 'autoscaler/scalers/null'
 
 

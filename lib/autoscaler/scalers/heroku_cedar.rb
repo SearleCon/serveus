@@ -3,10 +3,10 @@ require 'heroku-api'
 module Delayed
   module AutoScaler
     module Scaler
-      class Heroku < Base
+      class HerokuCedar < Base
 
         def self.client
-            @client ||= Heroku::API.new
+            @client ||= ::Heroku::API.new
         end
 
         def self.up
