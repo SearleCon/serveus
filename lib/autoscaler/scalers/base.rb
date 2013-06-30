@@ -9,14 +9,6 @@ module Delayed
           Delayed::Job.where(failed_at: nil)
         end
       end
-
-      module HerokuClient
-
-        def client
-          @client ||= Heroku::API.new
-        end
-      end
-
     end
   end
 end

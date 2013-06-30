@@ -4,7 +4,10 @@ module Delayed
   module AutoScaler
     module Scaler
       class Heroku < Base
-        extend Delayed::AutoScaler::Scaler::HerokuClient
+
+        def self.client
+            @client ||= Heroku::API.new
+        end
 
         def self.up
           client.post_ps_scale(ENV['APP_NAME'], 'worker', self.max_workers) if self.workers < self.max_workers
