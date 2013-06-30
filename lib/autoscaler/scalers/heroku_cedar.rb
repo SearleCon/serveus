@@ -10,11 +10,11 @@ module Delayed
         end
 
         def self.up
-          client.post_ps_scale(ENV['APP_NAME'], 'worker', self.max_workers) if self.workers < self.max_workers
+          client.post_ps_scale(ENV['APP_NAME'], 'worker', 1) if self.workers < 1
         end
 
         def self.down
-          client.post_ps_scale(ENV['APP_NAME'], 'worker', self.min_workers) unless self.jobs.count > 0 || self.workers == self.min_workers
+          client.post_ps_scale(ENV['APP_NAME'], 'worker',0) unless self.jobs.count > 0 || self.workers == 0
         end
 
         def self.workers
