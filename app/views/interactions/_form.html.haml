@@ -5,20 +5,20 @@
     .span3
       = f.input :title, required: false
       .datetime.input-append
-        = f.input :start_at, required: false,wrapper: :append do
-          = f.input_field :start_at, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+        = f.input :start_at, required: false, wrapper: :append do
+          = f.input_field :start_at, as: :string, value: format_for_datetimepicker(f.object.target_date), data: {format: "dd/MM/yyyy hh:mm:ss PP"}
           %span.add-on
-            %i{data: {"date-icon" => "icon-calendar", "data-time-icon" => "icon-time"} }
+            %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
 
       = f.input :contact_person, required: false
       = f.input :contact_detail, required: false
       .datetime.input-append
         = f.input :target_date, required: false, wrapper: :append do
-          = f.input_field :target_date, as: :string, "data-format" => "dd/MM/yyyy hh:mm:ss PP"
+          = f.input_field :target_date, as: :string, value: format_for_datetimepicker(f.object.target_date), data: {format: "dd/MM/yyyy hh:mm:ss PP"}
           %span.add-on
-            %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+            %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
       %label Tags
-      %input.span1{type: "text", name: 'tags', class: 'tm-input'}
+      %input.span1{type: "text", name: 'tags', class: 'tm-input', hiddenTagListId: "Bob,James"}
       %br
       %br
       = f.input :attachments_array, as: :file, input_html: { multiple: true}, label: false

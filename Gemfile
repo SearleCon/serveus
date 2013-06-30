@@ -4,11 +4,12 @@ ruby '2.0.0'
 
 
 group :development do
- gem "better_errors"
- gem 'annotate', ">=2.5.0"
- gem 'sqlite3'
- gem 'traceroute'
- gem 'rails-footnotes', '>= 3.7.9'
+  gem "better_errors"
+  gem 'annotate', ">=2.5.0"
+  gem 'sqlite3'
+  gem 'traceroute'
+  gem 'rails-footnotes', '>= 3.7.9'
+  gem 'quiet_assets'
 end
 
 # Authentication
@@ -27,6 +28,9 @@ gem "mail_view", "~> 1.0.3"
 # Background Processing
 gem 'delayed_job', git: 'git://github.com/collectiveidea/delayed_job.git', branch: 'master'
 gem 'delayed_job_active_record', git: 'git://github.com/collectiveidea/delayed_job_active_record.git', branch: 'master'
+gem 'daemons'
+gem 'heroku-api'
+gem 'rush'
 
 
 # Turbolinks
@@ -46,11 +50,8 @@ gem 'normalize-rails'
 gem 'bootswatch-rails'
 gem 'bootstrap-datetimepicker-rails'
 gem 'bootbox-rails'
-gem 'blockuijs-rails',  :git => 'git://github.com/rusanu/blockuijs-rails.git'
+gem 'blockuijs-rails', git: 'git://github.com/rusanu/blockuijs-rails.git'
 gem 'x-editable-rails'
-
-
-
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -85,6 +86,8 @@ gem 'omniauth-google-oauth2'
 # Caching
 gem 'memcachier'
 gem 'dalli'
+gem 'bust_rails_etags'
+
 
 # Decent Exposure - replace instance variables with methods
 gem 'decent_exposure'
@@ -106,9 +109,6 @@ gem "figaro"
 gem "tagmanager-rails", "~> 0.0.1"
 
 
-
-
-
 # Format emails nicely
 gem 'premailer-rails'
 
@@ -116,23 +116,19 @@ gem 'premailer-rails'
 gem 'temporal-rails'
 
 
-
 # Place Holder Images
 gem 'placeholdit'
-
-
 
 
 group :doc do
   gem 'sdoc', require: false
 end
 
-group  :test do
+group :test do
   # Test suites
   gem 'rspec-rails', '~> 2.0'
   gem "capybara", "~> 2.0.2"
   gem "launchy", "~> 2.2.0"
-
 
 
   # Factories
@@ -149,6 +145,7 @@ end
 
 
 group :production do
+  # Post Gres
   gem 'pg'
 end
 

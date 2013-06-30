@@ -1,3 +1,3 @@
 $('#add_interaction').html("#{escape_javascript(render 'interactions/form')}").hide().slideDown('slow');
-$(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', typeahead: true});
+$(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', typeahead: true, prefilled: "#{j interaction.tag_names.join(',')}"});
 $('.datetime').datetimepicker();

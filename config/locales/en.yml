@@ -23,6 +23,6 @@ en:
   hello: "Hello world"
   time:
     formats:
-     default: "%-d %B %Y %I:%M%P"
+     default: "%-d %B %Y %I:%M%p"
      short: "%b %d"
      long: "%B %d, %Y"

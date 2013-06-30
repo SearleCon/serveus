@@ -1,16 +1,13 @@
 - cache interaction do
   = div_for interaction do
     %h4= interaction.title.titleize
-    #attachments
-      - interaction.attachments.each do |a|
-        = link_to a.name.titleize, download_attachment_path(a), target: '_blank'
     %p= simple_format(interaction.content)
     %div
       = link_to glyph(:edit).concat(' Edit'), edit_incident_interaction_path(incident,interaction), remote: true
       = link_to glyph(:remove_sign).concat(' Delete'), incident_interaction_path(incident,interaction), method: :delete, remote: true
       %br
       %contact_detail= interaction.contact_info.presence
-      %start_date= "Started #{l Time.zone.at(interaction.start_at)}"
+      %start_date= "Started #{l Time.zone.at(interaction.start_at)}" if interaction.start_at
       .pull-right
         - interaction.tag_names.each do |tag_name|
           %tags

@@ -12,12 +12,15 @@ class InteractionsController < ApplicationController
   end
 
   def create
-    interaction.tag(params['hidden-tags'], current_user) if interaction.save && params['hidden-tags']
+    interaction.save
+    interaction.tag(params['hidden-tags'], current_user) if interaction.errors.blank? && params['hidden-tags']
     respond_with(interaction, location: incident_url(incident))
   end
 
   def update
     interaction.save
+    interaction.update_tags(params['hidden-tags'], current_user) if interaction.errors.blank? && params['hidden-tags']
+    interaction.reload
     respond_with(interaction, location: incident_url(incident))
   end
 

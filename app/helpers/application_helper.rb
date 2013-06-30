@@ -25,6 +25,11 @@ module ApplicationHelper
 
 
 
+  # Simple_form
+  def format_for_datetimepicker(value)
+    Time.zone.at(value).strftime( "%d/%m/%Y %H:%M:%S %p") if value
+  end
+
   #Devise
   def resource_name
     :user

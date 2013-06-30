@@ -46,4 +46,9 @@ Serveus::Application.configure do
       password: ENV["GMAIL_PASSWORD"]
   }
 
+
+  config.after_initialize do
+    Delayed::Job.scaler = :local
+  end
+
 end

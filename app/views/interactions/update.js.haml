@@ -3,5 +3,6 @@
 - else
   $('#add_interaction').slideUp("slow", function(){
   $(this).html("");
+  $("##{dom_id(interaction)}").html("#{j render interaction}");
   $("##{dom_id(interaction)}").effect("highlight", {}, 1500);
   });

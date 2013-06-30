@@ -7,6 +7,7 @@ class IncidentsController < ApplicationController
   etag { current_user.id }
 
   before_action :authenticate_user!
+  after_action :discard_flash, only: :create
 
   def index
     fresh_when(incidents, last_modified: incidents.maximum(:updated_at))
@@ -59,5 +60,9 @@ class IncidentsController < ApplicationController
 
   def interpolation_options
     { resource_name: incident.name }
+  end
+
+  def discard_flash
+    flash.discard
   end
 end
