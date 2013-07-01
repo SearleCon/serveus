@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.ui.effect-highlight
@@ -19,8 +20,8 @@
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
 //= require bootbox
-//= require bootstrap-editable
-//= require rails-editable
+//= require editable/bootstrap-editable
+//= require editable/rails
 //= require temporal
 //= require turbolinks
 //= require_tree .

@@ -27,10 +27,11 @@ Serveus::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs.
   config.assets.digest = true
+
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
@@ -55,9 +56,10 @@ Serveus::Application.configure do
   config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = ENV['S3_HOST_NAME']
+  config.action_controller.asset_host = "//searlecon.s3.amazonaws.com"
 
   config.assets.prefix = "/serveus/assets"
+
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -66,7 +68,7 @@ Serveus::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = {host: "servus.herokuapp.com"}
+  config.action_mailer.default_url_options = {host: "serveus.herokuapp.com"}
 
 
   config.action_mailer.smtp_settings = {
