@@ -123,6 +123,9 @@ gem 'temporal-rails'
 # Place Holder Images
 gem 'placeholdit'
 
+# Asset Syncing
+gem 'asset_sync'
+
 
 group :doc do
   gem 'sdoc', require: false
