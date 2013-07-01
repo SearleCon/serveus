@@ -34,7 +34,7 @@ Serveus::Application.configure do
 
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '10.0'
+  config.assets.version = '1'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -56,9 +56,12 @@ Serveus::Application.configure do
   config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = "//searlecon.s3.amazonaws.com"
+  config.action_controller.asset_host = "//#{ENV['S3_BUCKET']}.s3.amazonaws.com"
 
   config.assets.prefix = "/serveus/assets"
+
+  config.assets.initialize_on_precompile = true
+
 
 
   # Precompile additional assets.

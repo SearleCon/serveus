@@ -125,6 +125,7 @@ gem 'placeholdit'
 
 # Asset Syncing
 gem 'asset_sync'
+gem 'jquery-rails-cdn'
 
 
 group :doc do
