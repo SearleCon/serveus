@@ -7,6 +7,10 @@ class InteractionsController < ApplicationController
 
   before_action :authenticate_user!
 
+  def index
+    self.interactions = incident.interactions.search(search_params)
+  end
+
   def edit
     respond_with(interaction)
   end
@@ -33,5 +37,9 @@ class InteractionsController < ApplicationController
   private
   def interaction_params
     params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail, :attachments_array => [])
+  end
+
+  def search_params
+    params.require(:q).permit(:s,:title_cont, :content_cont, :start_at_lteq, :start_at_gteq,:target_date_lteq, :target_date_gteq, :tags_name_in => []) if params[:q]
   end
 end

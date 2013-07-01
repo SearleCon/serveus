@@ -1,0 +1,69 @@
+.search
+  %h5 Search Interactions
+  = simple_form_for :q, url: incident_interactions_path(incident), html: {method: :get} do |f|
+    = f.input :title_cont, label: 'Title', required: false
+    = f.input :content_cont, label: 'Content', required: false, as: :text
+    .datetime.input-append
+      = f.input :start_at_gteq, required: false, wrapper: :append do
+        = f.input_field :start_at_gteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+        %span.add-on
+          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    and
+    .datetime.input-append
+      = f.input :start_at_lteq, required: false, wrapper: :append do
+        = f.input_field :start_at_lteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+        %span.add-on
+          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    %br
+    .datetime.input-append
+      = f.input :target_date_gteq, required: false, wrapper: :append do
+        = f.input_field :target_date_gteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+        %span.add-on
+          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    and
+    .datetime.input-append
+      = f.input :target_date_lteq, required: false, wrapper: :append do
+        = f.input_field :target_date_lteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+        %span.add-on
+          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    = f.input :tags_name_in, label: 'Tags', collection: incident.tag_cloud, required: false, as: :check_boxes, item_wrapper_class: :inline
+
+
+
+    %br
+    = f.submit "search", class: 'btn btn-primary'
+
+
+
+
+
+
+
+
+.search-results
+  %h3= "Search Results (#{interactions.result.size})"
+  %ul.inline
+    %li.header Sort By:
+    %li= sort_link interactions, :start_at, "Start At", default_order: :desc
+    %li.divider
+    %li= sort_link interactions, :target_date, "Target Date", default_order: :desc
+    %li.divider
+    %li= sort_link interactions, :created, "Creation Date", default_order: :desc
+    %li.divider
+    %li= sort_link interactions, :title, "Title", default_order: :desc
+    %hr
+  - interactions.result.each do |interaction|
+    = div_for interaction do
+      %h4= interaction.title.titleize
+      %p= simple_format(interaction.content)
+      %ul.inline{id: 'attachments'}
+        -interaction.attachments.each do |a|
+          %li= link_to glyph(:file).concat( a.name.titleize), download_attachment_path(a), target: '_blank'
+      %div
+        %contact_detail= interaction.contact_info.presence
+        %start_date= "Started #{l Time.zone.at(interaction.start_at)}" if interaction.start_at
+        .pull-right
+          - interaction.tag_names.each do |tag_name|
+            %tags
+              =tag_name
+    %hr

@@ -65,4 +65,7 @@ $(document).ready(function() {
             type: 'patch'
         }
     });
+
+    $('.datetime').datetimepicker();
+
 });

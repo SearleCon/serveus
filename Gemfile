@@ -12,6 +12,10 @@ group :development do
   gem 'quiet_assets'
 end
 
+
+# Search
+gem "ransack", git: "git://github.com/ernie/ransack.git", branch: 'rails-4'
+
 # Authentication
 gem 'devise', "3.0.0.rc"
 

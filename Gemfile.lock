@@ -16,6 +16,16 @@ GIT
       delayed_job (>= 3.0, < 4.1)
 
 GIT
+  remote: git://github.com/ernie/ransack.git
+  revision: 4078f4fd0ff8b48658e1b69fe8bce0c36933f19c
+  branch: rails-4
+  specs:
+    ransack (0.7.3)
+      actionpack
+      activerecord
+      polyamorous (~> 0.6.0)
+
+GIT
   remote: git://github.com/rusanu/blockuijs-rails.git
   revision: 5deb1d36a861327dd54002d559fcd0e6197a3c83
   specs:
@@ -202,6 +212,8 @@ GEM
       mime-types
     pg (0.15.1)
     placeholdit (0.0.3)
+    polyamorous (0.6.3)
+      activerecord (>= 3.0)
     polyglot (0.3.3)
     premailer (1.7.3)
       css_parser (>= 1.1.9)
@@ -363,6 +375,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.0)
   rails-footnotes (>= 3.7.9)
+  ransack!
   remotipart (~> 1.0)
   responders (= 1.0.0.rc)
   rspec-rails (~> 2.0)

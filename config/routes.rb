@@ -9,7 +9,7 @@ Serveus::Application.routes.draw do
     patch :close, on: :member
     patch :reopen_all, on: :collection
     patch :close_all, on: :collection
-    resources :interactions, only: [:create, :new, :edit, :destroy, :update]
+    resources :interactions, except: :show
   end
 
   # Attachments
