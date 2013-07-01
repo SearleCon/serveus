@@ -158,8 +158,6 @@ GEM
     hashie (2.0.5)
     heroku-api (0.3.13)
       excon (~> 0.25.0)
-    heroku-deflater (0.5.1)
-      rack (>= 1.4.5)
     high_voltage (1.2.3)
     hike (1.2.3)
     htmlentities (4.3.1)
@@ -372,7 +370,6 @@ DEPENDENCIES
   figaro
   haml-rails
   heroku-api
-  heroku-deflater
   high_voltage
   jbuilder (~> 1.0.1)
   jquery-rails

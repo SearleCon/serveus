@@ -154,8 +154,5 @@ end
 group :production do
   # Post Gres
   gem 'pg'
-
-  # GZIP
-  gem 'heroku-deflater'
 end
 
