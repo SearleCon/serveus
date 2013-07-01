@@ -83,7 +83,6 @@ gem 'jbuilder', '~> 1.0.1'
 
 # Omni Auth eg. Google, Facebook login
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 
