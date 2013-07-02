@@ -219,6 +219,8 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
+    paloma (2.0.6)
+      jquery-rails
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -388,6 +390,7 @@ DEPENDENCIES
   normalize-rails
   omniauth
   omniauth-google-oauth2
+  paloma
   paperclip (~> 3.0)
   pg
   placeholdit

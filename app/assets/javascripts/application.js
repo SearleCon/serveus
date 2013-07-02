@@ -22,6 +22,7 @@
 //= require editable/bootstrap-editable
 //= require editable/rails
 //= require temporal
+//= require paloma
 //= require turbolinks
 //= require_tree .
 
@@ -58,13 +59,4 @@ $(document).ready(function() {
     }
 
     Temporal.detect();
-
-    $('.editable').editable({
-        ajaxOptions: {
-            type: 'patch'
-        }
-    });
-
-    $('.datetime').datetimepicker();
-
 });

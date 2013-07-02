@@ -126,6 +126,9 @@ gem 'placeholdit'
 gem 'asset_sync'
 gem 'jquery-rails-cdn'
 
+# Page Specific Javascript
+gem 'paloma'
+
 
 group :doc do
   gem 'sdoc', require: false
