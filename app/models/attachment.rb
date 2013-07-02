@@ -36,6 +36,9 @@ class Attachment < ActiveRecord::Base
                     storage:         :s3,
                     path:            "serveus/images/:id/:style/:filename"
 
+
+  validates_attachment :local_image, size: { in: 0..1024.kilobytes }
+
   def upload_to_s3
     self.image = self.local_image
     save!
