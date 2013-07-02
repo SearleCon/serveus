@@ -60,9 +60,6 @@ Serveus::Application.configure do
 
   config.assets.prefix = "/serveus/assets"
 
-  config.assets.initialize_on_precompile = false
-
-
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.

@@ -102,7 +102,7 @@ gem "remotipart", "~> 1.0"
 
 
 # Web Server
-gem 'puma'
+gem 'unicorn'
 
 # Env variables
 gem "figaro"
@@ -149,6 +149,8 @@ group :test do
   gem 'json_spec'
   gem 'email_spec'
 end
+
+
 
 
 group :production do
