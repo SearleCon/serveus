@@ -1,5 +1,8 @@
 Serveus::Application.routes.draw do
 
+
+  match '/emails', to: 'emails#create', via: :post
+
   # Tags
   match '/tags', to: 'tags#index', via: :post
 

@@ -3,3 +3,4 @@
 //= require ./_filters.js
 //= require ./interactions/_manifest.js
 //= require ./incidents/_manifest.js
+//= require ./emails/_manifest.js

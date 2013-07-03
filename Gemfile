@@ -134,7 +134,7 @@ gem 'paloma'
 
 
 # Incoming email
-gem 'griddler'
+gem 'incoming'
 
 
 group :doc do
