@@ -1,5 +1,6 @@
-require 'email_processor'
-require 'griddler/controller_extensions'
+require "#{Rails.application.root}/lib/griddler/email_processor"
+require "#{Rails.application.root}/lib/griddler/controller_extensions"
+
 
 
 Griddler.configure do |config|
