@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
   layout :has_layout?
 
   before_action :set_timezone
-  before_action {|c| puts "fish" unless c.is_a?(Griddler::EmailsController)}
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
