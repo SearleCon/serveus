@@ -1,4 +1,5 @@
 require 'email_processor'
+require 'griddler_skip_action'
 Griddler.configure do |config|
   config.processor_class = EmailProcessor # MyEmailProcessor
   config.to = :token # :full, :email, :hash
@@ -9,3 +10,5 @@ Griddler.configure do |config|
   config.reply_delimiter = '-- REPLY ABOVE THIS LINE --'
   config.email_service = :cloudmailin
 end
+
+Griddler::EmailsController.send(:include, Griddler::ControllerExtension) if defined?(Griddler::EmailsController)
