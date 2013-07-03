@@ -8,13 +8,8 @@ class EmailProcessor
 
 
   def self.process(email)
-   User.last.touch
-  end
-
-
-  private
-
-  def pick_meaningful_recipient(recipients)
-    recipients.find { |address| address =~ /@mydomain.com$/ }
+    user = User.find_by(email: email.from)
+    incident = user.incidents.find(email.subject)
+    incident.interactions.create(content: email.body)
   end
 end
