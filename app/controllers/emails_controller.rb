@@ -3,9 +3,9 @@ class EmailsController < ApplicationController
 
   def create
     if EmailReceiver.receive(request)
-      render json: {status: 'ok'}
+      render json: {status: :ok}
     else
-      render json: {status: 'rejected'}, status: 403
+      render json: {status: :forbidden}
     end
   end
 end
