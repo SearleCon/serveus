@@ -1,9 +1,10 @@
 class EmailProcessor
-  def initialize(email)
-    @from = email.from
-    @body = email.body
-  end
-
   def self.process(email)
+    user = User.find_by(email: email.from)
+    if user
+      user.incidents.create(name: email.subject.strip) do |incident|
+        incident.interactions.create(content: email.body.strip)
+      end
+    end
   end
 end
