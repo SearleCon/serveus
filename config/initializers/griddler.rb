@@ -1,7 +1,5 @@
 require "#{Rails.application.root}/lib/griddler/email_processor"
-require "#{Rails.application.root}/lib/griddler/controller_extension"
 
-Griddler::EmailsController.send(:include, Griddler::ControllerExtension)
 
 
 Griddler.configure do |config|
