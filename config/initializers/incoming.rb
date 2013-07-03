@@ -1,0 +1,1 @@
+require 'incoming/email_receiver'
