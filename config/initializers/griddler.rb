@@ -1,6 +1,7 @@
 require "#{Rails.application.root}/lib/griddler/email_processor"
 require "#{Rails.application.root}/lib/griddler/controller_extensions"
 
+Griddler::EmailsController.send(:include, ControllerExtensions)
 
 
 Griddler.configure do |config|
@@ -14,4 +15,3 @@ Griddler.configure do |config|
   config.email_service = :cloudmailin
 end
 
-Griddler::EmailsController.send(:include, Griddler::ControllerExtensions) if defined?(Griddler::EmailsController)
