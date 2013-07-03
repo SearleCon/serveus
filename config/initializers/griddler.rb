@@ -1,11 +1,11 @@
 require "#{Rails.application.root}/lib/griddler/email_processor"
-require "#{Rails.application.root}/lib/griddler/controller_extensions"
+require "#{Rails.application.root}/lib/griddler/controller_extension"
 
-Griddler::EmailsController.send(:include, ControllerExtensions)
+Griddler::EmailsController.send(:include, Griddler::ControllerExtension)
 
 
 Griddler.configure do |config|
-  config.processor_class = EmailProcessor # MyEmailProcessor
+  config.processor_class = Griddler::EmailProcessor # MyEmailProcessor
   config.to = :token # :full, :email, :hash
                                           # :raw    => 'AppName <s13.6b2d13dc6a1d33db7644@mail.myapp.com>'
                                           # :email  => 's13.6b2d13dc6a1d33db7644@mail.myapp.com'
