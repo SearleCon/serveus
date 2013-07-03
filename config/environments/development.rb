@@ -32,7 +32,7 @@ Serveus::Application.configure do
   config.action_mailer.default_url_options = {host: "localhost:3000"}
   config.action_mailer.delivery_method = :smtp
   # change to true to allow email to be sent during development
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default charset: "utf-8"
 
@@ -48,7 +48,7 @@ Serveus::Application.configure do
 
 
   config.after_initialize do
-    Delayed::Job.scaler = :local
+    Delayed::Job.scaler = :null
   end
 
 end

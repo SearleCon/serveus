@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Serveus::Application.config.secret_key_base = 'a9da4b7240d8d4006b11ff809ac974eee10c48d1986cedfaf940bb5834aca3ca5bec127e6d353e458572d4c54fb9f25ee30f59b9e91a1dadb7b8ccfa61602243'
+Serveus::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']

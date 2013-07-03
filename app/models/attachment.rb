@@ -31,7 +31,6 @@ class Attachment < ActiveRecord::Base
                     url:  "/system/:attachment/:id/:style/:basename.:extension"
 
   has_attached_file :image,
-                    styles: {large: '500x500#', medium: '200x200#', small: '70x70#'},
                     convert_options: {all: '-strip'},
                     storage:         :s3,
                     path:            "serveus/images/:id/:style/:filename"

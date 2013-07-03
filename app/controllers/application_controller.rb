@@ -2,17 +2,15 @@ require "application_responder"
 
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
+  respond_to :html, :js, :json
 
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
 
-
   layout :has_layout?
 
   before_action :set_timezone
-
-
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -24,7 +22,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_timezone
-    Time.zone = current_user.time_zone if  current_user && current_user.time_zone?
+    Time.zone = current_user.time_zone if current_user && current_user.time_zone?
+  end
+
+  def after_invite_path_for(resource)
+    edit_user_registration_url
   end
 
   protected

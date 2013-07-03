@@ -4,10 +4,7 @@ class IncidentsController < ApplicationController
   expose(:incidents) { current_user.incidents.order(created_at: :desc) }
   expose(:incident, attributes: :incident_params)
 
-  etag { current_user.id }
-
   before_action :authenticate_user!
-  after_action :discard_flash, only: :create
 
   def index
     fresh_when(incidents, last_modified: incidents.maximum(:updated_at))

@@ -19,7 +19,7 @@ class Incident < ActiveRecord::Base
   validates :user, presence: true
 
   scope :open, -> { where(open: true) }
-  scope :closed, -> { where(open: false) }
+  scope :closed, -> { where.not(open: true) }
 
   after_initialize :init
 

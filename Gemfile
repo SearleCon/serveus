@@ -18,6 +18,9 @@ gem "ransack", git: "git://github.com/ernie/ransack.git", branch: 'rails-4'
 
 # Authentication
 gem 'devise', "3.0.0.rc"
+gem "devise-async"
+gem 'devise_invitable', git: "git://github.com/scambra/devise_invitable.git", branch: 'rails4'
+
 
 # Form Builders
 gem 'simple_form', "3.0.0.rc"
@@ -128,6 +131,10 @@ gem 'jquery-rails-cdn'
 
 # Page Specific Javascript
 gem 'paloma'
+
+
+# Incoming email
+gem 'griddler'
 
 
 group :doc do
