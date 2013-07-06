@@ -7,13 +7,13 @@
         %li= link_to glyph(:file).concat( a.name.titleize), download_attachment_path(a), target: '_blank'
     %div
       = link_to glyph(:edit).concat(' Edit'), edit_incident_interaction_path(incident,interaction), remote: true
-      = link_to glyph(:remove_sign).concat(' Delete'), incident_interaction_path(incident,interaction), method: :delete, remote: true
+      = link_to glyph(:remove_sign).concat(' Delete'), incident_interaction_path(incident,interaction), method: :delete,data: {confirm: 'Are you sure?'}, remote: true
       %br
-      %contact_detail= interaction.contact_info.presence
       %start_date= "Started #{l Time.zone.at(interaction.start_at)}" if interaction.start_at
+      %contact_detail= interaction.contact_info.presence
       .pull-right
         - interaction.tag_names.each do |tag_name|
           %tags
             =tag_name
-  %hr
+    %hr
 

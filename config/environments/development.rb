@@ -48,7 +48,7 @@ Serveus::Application.configure do
 
 
   config.after_initialize do
-    Delayed::Job.scaler = :null
+    Delayed::Job.scaler  = :null
   end
 
 end

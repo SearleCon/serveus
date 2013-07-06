@@ -22,7 +22,7 @@ class Interaction < ActiveRecord::Base
 
   validates :title, :content, presence: true
 
-  after_initialize :init
+  before_validation :init_defaults
 
   default_scope -> { order(created_at: :desc) }
 
@@ -37,10 +37,8 @@ class Interaction < ActiveRecord::Base
 
 
   private
-  def init
-    if new_record?
-     self.start_at = Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p")
-     self.title = "Interaction#{Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p")}"
-    end
+  def init_defaults
+     self.start_at = Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p") if self.start_at.blank?
+     self.title = "Interaction#{Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p")}"  if self.title.blank?
   end
 end

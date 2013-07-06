@@ -1,4 +1,4 @@
-= simple_form_for [incident,interaction],  html: {class: 'well span8', multipart: true}, remote: true do |f|
+= simple_form_for [incident,interaction],  html: {multipart: true}, remote: true do |f|
   %h4= interaction.new_record? ? "New Interaction" : "Edit Interaction"
   #errors= errors_for interaction
   .row
@@ -22,7 +22,7 @@
       %br
       %br
       = f.input :attachments_array, as: :file, input_html: { multiple: true}, label: false
-    .span5
-      = f.input :content, as: :text, input_html: { rows: 12 ,class: 'input-xlarge span5' }, required: false
+    .span4
+      = f.input :content, as: :text, input_html: { rows: 12 ,class: 'input-xlarge span4' }, required: false
       = token_tag
       = f.button :submit, interaction.new_record? ? 'Create interaction' : 'Update interaction', class: 'btn btn-small btn-primary'

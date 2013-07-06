@@ -61,6 +61,7 @@ gem 'blockuijs-rails', git: 'git://github.com/rusanu/blockuijs-rails.git'
 gem 'x-editable-rails'
 
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -129,12 +130,9 @@ gem 'placeholdit'
 gem 'asset_sync'
 gem 'jquery-rails-cdn'
 
-# Page Specific Javascript
-gem 'paloma'
 
 
-# Incoming email
-gem 'incoming'
+
 
 
 group :doc do

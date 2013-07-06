@@ -8,6 +8,7 @@
     = stylesheet_link_tag :application, :media => "all"
     = jquery_include_tag :google
     = javascript_include_tag :application
+    = javascript_include_tag controller_path if Rails.application.assets.find_asset "#{controller_name}.js.coffee"
     = csrf_meta_tags
     = yield(:head)
   %body{class: "#{controller_name}", "data-action" => action_name, "data-controller" => controller_path}

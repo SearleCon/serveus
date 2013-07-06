@@ -15,48 +15,16 @@
 //= require jquery.ui.effect-highlight
 //= require jquery.remotipart
 //= require jquery.blockUI
+//= require jquery.scrollTo
 //= require bootstrap
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
+//= require bootstrap-sortable
 //= require bootbox
 //= require editable/bootstrap-editable
 //= require editable/rails
 //= require temporal
-//= require paloma
+//= require serveus
+//= require initialize
 //= require turbolinks
-//= require_tree .
 
-
-$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
-
-$(document).ready(function() {
-    $.rails.allowAction = function(element) {
-        var message = element.data('confirm'),
-            answer = false, callback;
-        if (!message) { return true; }
-
-        if ($.rails.fire(element, 'confirm')) {
-            myCustomConfirmBox(message, function() {
-                callback = $.rails.fire(element,
-                    'confirm:complete', [answer]);
-                if(callback) {
-                    var oldAllowAction = $.rails.allowAction;
-                    $.rails.allowAction = function() { return true; };
-                    element.trigger('click');
-                    $.rails.allowAction = oldAllowAction;
-                }
-            });
-        }
-        return false;
-    }
-
-    function myCustomConfirmBox(message, callback) {
-        bootbox.confirm(message, "Cancel", "Yes", function(confirmed) {
-            if(confirmed){
-                callback();
-            }
-        });
-    }
-
-    Temporal.detect();
-});
