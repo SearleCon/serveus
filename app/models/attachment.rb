@@ -36,7 +36,7 @@ class Attachment < ActiveRecord::Base
                     path:            "serveus/images/:id/:style/:filename"
 
 
-  validates_attachment_size :local_image, less_than: 1.megabyte, message: "Error"
+  validates_attachment_size :local_image, less_than: 1.megabyte
 
   def upload_to_s3
     self.image = self.local_image

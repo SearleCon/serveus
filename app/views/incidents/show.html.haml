@@ -4,6 +4,8 @@
     %li= link_to glyph(:plus_sign).concat(' New Interaction'), new_incident_interaction_path(incident), remote: true if incident.open?
     %li= link_to glyph(:print).concat(' Print to PDF'), new_incident_interaction_path(incident)
     %li= link_to glyph(:search).concat(' Search Interactions'), incident_interactions_path(incident)
+    %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
+
   %br
   %br
 
