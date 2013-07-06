@@ -1,0 +1,12 @@
+%h2 ServeUS User Feedback
+%br
+%h3 Details
+%br
+%p= "Subject: #{@feedback.subject}"
+%br
+%p= simple_format(@feedback.comment)
+%br
+%p="Timestamp: #{l @feedback.created_at}"
+
+
+

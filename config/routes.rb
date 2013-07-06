@@ -1,7 +1,8 @@
 Serveus::Application.routes.draw do
 
 
- resources :emails, only: :create
+  # Feedback
+  resource :feedback, controller: :feedback, only: [:new, :create]
 
   # Tags
   match '/tags', to: 'tags#index', via: :post

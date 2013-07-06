@@ -32,6 +32,10 @@ class ApplicationController < ActionController::Base
     edit_user_registration_url
   end
 
+  def after_sign_out_path_for(resource)
+    new_feedback_url
+  end
+
   protected
   def devise_parameter_sanitizer
     User::ParameterSanitizer.new(User, :user, params)

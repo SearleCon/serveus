@@ -13,3 +13,6 @@ en:
       close:
         notice: '%{resource_name} was successfully closed.'
         alert: '%{resource_name} could not be closed.'
+    feedback:
+      create:
+        notice: "Thank you for the feedback."
