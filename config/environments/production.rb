@@ -93,6 +93,11 @@ Serveus::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  config.logger = Logger.new(STDOUT)
+  config.logger.level =  Logger::INFO
+
+
+
 
 
   config.after_initialize do

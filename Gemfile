@@ -130,6 +130,10 @@ gem 'placeholdit'
 gem 'asset_sync'
 gem 'jquery-rails-cdn'
 
+# Deploy
+gem 'paratrooper'
+
+
 
 
 

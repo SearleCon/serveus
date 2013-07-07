@@ -47,6 +47,11 @@ Serveus::Application.configure do
   }
 
 
+  config.logger = Logger.new(STDOUT)
+  config.logger.level =  Logger::DEBUG
+
+
+
   config.after_initialize do
     Delayed::Job.scaler  = :null
   end
