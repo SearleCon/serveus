@@ -100,7 +100,7 @@ gem 'bust_rails_etags'
 gem 'decent_exposure'
 
 # File uploads
-gem "paperclip", "~> 3.0"
+gem 'delayed_paperclip'
 gem 'aws-sdk'
 gem "remotipart", "~> 1.0"
 

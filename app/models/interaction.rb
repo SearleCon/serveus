@@ -28,7 +28,7 @@ class Interaction < ActiveRecord::Base
 
 
   def attachments_array=(array)
-    array.each { |file| attachments.build(local_image: file) }
+    array.each { |file| attachments.build(image: file) }
   end
 
   def contact_info

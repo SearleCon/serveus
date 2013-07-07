@@ -22,38 +22,25 @@ class Attachment < ActiveRecord::Base
 
   before_create :set_name_to_file_name
   before_destroy :destroy_images
-  after_save :queue_upload_to_s3
 
 
   #PaperClip
-  has_attached_file :local_image,
-                    path: ":rails_root/public/system/:attachment/:id/:style/:basename.:extension",
-                    url:  "/system/:attachment/:id/:style/:basename.:extension"
-
   has_attached_file :image,
-                    convert_options: {all: '-strip'},
                     storage:         :s3,
                     path:            "serveus/images/:id/:style/:filename"
 
+  process_in_background :image
 
-  validates_attachment_size :local_image, less_than: 1.megabyte
 
-  def upload_to_s3
-    self.image = self.local_image
-    save!
-  end
+  validates_attachment_size :image, less_than: 1.megabyte
+
 
   private
   def set_name_to_file_name
-    self.name = File.basename(local_image_file_name, ".*") if local_image?
+    self.name = File.basename(image_file_name, ".*") if image?
   end
 
   def destroy_images
     self.image.destroy if self.image?
-    self.local_image.destroy if self.local_image?
-  end
-
-  def queue_upload_to_s3
-    Delayed::Job.enqueue ImageJob.new(self.id) if local_image? && local_image_updated_at_changed?
   end
 end
