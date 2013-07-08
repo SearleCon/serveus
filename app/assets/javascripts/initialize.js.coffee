@@ -44,3 +44,10 @@ $(document).on "page:receive", $.unblockUI
 
 # Fetch time
 Temporal.detect
+
+$ ->
+ flashCallback = ->
+  $("#flash_message").fadeOut()
+ $("#flash_message").on 'click', (ev) ->
+  $("#flash_message").fadeOut()
+ setTimeout flashCallback, 3000

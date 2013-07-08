@@ -8,7 +8,7 @@ Serveus::Application.routes.draw do
   match '/tags', to: 'tags#index', via: :post
 
   # Incidents and Interactions
-  resources :incidents, except: [:edit, :new] do
+  resources :incidents, except: [:new] do
     patch :reopen, on: :member
     patch :close, on: :member
     patch :reopen_all, on: :collection

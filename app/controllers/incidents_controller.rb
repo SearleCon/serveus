@@ -14,6 +14,7 @@ class IncidentsController < ApplicationController
     fresh_when(incident)
   end
 
+
   def create
     incident.save
     respond_with(incident)

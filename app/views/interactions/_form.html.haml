@@ -3,18 +3,18 @@
   #errors= errors_for interaction
   .row
     .span3
-      = f.input :title, required: false
+      = f.input :title, required: false, placeholder: 'Optional'
       .datetime.input-append
         = f.input :start_at, required: false, wrapper: :append do
-          = f.input_field :start_at, as: :string, value: format_for_datetimepicker(f.object.target_date), data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+          = f.input_field :start_at, as: :string, value: format_for_datetimepicker(f.object.target_date), placeholder: 'Optional',data: {format: "dd/MM/yyyy hh:mm:ss PP"}
           %span.add-on
             %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
 
-      = f.input :contact_person, required: false
-      = f.input :contact_detail, required: false
+      = f.input :contact_person, required: false, placeholder: 'Optional'
+      = f.input :contact_detail, required: false, placeholder: 'Optional'
       .datetime.input-append
         = f.input :target_date, required: false, wrapper: :append do
-          = f.input_field :target_date, as: :string, value: format_for_datetimepicker(f.object.target_date), data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+          = f.input_field :target_date, as: :string, placeholder: 'Optional',value: format_for_datetimepicker(f.object.target_date), data: {format: "dd/MM/yyyy hh:mm:ss PP"}
           %span.add-on
             %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
       %label Tags

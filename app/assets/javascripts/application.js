@@ -21,8 +21,6 @@
 //= require bootstrap-tagmanager
 //= require bootstrap-sortable
 //= require bootbox
-//= require editable/bootstrap-editable
-//= require editable/rails
 //= require temporal
 //= require serveus
 //= require initialize

@@ -11,16 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130707085156) do
+ActiveRecord::Schema.define(version: 20130707091450) do
 
   create_table "attachments", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "local_image_file_name"
-    t.string   "local_image_content_type"
-    t.integer  "local_image_file_size"
-    t.datetime "local_image_updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
