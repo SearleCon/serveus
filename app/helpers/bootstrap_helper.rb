@@ -4,7 +4,7 @@ module BootstrapHelper
   end
 
   def nav_list
-    haml_tag :ul, class: 'nav nav-list', data: {content: '', title: 'Menu' }, rel: 'popover' do
+    haml_tag :ul, class: 'nav nav-list', data: {content: 'This is the menu' }, rel: 'popover' do
       haml_tag :li, 'Menu' ,class: 'nav-header'
       yield if block_given?
     end

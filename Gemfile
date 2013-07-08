@@ -133,6 +133,10 @@ gem 'jquery-rails-cdn'
 gem 'paratrooper'
 
 
+# Inbound mail
+gem 'incoming'
+
+
 
 
 

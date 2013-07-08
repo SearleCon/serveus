@@ -1,6 +1,9 @@
 Serveus::Application.routes.draw do
 
 
+  # Incoming emails
+  post '/incoming_emails', to: 'incoming_emails#create'
+
   # Feedback
   resource :feedback, controller: :feedback, only: [:new, :create]
 
