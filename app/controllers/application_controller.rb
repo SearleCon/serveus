@@ -13,6 +13,9 @@ class ApplicationController < ActionController::Base
 
   before_action :set_timezone
 
+  skip_before_action :verify_authenticity_token, if: :json_request?
+
+
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -34,6 +37,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource)
     new_feedback_url
+  end
+
+  def json_request?
+    request.format.json?
   end
 
   protected
