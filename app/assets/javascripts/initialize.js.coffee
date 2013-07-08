@@ -45,9 +45,19 @@ $(document).on "page:receive", $.unblockUI
 # Fetch time
 Temporal.detect
 
+# Flash messages
 $ ->
  flashCallback = ->
   $("#flash_message").fadeOut()
- $("#flash_message").on 'click', (ev) ->
+ $("#flash_message").on 'click', (ev) =>
   $("#flash_message").fadeOut()
  setTimeout flashCallback, 3000
+
+#Popovers
+$.fn.popover.defaults.placement='right';
+
+$(document).on 'click', '#help',(e) ->
+  e.preventDefault();
+  $("[rel='popover']").popover('toggle');
+
+

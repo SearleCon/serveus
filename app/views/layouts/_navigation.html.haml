@@ -3,6 +3,8 @@
   %li.active
     = link_to 'Home', root_path
 %ul.nav.pull-right
+  %li
+    = link_to glyph(:question_sign,:white).concat(' Help'), '#', id: 'help'
   - if user_signed_in?
     %li.dropdown
       %a.dropdown-toggle{data:{toggle: "dropdown"}, href: "#"}
