@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html, :js, :json
 
+  protect_from_forgery with: :exception
+
+
 
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
@@ -15,11 +18,6 @@ class ApplicationController < ActionController::Base
 
   skip_before_action :verify_authenticity_token, if: :json_request?
 
-
-
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
 
 
   private

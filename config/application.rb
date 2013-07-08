@@ -51,5 +51,15 @@ module Serveus
         s3_headers: {'Expires' => 1.year.from_now.httpdate,
                      'Content-Disposition' => 'inline'}
     }
+
+    if Rails.env.development?
+      tunnel = LocalTunnel::Tunnel.new(3000, nil)
+      response = tunnel.register_tunnel
+
+      # Start localtunnel in a detached process.
+      Process.detach fork { tunnel.start_tunnel }
+
+      ENV['LOCALTUNNEL'] = response['host']
+    end
   end
 end

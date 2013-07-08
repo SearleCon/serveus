@@ -55,5 +55,4 @@ Serveus::Application.configure do
   config.after_initialize do
     Delayed::Job.scaler  = :local
   end
-
 end
