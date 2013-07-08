@@ -7,7 +7,7 @@
   = link_to glyph(:folder_close).concat(' Close All'), close_all_incidents_path,  method: :patch, data: {confirm: 'Are you sure?'}
   %br
   %br
-  %table.table.table-bordered.sortable
+  %table.table.table-bordered.table-striped.sortable
     %thead
       %tr
         %th Name
@@ -24,7 +24,7 @@
   = link_to glyph(:folder_open).concat(' Reopen All'), reopen_all_incidents_path  ,method: :patch, data: {confirm: 'Are you sure?'}
   %br
   %br
-  %table.table.table-bordered.sortable
+  %table.table.table-bordered.table-striped.sortable
     %thead
       %tr
         %th Name
