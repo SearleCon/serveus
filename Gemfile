@@ -14,6 +14,10 @@ group :development do
 end
 
 
+# Nokogiri
+gem 'nokogiri'
+
+
 # Search
 gem "ransack", git: "git://github.com/ernie/ransack.git", branch: 'rails-4'
 
