@@ -17,6 +17,7 @@
 class Interaction < ActiveRecord::Base
   include Taggable
 
+  belongs_to :basket, touch: true
   belongs_to :incident, counter_cache: true, touch: true
   has_many :attachments, dependent: :destroy
 
@@ -25,6 +26,8 @@ class Interaction < ActiveRecord::Base
   before_validation :init_defaults
 
   default_scope -> { order(created_at: :desc) }
+
+  scope :unassigned, -> { where(incident_id: nil) }
 
 
   def attachments_array=(array)

@@ -1,5 +1,5 @@
 class FeedbackMailer < ActionMailer::Base
-  default from: 'ServeUS <info@servus.herokuapp.com>'
+  default from: 'ServeUS <info@serveus.herokuapp.com>'
 
   def notify_support(feedback)
     @feedback = feedback

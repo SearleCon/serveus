@@ -24,6 +24,7 @@
 #  invitation_limit       :integer
 #  invited_by_id          :integer
 #  invited_by_type        :string(255)
+#  name                   :string(255)
 #
 
 require 'spec_helper'

@@ -1,6 +1,4 @@
 Serveus::Application.routes.draw do
-
-
   # Feedback
   resource :feedback, controller: :feedback, only: [:new, :create]
 

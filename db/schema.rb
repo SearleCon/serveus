@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130707091450) do
+ActiveRecord::Schema.define(version: 20130709095054) do
 
   create_table "attachments", force: true do |t|
     t.string   "name"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20130707091450) do
   end
 
   add_index "attachments", ["interaction_id"], name: "index_attachments_on_interaction_id"
+
+  create_table "baskets", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -71,6 +77,7 @@ ActiveRecord::Schema.define(version: 20130707091450) do
     t.integer  "incident_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "basket_id"
   end
 
   add_index "interactions", ["incident_id"], name: "index_interactions_on_incident_id"

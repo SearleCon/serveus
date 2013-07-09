@@ -46,12 +46,6 @@ Serveus::Application.configure do
       password: ENV["GMAIL_PASSWORD"]
   }
 
-
-  config.logger = Logger.new(STDOUT)
-  config.logger.level =  Logger::DEBUG
-
-
-
   config.after_initialize do
     Delayed::Job.scaler  = :local
   end

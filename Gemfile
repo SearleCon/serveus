@@ -10,6 +10,7 @@ group :development do
   gem 'traceroute'
   gem 'rails-footnotes', '>= 3.7.9'
   gem 'quiet_assets'
+  gem 'jazz_hands'
 end
 
 
@@ -105,7 +106,7 @@ gem "remotipart", "~> 1.0"
 
 
 # Web Server
-gem 'unicorn'
+gem 'puma'
 
 # Env variables
 gem "figaro"

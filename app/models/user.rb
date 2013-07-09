@@ -24,11 +24,13 @@
 #  invitation_limit       :integer
 #  invited_by_id          :integer
 #  invited_by_type        :string(255)
+#  name                   :string(255)
 #
 
 class User < ActiveRecord::Base
   has_many :incidents, -> { includes :interactions}
   has_many :tags
+  has_one :basket
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
