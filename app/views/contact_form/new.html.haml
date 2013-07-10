@@ -1,3 +1,17 @@
+- content_for :head do
+  = javascript_include_tag '//platform.twitter.com/widgets.js'
+%h2 Contact and Support
+%br
+%h5 Got a question? Check these out:
+%h4= link_to 'Frequently Asked Questions', '#'
+%h5 Email us at:
+%h4
+%a{href: "mailto:Support@SearleConsulting.co.za"} Support@SearleConsulting.co.za
+%h5 Follow or Tweet us:
+%a.twitter-follow-button{data: {show_count: 'false', size: "large"}, href: "https://twitter.com/SearleCon"} Follow @SearleCon
+%a.twitter-mention-button{data: {size: "large"}, href: "https://twitter.com/intent/tweet?screen_name=SearleCon"} Tweet to @SearleCon
+
+%h5 Let us get back to you:
 = simple_form_for contact_form do |f|
   = errors_for contact_form
   = f.input :name, error: false, required: false
@@ -5,4 +19,4 @@
   = f.input :message, as: :text, required: false
   .hidden
     = f.input :nickname, hint: 'Leave this field blank!'
-  = f.button :submit, 'Send message'
+  = f.button :submit, 'Send message', class: 'btn btn-primary'
