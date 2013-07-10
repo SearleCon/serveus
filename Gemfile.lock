@@ -65,6 +65,8 @@ GEM
     annotate (2.5.0)
       rake
     arel (4.0.0)
+    asset-image-opt (0.0.3)
+      image_optim
     asset_sync (0.5.4)
       activemodel
       fog
@@ -167,6 +169,7 @@ GEM
       nokogiri (>= 1.4.4)
       ruby-hmac
     formatador (0.2.4)
+    fspath (2.0.4)
     griddler (0.5.0)
       htmlentities
       rails (>= 3.2.0)
@@ -190,6 +193,13 @@ GEM
     htmlentities (4.3.1)
     httpauth (0.2.0)
     i18n (0.6.4)
+    image_optim (0.8.1)
+      fspath (~> 2.0.3)
+      image_size (~> 1.1.2)
+      in_threads (~> 1.1.1)
+      progress (~> 2.4.0)
+    image_size (1.1.2)
+    in_threads (1.1.1)
     jazz_hands (0.5.1)
       awesome_print (~> 1.1.0)
       coderay (~> 1.0.9)
@@ -282,6 +292,7 @@ GEM
     premailer-rails (1.4.0)
       premailer (~> 1.7)
       rails (>= 3)
+    progress (2.4.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -410,6 +421,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.5.0)
+  asset-image-opt
   asset_sync
   aws-sdk
   better_errors

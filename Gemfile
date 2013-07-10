@@ -126,9 +126,10 @@ gem 'temporal-rails'
 # Place Holder Images
 gem 'placeholdit'
 
-# Asset Syncing
+# Asset Management
 gem 'asset_sync'
 gem 'jquery-rails-cdn'
+gem 'asset-image-opt'
 
 # Deploy
 gem 'paratrooper'
