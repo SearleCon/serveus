@@ -21,7 +21,7 @@ body {
   @include makeColumn(9);
 }
 .main-section{
- @include makeColumn(12);
+  @include makeColumn(12);
 }
 
 .content {

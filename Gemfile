@@ -5,11 +5,8 @@ ruby '2.0.0'
 
 group :development do
   gem "better_errors"
-  gem 'annotate', ">=2.5.0"
+  gem 'annotate', '~> 2.5.0'
   gem 'sqlite3'
-  gem 'traceroute'
-  gem 'rails-footnotes', '>= 3.7.9'
-  gem 'quiet_assets'
   gem 'jazz_hands'
 end
 
@@ -22,7 +19,7 @@ gem 'nokogiri'
 gem "ransack", git: "git://github.com/ernie/ransack.git", branch: 'rails-4'
 
 # Authentication
-gem 'devise', "3.0.0.rc"
+gem 'devise', "~> 3.0.0.rc"
 gem "devise-async"
 gem 'devise_invitable', git: "git://github.com/scambra/devise_invitable.git", branch: 'rails4'
 
