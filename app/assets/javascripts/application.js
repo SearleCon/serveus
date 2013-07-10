@@ -15,7 +15,6 @@
 //= require jquery.ui.effect-highlight
 //= require jquery.remotipart
 //= require jquery.blockUI
-//= require jquery.scrollTo
 //= require bootstrap
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager

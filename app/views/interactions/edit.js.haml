@@ -1,5 +1,5 @@
 $('#add_interaction').html("#{ j (render 'interactions/form')}");
-$('body').scrollTo('#add_interaction');
+$('html,body').animate({scrollTop: $('#add_interaction').offset().top},'slow');
 $(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', typeahead: true, prefilled: "#{j interaction.tag_names.join(',')}"});
 $('.datetime').datetimepicker();
 

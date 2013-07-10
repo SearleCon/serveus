@@ -5,5 +5,5 @@
   $(this).html("");
   });
   $("##{dom_id(interaction)}").html("#{j render interaction}");
-  $('body').scrollTo('##{dom_id(interaction)}');
+  $('html,body').animate({scrollTop: $('##{dom_id(interaction)}').offset().top},'slow');
   $("##{dom_id(interaction)}").effect("highlight", {}, 1500);
