@@ -139,4 +139,7 @@ SimpleForm.setup do |config|
 
   # Cache SimpleForm inputs discovery
   # config.cache_discovery = !Rails.env.development?
+
+  config.wrapper_mappings = { date_time_picker: :append }
+
 end

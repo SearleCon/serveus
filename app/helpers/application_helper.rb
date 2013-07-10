@@ -25,8 +25,8 @@ module ApplicationHelper
 
 
   # Simple_form
-  def format_for_datetimepicker(value)
-    Time.zone.at(value).strftime( "%d/%m/%Y %H:%M:%S %p") if value
+  def format_date_and_time(value, format =  "%d/%m/%Y %H:%M:%S %p")
+    Time.zone.at(value).strftime(format) if value
   end
 
   #Devise

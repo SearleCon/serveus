@@ -26,13 +26,6 @@ GIT
       polyamorous (~> 0.6.0)
 
 GIT
-  remote: git://github.com/rusanu/blockuijs-rails.git
-  revision: 5deb1d36a861327dd54002d559fcd0e6197a3c83
-  specs:
-    blockuijs-rails (0.1.0)
-      rails (>= 3.1)
-
-GIT
   remote: git://github.com/scambra/devise_invitable.git
   revision: 506c4bbc18bfa5461d79f77d4b272a0b47be3a23
   branch: rails4
@@ -432,7 +425,6 @@ DEPENDENCIES
   asset_sync
   aws-sdk
   better_errors
-  blockuijs-rails!
   bootbox-rails
   bootstrap-datetimepicker-rails
   bootstrap-sass (~> 2.3.2.0)

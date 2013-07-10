@@ -1,5 +1,5 @@
 - cache incident do
-  = content_tag_for(:tr, incident) do
+  %tr[incident]
     %td= link_to incident, incident_path(incident)
     %td= incident.interactions.size
     %td= l Time.zone.at(incident.created_at)

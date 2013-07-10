@@ -62,7 +62,6 @@ gem 'normalize-rails'
 gem 'bootswatch-rails'
 gem 'bootstrap-datetimepicker-rails'
 gem 'bootbox-rails'
-gem 'blockuijs-rails', git: 'git://github.com/rusanu/blockuijs-rails.git'
 
 
 
