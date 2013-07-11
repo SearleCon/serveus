@@ -8,6 +8,7 @@ group :development do
   gem 'annotate', '~> 2.5.0'
   gem 'sqlite3'
   gem 'jazz_hands'
+  gem 'quiet_assets'
 end
 
 

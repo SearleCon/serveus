@@ -38,6 +38,6 @@ class InteractionsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:s,:title_cont, :content_cont, :start_at_lteq, :start_at_gteq,:target_date_lteq, :target_date_gteq, :tags_name_in => []) if params[:q]
+    params.require(:q).permit(:s,:title_cont, :content_cont, :start_at_lteq, :start_at_gteq,:target_date_lteq, :target_date_gteq,:attachments_id_present, :tags_name_in => []) if params[:q]
   end
 end

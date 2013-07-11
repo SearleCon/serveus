@@ -3,6 +3,7 @@
   = simple_form_for :q, url: incident_interactions_path(incident), html: {method: :get} do |f|
     = f.input :title_cont, label: 'Title', required: false
     = f.input :content_cont, label: 'Content', required: false, as: :text
+    = f.input :attachments_id_present, label: 'Has attached files', required: false,  as: :boolean
     .datetime.input-append
       = f.input :start_at_gteq, required: false, wrapper: :append do
         = f.input_field :start_at_gteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
