@@ -142,6 +142,9 @@ gem 'griddler'
 # Dates
 gem 'stamp'
 
+# Browser
+gem 'browser'
+
 group :doc do
   gem 'sdoc', require: false
 end

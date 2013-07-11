@@ -19,16 +19,16 @@
     #main{role: "main"}
       .container
         .content
+          = render 'layouts/browser_warning'
+          = render 'layouts/messages'
           .row
             - if content_for?(:sidebar)
               .sidebar.well
                 = yield(:sidebar)
               .main-section-with-sidebar
-                = render 'layouts/messages'
                 = yield
             - else
               .main-section
-                = render 'layouts/messages'
                 = yield
     %footer.navbar.navbar-fixed-bottom.navbar-inverse
       .navbar-inner
