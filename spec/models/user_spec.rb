@@ -36,6 +36,7 @@ describe User do
 
  it {should have_many(:incidents)}
  it {should have_many(:tags)}
+ it {should have_one(:basket)}
 
  describe 'Callbacks' do
    describe 'after_commit' do
