@@ -23,8 +23,9 @@ describe Attachment do
   end
 
   it { should belong_to(:interaction).touch(true) }
-  it { should have_attached_file(:local_image) }
   it { should have_attached_file(:image) }
+  it { should validate_attachment_size(:image).
+                  less_than(1.megabytes) }
 
   describe 'Callbacks' do
     describe 'before_create' do
@@ -34,22 +35,9 @@ describe Attachment do
           it 'should set the attachment name to the filename' do
             attachment = build(:attachment)
             attachment.send(:set_name_to_file_name)
-            expect(attachment.name).to eql(File.basename(attachment.local_image_file_name, ".*"))
+            expect(attachment.name).to eql(File.basename(attachment.image_file_name, ".*"))
           end
       end
-    end
-
-    describe 'after_save' do
-      it { described_class._save_callbacks.select { |cb| cb.kind.eql?(:after) }.collect(&:filter).should include(:queue_upload_to_s3) }
-
-      describe '#queue_upload_to_s3' do
-        it 'should queue an upload job in delayed job' do
-          attachment = build(:attachment)
-          attachment.send(:queue_upload_to_s3)
-          expect(Delayed::Job.last.handler).to include(ImageJob.to_s)
-        end
-      end
-
     end
   end
 

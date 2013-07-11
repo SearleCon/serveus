@@ -68,6 +68,6 @@ class User < ActiveRecord::Base
   end
 
   def send_welcome_mail
-    UserMailer.delay.welcome(self) if persisted?
+    Delayed::Job.enqueue WelcomeMailJob.new(self.id)
   end
 end

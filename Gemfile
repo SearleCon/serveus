@@ -138,6 +138,10 @@ gem 'paratrooper'
 # Inbound mail
 gem 'griddler'
 
+
+# Dates
+gem 'stamp'
+
 group :doc do
   gem 'sdoc', require: false
 end

@@ -21,7 +21,7 @@ class Interaction < ActiveRecord::Base
   belongs_to :incident, counter_cache: true, touch: true
   has_many :attachments, dependent: :destroy
 
-  validates :title, :content, presence: true
+  validates  :content, presence: true
 
   before_validation :init_defaults
 
@@ -41,7 +41,7 @@ class Interaction < ActiveRecord::Base
 
   private
   def init_defaults
-     self.start_at = Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p") if self.start_at.blank?
-     self.title = "Interaction#{Time.zone.now.strftime("%d/%m/%Y %H:%M:%S %p")}"  if self.title.blank?
+     self.start_at = Time.zone.now if self.start_at.blank?
+     self.title = "Interaction#{Time.zone.now.to_s(:default)}"  if self.title.blank?
   end
 end

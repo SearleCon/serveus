@@ -2,8 +2,8 @@
   %tr[incident]
     %td= link_to incident, incident_path(incident)
     %td= incident.interactions.size
-    %td= l Time.zone.at(incident.created_at)
-    %td= l Time.zone.at(incident.updated_at)
+    %td= Time.zone.at(incident.created_at).to_s(:default)
+    %td= Time.zone.at(incident.updated_at).to_s(:default)
     %td= link_to glyph(:info_sign).concat(' View'), incident
     %td= link_to glyph(:edit).concat(' Edit'), edit_incident_path(incident), id: 'edit_incident', remote: true
 

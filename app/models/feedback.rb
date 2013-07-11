@@ -16,6 +16,6 @@ class Feedback < ActiveRecord::Base
 
   private
   def notify_support
-    FeedbackMailer.delay.notify_support(self) if persisted?
+    Delayed::Job.enqueue FeedbackMailJob.new(self.id)
   end
 end

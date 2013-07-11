@@ -37,4 +37,18 @@ describe User do
  it {should have_many(:incidents)}
  it {should have_many(:tags)}
 
+ describe 'Callbacks' do
+   describe 'after_commit' do
+     it { described_class._commit_callbacks.select { |cb| cb.kind.eql?(:after) }.collect(&:filter).should include(:send_welcome_mail) }
+
+     describe '#send_welcome_mail' do
+       it 'should send a welcome email to the user' do
+         user = build(:user)
+         user.send(:send_welcome_mail)
+         expect(Delayed::Job.last.handler).to include(WelcomeMailJob.to_s)
+       end
+     end
+   end
+ end
+
 end

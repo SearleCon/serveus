@@ -25,7 +25,6 @@ describe Interaction do
   it { should have_many(:attachments) }
 
 
-  it { should validate_presence_of(:title) }
   it { should validate_presence_of(:content) }
 
 

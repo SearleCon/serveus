@@ -18,7 +18,6 @@ class Attachment < ActiveRecord::Base
   belongs_to :interaction, touch: true
 
   before_create :set_name_to_file_name
-  before_destroy :destroy_images
 
 
   #PaperClip
@@ -37,7 +36,4 @@ class Attachment < ActiveRecord::Base
     self.name = File.basename(image_file_name, ".*") if image?
   end
 
-  def destroy_images
-    self.image.destroy if self.image?
-  end
 end
