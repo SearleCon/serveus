@@ -1,0 +1,8 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate trashable Thing
+
+    This will create:
+        Add trashed column to table

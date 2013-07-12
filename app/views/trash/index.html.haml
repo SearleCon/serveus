@@ -1,0 +1,19 @@
+%h2 Trash
+
+%table.table.table-striped.sortable
+  %thead
+    %tr
+      %th Name
+      %th Trashed Date
+      %td
+      %td
+    %tbody
+    - trashed.each do |item|
+      - haml_tag :tr do
+        %td= item
+        %td= item.updated_at.to_s(:default)
+        %td= link_to glyph(:ok_sign).concat(' Restore'), restore_trash_path(item), method: :patch
+        %td= link_to glyph(:remove_sign).concat(' Destroy'), destroy_trash_path(item), method: :delete
+
+
+

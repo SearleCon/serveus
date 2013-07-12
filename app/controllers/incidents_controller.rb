@@ -53,7 +53,7 @@ class IncidentsController < ApplicationController
 
   private
   def incident_params
-    params.require(:incident).permit(:name) if params[:incident]
+    params.require(:incident).permit(:name, :trashed) if params[:incident]
   end
 
   def interpolation_options

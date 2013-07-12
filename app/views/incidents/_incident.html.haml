@@ -6,8 +6,9 @@
     %td= Time.zone.at(incident.updated_at).to_s(:default)
     %td= link_to glyph(:info_sign).concat(' View'), incident
     %td= link_to glyph(:edit).concat(' Edit'), edit_incident_path(incident), id: 'edit_incident', remote: true
-
     - if incident.open?
       %td= link_to glyph(:folder_close).concat(' Close'), close_incident_path(incident), method: :patch, data: {confirm: 'Are you sure?'}
     - else
       %td= link_to glyph(:folder_open).concat(' ReOpen'), reopen_incident_path(incident), method: :patch, data: {confirm: 'Are you sure?'}
+      %td= link_to glyph(:remove_sign).concat(' Trash'), incident_path(incident), method: :delete, data: {confirm: 'Are you sure?'}
+

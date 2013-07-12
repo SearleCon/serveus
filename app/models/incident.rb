@@ -12,8 +12,10 @@
 #
 
 class Incident < ActiveRecord::Base
+  include Trashable
+
   belongs_to :user
-  has_many :interactions,-> { includes :attachments, :tags },dependent: :destroy
+  has_many :interactions, -> { includes :attachments, :tags },dependent: :destroy
 
   validates :name, presence: true
   validates :user, presence: true
@@ -35,11 +37,11 @@ class Incident < ActiveRecord::Base
    interactions.map(&:tag_names).uniq.flatten
   end
 
+
   private
   def init
     if new_record?
      self.open = true
     end
   end
-
 end
