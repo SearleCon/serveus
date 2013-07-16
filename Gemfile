@@ -20,7 +20,7 @@ gem 'nokogiri'
 gem "ransack", git: "git://github.com/ernie/ransack.git", branch: 'rails-4'
 
 # Authentication
-gem 'devise', "~> 3.0.0.rc"
+gem 'devise', "~> 3.0.0"
 gem "devise-async"
 gem 'devise_invitable', git: "git://github.com/scambra/devise_invitable.git", branch: 'rails4'
 
@@ -64,7 +64,7 @@ gem 'bootbox-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

@@ -12,6 +12,11 @@ module Trashable
 
   def restore
     update_column :trashed, false
+    @restored = true
+  end
+
+  def restored?
+    @restored ||= false
   end
 
   def destroy
@@ -22,6 +27,10 @@ module Trashable
   module ClassMethods
     def trash_all
       update_all(trashed: true)
+    end
+
+    def empty
+      destroy_all(trashed: true)
     end
 
     def restore_all

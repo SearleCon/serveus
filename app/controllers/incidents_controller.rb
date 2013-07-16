@@ -59,8 +59,4 @@ class IncidentsController < ApplicationController
   def interpolation_options
     { resource_name: incident.name }
   end
-
-  def discard_flash
-    flash.discard
-  end
 end

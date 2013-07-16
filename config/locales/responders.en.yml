@@ -16,3 +16,11 @@ en:
     feedback:
       create:
         notice: "Thank you for the feedback."
+        alert: "Feedback could not be created."
+    trash:
+      restore_all:
+        notice: "All items successfully restored."
+        alert: "An error occurred, trash could not be restored."
+      empty:
+        notice: "Trash was successfully emptied."
+        alert: "An error occurred, trash could not be emptied."

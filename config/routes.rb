@@ -3,12 +3,10 @@ Serveus::Application.routes.draw do
 
   # Trash
     get "trash/index", as: :trashcan
-    patch 'trash/restore/:id', to: 'trash#restore', as: :restore_trash
-    patch "trash/restore_all", as: :restore_all_trash
-    delete "trash/destroy/:id", to: 'trash#destroy', as: :destroy_trash
-    delete "trash/empty", to: 'trash#empty', as: :empty_trash
-
-
+    patch "trash/restore", as: :restore_items
+    patch "trash/restore_all", as: :restore_all
+    delete "trash/destroy", as: :destroy_items
+    delete "trash/empty", as: :empty_trash
 
 
   # Feedback

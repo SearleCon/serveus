@@ -1,19 +1,31 @@
-%h2 Trash
+= content_for :sidebar do
+  - nav_list do
+    %li= link_to glyph(:home).concat(" Home"), incidents_path
+    %li= link_to glyph(:ok).concat(" Restore All"), restore_all_path, method: :patch
+    %li= link_to glyph(:remove).concat(" Empty"), empty_trash_path, method: :delete
+    %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
+  %br
+  %br
 
-%table.table.table-striped.sortable
-  %thead
-    %tr
-      %th Name
-      %th Trashed Date
-      %td
-      %td
-    %tbody
-    - trashed.each do |item|
-      - haml_tag :tr do
-        %td= item
-        %td= item.updated_at.to_s(:default)
-        %td= link_to glyph(:ok_sign).concat(' Restore'), restore_trash_path(item), method: :patch
-        %td= link_to glyph(:remove_sign).concat(' Destroy'), destroy_trash_path(item), method: :delete
+%h3.text-center Trash
+- if trashed.any?
+  = simple_form_for :trashed, html: {id: 'trashcan'} do |f|
+    %table.table.table-striped.sortable
+      %thead
+        %tr
+          %th Name
+          %th Trashed Date
+          %th
+        %tbody
+        - trashed.each do |item|
+          %tr[item]
+            %td= check_box_tag "item_ids[]", item.id
+            %td= item
+            %td= item.updated_at.to_s(:default)
 
+    = f.submit 'Restore', class: 'btn btn-success', data: { url: restore_items_path }, id: 'restore_trash'
+    = f.submit 'Destroy', class: 'btn btn-danger', data: { url: destroy_items_path }, id: 'empty_trash'
+- else
+  %h4.text-center Your trash can is currently empty
 
 

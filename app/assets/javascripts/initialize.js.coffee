@@ -55,9 +55,34 @@ $ ->
 
 #Popovers
 $.fn.popover.defaults.placement='right';
+$.fn.popover.defaults.trigger='manual';
 
-$(document).on 'click', '#help',(e) ->
-  e.preventDefault();
-  $("[rel='popover']").popover('toggle');
+
+$(document).on 'click','#help',(e) ->
+  e.preventDefault()
+  $("[rel='popover']").popover('toggle')
+
+
+$(document).on 'click', '#restore_trash',(evt) ->
+  evt.preventDefault()
+  bootbox.confirm "Are you sure?",(result) ->
+   if result
+     $.ajax
+       type: 'PATCH'
+       url: $('#restore_trash').data('url')
+       data:$('#trashcan').serialize()
+       dataType: 'script'
+
+
+$(document).on 'click', '#empty_trash',(evt) ->
+  evt.preventDefault()
+  bootbox.confirm "Are you sure?",(result) ->
+   if result
+    $.ajax
+      type: 'DELETE'
+      url: $('#empty_trash').data('url')
+      data:$('#trashcan').serialize()
+      dataType: 'script'
+
 
 
