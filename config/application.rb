@@ -23,7 +23,7 @@ module Serveus
 
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.precompile += ['incidents.js']
+    config.assets.precompile += %w(pdf.css.scss)
 
     config.exceptions_app = self.routes
 
