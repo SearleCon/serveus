@@ -8,11 +8,11 @@ class IncidentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    respond_with(incidents)
+    fresh_when(incidents, last_modified: incidents.maximum(:updated_at))
   end
 
   def show
-    respond_with(incident)
+    fresh_when(incident)
   end
 
 
@@ -50,6 +50,14 @@ class IncidentsController < ApplicationController
   def reopen_all
     incidents.closed.update_all(open: true)
     respond_with(incidents, location: incidents_url)
+  end
+
+  def print
+    respond_with(incident, file_name: "#{incident.name}_#{Time.zone.now.to_i}".downcase)
+  end
+
+  def print_all
+    respond_with(incidents, file_name: "incidents_#{Time.zone.now.to_i}")
   end
 
   private
