@@ -1,4 +1,4 @@
 = simple_form_for feedback, url: feedback_path do |f|
-  = f.input :subject
-  = f.input :comment
+  = f.input :subject, required: false
+  = f.input :comment, required: false
   = f.submit 'Submit', class: 'btn btn-primary'

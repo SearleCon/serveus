@@ -1,5 +1,6 @@
 class IncidentsController < ApplicationController
-  respond_to :html, :js, :json
+  respond_to :html, :js, :json, :pdf
+
 
   expose(:incidents) { current_user.incidents.order(created_at: :desc) }
   expose(:incident, attributes: :incident_params)
@@ -7,11 +8,11 @@ class IncidentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    fresh_when(incidents, last_modified: incidents.maximum(:updated_at))
+    respond_with(incidents)
   end
 
   def show
-    fresh_when(incident)
+    respond_with(incident)
   end
 
 

@@ -1,38 +1,32 @@
+= content_for :sidebar do
+  - nav_list do
+    %li= link_to glyph(:home).concat(" Home"), incidents_path
+    %li= link_to glyph(:refresh).concat(' Clear Results'), incident_interactions_path(incident)
+    %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
+
+  %br
+  %br
+
 .search
   %h5 Search Interactions
   = simple_form_for :q, url: incident_interactions_path(incident), html: {method: :get} do |f|
     = f.input :title_cont, label: 'Title', required: false
     = f.input :content_cont, label: 'Content', required: false, as: :text
     = f.input :attachments_id_present, label: 'Has attached files', required: false,  as: :boolean
-    .datetime.input-append
-      = f.input :start_at_gteq, required: false, wrapper: :append do
-        = f.input_field :start_at_gteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-        %span.add-on
-          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    = f.input :start_at_gteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
     and
-    .datetime.input-append
-      = f.input :start_at_lteq, required: false, wrapper: :append do
-        = f.input_field :start_at_lteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-        %span.add-on
-          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    = f.input :start_at_lteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
     %br
-    .datetime.input-append
-      = f.input :target_date_gteq, required: false, wrapper: :append do
-        = f.input_field :target_date_gteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-        %span.add-on
-          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    = f.input :target_date_gteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
     and
-    .datetime.input-append
-      = f.input :target_date_lteq, required: false, wrapper: :append do
-        = f.input_field :target_date_lteq, as: :string, data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-        %span.add-on
-          %i{data: {date_icon: 'icon-calendar', data_time_icon: 'icon-time'} }
+    = f.input :target_date_lteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
+    %br
     = f.input :tags_name_in, label: 'Tags', collection: incident.tag_cloud, required: false, as: :check_boxes, item_wrapper_class: :inline
 
 
 
-    %br/
-    = f.submit "search", class: 'btn btn-primary'
+    %br
+    = f.submit "Search", class: 'btn btn-primary'
 
 
 

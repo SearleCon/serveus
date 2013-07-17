@@ -10,8 +10,9 @@
  *
  *= require bootstrap-tagmanager
  *= require normalize-rails
+ *= require bootstrap_and_overrides
+ *= require bootstrap-sortable
  *= require_self
- *= require_tree .
  */
 
 html, body {

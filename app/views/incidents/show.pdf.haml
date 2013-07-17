@@ -1,0 +1,18 @@
+%h2.text-center= "#{incident}"
+#interactions
+  - incident.interactions.each do |interaction|
+    %div
+      %h4= interaction.title.titleize
+      %p= simple_format(interaction.content)
+      %h5 Files
+      %ul.inline{id: 'attachments'}
+        -interaction.attachments.each do |a|
+          %li= a.name.titleize
+
+      %div
+        %start_date= "Started #{Time.zone.at(interaction.start_at).to_s(:default)}" if interaction.start_at
+        %contact_detail= interaction.contact_info.presence
+        .pull-right
+          - interaction.tag_names.each do |tag_name|
+            %tags
+              = tag_name

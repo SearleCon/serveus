@@ -146,6 +146,12 @@ gem 'stamp'
 # Browser
 gem 'browser'
 
+# PDF
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary"
+
+
+
 group :doc do
   gem 'sdoc', require: false
 end

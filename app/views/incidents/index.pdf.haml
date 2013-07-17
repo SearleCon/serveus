@@ -1,0 +1,23 @@
+%h3 Incidents
+%br
+%br
+%table.table.table-bordered.table-striped.sortable
+  %thead
+    %tr
+      %th Name
+      %th Interactions
+      %th Created
+      %th Updated
+      %th Status
+  %tbody
+    - incidents.order(open: :desc).each do |incident|
+      %tr[incident]
+        %td= incident
+        %td= incident.interactions.size
+        %td= Time.zone.at(incident.created_at).to_s(:default)
+        %td= Time.zone.at(incident.updated_at).to_s(:default)
+        - if incident.open
+          %td Open
+        - else
+          %td Closed
+
