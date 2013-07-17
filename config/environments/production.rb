@@ -97,9 +97,6 @@ Serveus::Application.configure do
   config.logger.level =  Logger::INFO
 
 
-
-
-
   config.after_initialize do
     Delayed::Job.scaler = :heroku_cedar
   end
