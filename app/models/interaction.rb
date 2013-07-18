@@ -28,6 +28,7 @@ class Interaction < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
 
   scope :unassigned, -> { where(incident_id: nil) }
+  scope :targeted, -> { where.not(target_date: nil) }
 
 
   def attachments_array=(array)

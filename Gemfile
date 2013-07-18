@@ -36,8 +36,8 @@ gem "mail_view", "~> 1.0.3"
 
 
 # Background Processing
-gem 'delayed_job', git: 'git://github.com/collectiveidea/delayed_job.git', branch: 'master'
-gem 'delayed_job_active_record', git: 'git://github.com/collectiveidea/delayed_job_active_record.git', branch: 'master'
+gem "delayed_job", "~> 4.0.0.beta2"
+gem "delayed_job_active_record", "~> 4.0.0.beta3"
 gem 'daemons'
 gem 'heroku-api'
 gem 'rush'

@@ -20,8 +20,6 @@ module Taggable
   end
 
 
-
-
   def update_tags(names, user)
     tag_list = convert_to_tag_list(names)
     current_tags = tag_names
