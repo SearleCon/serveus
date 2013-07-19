@@ -5,22 +5,13 @@ module Delayed
     module Scaler
 
       class Local < Base
-        def self.scale
-          if self.jobs.size > 0
-            Rush::Box.new[Rails.root].bash("bin/delayed_job start -i autoscaler", background: true) if self.workers == 0
-            sleep 1
-          else
-            Rush::Box.new[Rails.root].bash("bin/delayed_job stop -i autoscaler", background: true) if self.workers > 0
-          end
-        end
-
         def self.up
           Rush::Box.new[Rails.root].bash("bin/delayed_job start -i autoscaler", background: true) if self.workers == 0
-          sleep 1
+          sleep 5
         end
 
         def self.down
-          Rush::Box.new[Rails.root].bash("bin/delayed_job stop -i autoscaler", background: true) if self.workers > 0
+          Rush::Box.new[Rails.root].bash("bin/delayed_job stop -i autoscaler", background: true) unless self.workers == 0 || self.jobs.size > 1
         end
 
         def self.workers

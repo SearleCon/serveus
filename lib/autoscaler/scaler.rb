@@ -11,7 +11,8 @@ module Delayed
       def self.included(base)
         base.send :extend, ClassMethods
         base.class_eval do
-          after_commit "self.class.scaler.scale"
+          after_commit "self.class.scaler.up", on: :create
+          after_commit "self.class.scaler.down", on: :destroy
         end
       end
 

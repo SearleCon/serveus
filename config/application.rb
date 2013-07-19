@@ -27,7 +27,7 @@ module Serveus
 
     config.exceptions_app = self.routes
 
-    config.autoload_paths << "#{Rails.root}/app/jobs"
+    #config.autoload_paths << "#{Rails.root}/app/jobs"
 
 
     config.generators do |g|
