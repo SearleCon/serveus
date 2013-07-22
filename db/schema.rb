@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712105730) do
+ActiveRecord::Schema.define(version: 20130722130002) do
 
   create_table "attachments", force: true do |t|
     t.string   "name"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20130712105730) do
     t.datetime "image_updated_at"
     t.integer  "interaction_id"
     t.boolean  "image_processing"
+    t.string   "local_image_file_name"
+    t.string   "local_image_content_type"
+    t.integer  "local_image_file_size"
+    t.datetime "local_image_updated_at"
   end
 
   add_index "attachments", ["interaction_id"], name: "index_attachments_on_interaction_id"
