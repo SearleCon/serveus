@@ -19,7 +19,7 @@ class Attachment < ActiveRecord::Base
   belongs_to :interaction, touch: true
 
   #PaperClip
-  has_attached_file :local_image, path: "#{RAILS_ROOT}/tmp"
+  has_attached_file :local_image, path: "#{Rails.root}/tmp"
   has_attached_file :image, storage: :s3, path: 'serveus/images/:id/:style/:filename'
   validates_attachment_size :local_image, less_than: 1.megabyte
 
