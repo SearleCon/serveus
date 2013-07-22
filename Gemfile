@@ -101,7 +101,7 @@ gem 'bust_rails_etags'
 gem 'decent_exposure'
 
 # File uploads
-gem 'delayed_paperclip'
+gem 'paperclip'
 gem 'aws-sdk'
 gem "remotipart", "~> 1.0"
 
@@ -149,7 +149,6 @@ gem 'browser'
 # PDF
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary"
-
 
 
 group :doc do

@@ -4,10 +4,10 @@
   .row
     .span3
       = f.input :title, required: false, placeholder: 'Optional'
-      = f.input :start_at, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}, value: format_date_and_time(f.object.start_at)}
+      = f.input :start_at, as: :date_time_picker, placeholder: 'Optional'
       = f.input :contact_person, required: false, placeholder: 'Optional'
       = f.input :contact_detail, required: false, placeholder: 'Optional'
-      = f.input :target_date, as: :date_time_picker, placeholder: 'Optional', input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}, value: format_date_and_time(f.object.target_date)}
+      = f.input :target_date, as: :date_time_picker, placeholder: 'Optional'
       %label Tags
       %input.span1{type: "text", name: 'tags', class: 'tm-input', hiddenTagListId: "Bob,James"}
       %br

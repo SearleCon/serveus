@@ -1,5 +1,5 @@
 $('#add_interaction').html("#{escape_javascript(render 'interactions/form')}").hide().slideDown('slow');
-$(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', typeahead: true});
+$(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', typeahead: true, tagClass:'tm-tag-info'});
 $('.datetime').datetimepicker();
 
 

@@ -53,6 +53,9 @@ $ ->
   $("#flash_message").fadeOut()
  setTimeout flashCallback, 3000
 
+ $('.datetime').datetimepicker();
+
+
 #Popovers
 $.fn.popover.defaults.placement='right';
 $.fn.popover.defaults.trigger='manual';
@@ -61,6 +64,11 @@ $.fn.popover.defaults.trigger='manual';
 $(document).on 'click','#help',(e) ->
   e.preventDefault()
   $("[rel='popover']").popover('toggle')
+
+$(document).on 'click','#toggle_search',(e) ->
+  e.preventDefault()
+  $(".search").fadeToggle("slow", "linear");
+
 
 
 $(document).on 'click', '#restore_trash',(evt) ->

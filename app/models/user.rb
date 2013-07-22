@@ -52,6 +52,7 @@ class User < ActiveRecord::Base
       user = create do |new_user|
         new_user.provider = auth.provider
         new_user.uid = auth.uid
+        new_user.name = auth.info.name
         new_user.email = auth.info.email
         new_user.password =  Devise.friendly_token[0,20]
       end

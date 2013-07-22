@@ -3,7 +3,7 @@
     %h4= interaction.title.titleize
     %p= simple_format(interaction.content)
     %ul.inline{id: 'attachments'}
-      -interaction.attachments.each do |a|
+      - interaction.attachments.each do |a|
         %li= link_to glyph(:file).concat( a.name.titleize), download_attachment_path(a), target: '_blank'
     %div
       = link_to glyph(:edit).concat(' Edit'), edit_incident_interaction_path(incident,interaction), remote: true

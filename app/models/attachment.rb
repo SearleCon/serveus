@@ -15,25 +15,20 @@
 #
 
 class Attachment < ActiveRecord::Base
+
   belongs_to :interaction, touch: true
 
-  before_create :set_name_to_file_name
-
-
   #PaperClip
-  has_attached_file :image,
-                    storage:         :s3,
-                    path:            "serveus/images/:id/:style/:filename"
-
-  process_in_background :image
-
-
+  has_attached_file :image, storage: :s3, path: 'serveus/images/:id/:style/:filename'
   validates_attachment_size :image, less_than: 1.megabyte
 
 
+  before_create :set_name_to_file_name
+
   private
   def set_name_to_file_name
-    self.name = File.basename(image_file_name, ".*") if image?
+     self.name = File.basename(image_file_name, ".*") if image?
   end
+
 
 end

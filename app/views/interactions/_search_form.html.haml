@@ -1,0 +1,22 @@
+= simple_form_for :q, url: incident_interactions_path(incident), html: {method: :get, class: 'form-inline'} do |f|
+  .row
+    = f.input :title_cont, label: 'Title', required: false, wrapper_html: {class: 'span3'}
+    = f.input :content_cont, label: 'Content', required: false, as: :text, wrapper_html: {class: 'span3'}
+  %br
+  = f.input :attachments_id_present, label: 'Has attached files', required: false,  as: :boolean
+  %br
+  %p Start At between:
+  .row
+    = f.input :start_at_gteq, placeholder: 'Starting', required: false, label: false, as: :date_time_picker, wrapper_html: {class: 'span3'}
+    = f.input :start_at_lteq, placeholder: 'Ending', required: false, label: false,as: :date_time_picker, wrapper_html: {class: 'span3'}
+  %p Target date between:
+  .row
+    = f.input :target_date_gteq, placeholder: 'Starting', required: false, label: false, as: :date_time_picker, wrapper_html: {class: 'span3'}
+    = f.input :target_date_lteq, placeholder: 'Ending', required: false, label: false,as: :date_time_picker, wrapper_html: {class: 'span3'}
+  %br
+  = f.input :tags_name_in, label: 'Tags', collection: incident.tag_cloud, required: false, as: :check_boxes, item_wrapper_class: :inline
+
+
+
+  %br
+  = f.submit "Search", class: 'btn btn-primary'

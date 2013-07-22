@@ -24,11 +24,6 @@ module ApplicationHelper
   end
 
 
-  # Simple_form
-  def format_date_and_time(value, format =  "%d/%m/%Y %H:%M:%S %p")
-    Time.zone.at(value).strftime(format) if value
-  end
-
   #Devise
   def resource_name
     :user

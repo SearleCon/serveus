@@ -52,3 +52,15 @@ start_date{
   @include makeColumn(12);
 }
 
+
+#Tabs
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 10px;
+}
+
+.nav-tabs {
+  margin-bottom: -1px;
+}
+

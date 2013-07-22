@@ -1,9 +1,9 @@
 - if interaction.errors.any?
   $('#errors').html("#{j errors_for(interaction)}");
 - else
-  $('#add_interaction').slideUp("slow", function(){
-  $(this).html("");
-  });
-  $("##{dom_id(interaction)}").html("#{j render interaction}");
+  $('#add_interaction').slideUp("slow");
+  updated_interaction = $("#{j render interaction}");
+  edited_interaction = $('##{dom_id(interaction)}');
+  edited_interaction.replaceWith(updated_interaction);
   $('html,body').animate({scrollTop: $('##{dom_id(interaction)}').offset().top},'slow');
   $("##{dom_id(interaction)}").effect("highlight", {}, 1500);

@@ -1,39 +1,16 @@
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
+    %li= link_to glyph(:filter).concat(' Show/Hide Search'), '#', id: 'toggle_search'
     %li= link_to glyph(:refresh).concat(' Clear Results'), incident_interactions_path(incident)
     %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
 
   %br
   %br
 
-.search
-  %h5 Search Interactions
-  = simple_form_for :q, url: incident_interactions_path(incident), html: {method: :get} do |f|
-    = f.input :title_cont, label: 'Title', required: false
-    = f.input :content_cont, label: 'Content', required: false, as: :text
-    = f.input :attachments_id_present, label: 'Has attached files', required: false,  as: :boolean
-    = f.input :start_at_gteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-    and
-    = f.input :start_at_lteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-    %br
-    = f.input :target_date_gteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-    and
-    = f.input :target_date_lteq, as: :date_time_picker, placeholder: 'Optional',input_html: {data: {format: "dd/MM/yyyy hh:mm:ss PP"}
-    %br
-    = f.input :tags_name_in, label: 'Tags', collection: incident.tag_cloud, required: false, as: :check_boxes, item_wrapper_class: :inline
-
-
-
-    %br
-    = f.submit "Search", class: 'btn btn-primary'
-
-
-
-
-
-
-
+.search.well
+  %h3 Search Interactions
+  = render partial: 'search_form'
 
 .search-results
   %h3= "Search Results (#{interactions.result.size})"
