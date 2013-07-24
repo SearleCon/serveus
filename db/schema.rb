@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130722155244) do
+ActiveRecord::Schema.define(version: 20130724104702) do
 
   create_table "attachments", force: true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20130722155244) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "interactions_count", default: 0
   end
 
   create_table "delayed_jobs", force: true do |t|

@@ -7,11 +7,12 @@ module Trashable
   end
 
   def trash
-    update_column(:trashed, true) and freeze
+    update trashed: true
+    freeze
   end
 
   def restore
-    update_column :trashed, false
+    update trashed: false
     @restored = true
   end
 

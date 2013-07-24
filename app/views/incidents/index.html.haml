@@ -1,6 +1,7 @@
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
+    %li= link_to glyph(:inbox).concat("Assign Interactions (#{current_user.basket.interactions.size})"), basket_path
     %li= link_to glyph(:print).concat(' Print'), print_all_incidents_path(format: :pdf), target: '_blank'
     %li= link_to glyph(:trash).concat(" Trash (#{incidents.trashed.size})"), trashcan_path
 
@@ -20,34 +21,18 @@
         #new_incident.well
           %h5 New Incident
           = render 'form'
-
         = link_to glyph(:folder_close).concat(' Close All'), close_all_incidents_path,  method: :patch, data: {confirm: 'Are you sure?'}
         %br
         %br
-        %table.table.table-bordered.table-striped.sortable
-          %thead
-            %tr
-              %th Name
-              %th Interactions
-              %th Created
-              %th Updated
-          %tbody
-            = render incidents.open
-
+        - bootstrap_table headers:['Name', 'Interactions', 'Created', 'Updated'], types: [:bordered, :striped], html_options: {class: 'sortable'} do
+          = render incidents.open
       #closed.tab-pane
         %br
         = link_to glyph(:folder_open).concat(' Reopen All'), reopen_all_incidents_path  ,method: :patch, data: {confirm: 'Are you sure?'}
         %br
         %br
-        %table.table.table-bordered.table-striped.sortable
-          %thead
-            %tr
-              %th Name
-              %th Interactions
-              %th Created
-              %th Updated
-            %tbody
-              = render incidents.closed
+        - bootstrap_table headers:['Name', 'Interactions', 'Created', 'Updated'], types: [:bordered, :striped], html_options: {class: 'sortable'} do
+          = render incidents.closed
 
 
 

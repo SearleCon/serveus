@@ -38,6 +38,7 @@ class Incident < ActiveRecord::Base
   end
 
 
+
   private
   def init
     if new_record?

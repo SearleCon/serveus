@@ -31,7 +31,6 @@ class InteractionsController < ApplicationController
     respond_with(interaction)
   end
 
-
   private
   def interaction_params
     params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail, :attachments_array => [])

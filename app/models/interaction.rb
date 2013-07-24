@@ -17,7 +17,7 @@
 class Interaction < ActiveRecord::Base
   include Taggable
 
-  belongs_to :basket, touch: true
+  belongs_to :basket, counter_cache: true, touch: true
   belongs_to :incident, counter_cache: true, touch: true
   has_many :attachments, dependent: :destroy
 

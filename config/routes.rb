@@ -1,12 +1,21 @@
 Serveus::Application.routes.draw do
 
 
+
+  #Basket
+  controller :basket do
+    get '/basket/show', as: :basket
+    patch '/basket/update', as: :update_basket
+  end
+
+
+
   # Trash
-    get "trash/index", as: :trashcan
-    patch "trash/restore", as: :restore_items
-    patch "trash/restore_all", as: :restore_all
-    delete "trash/destroy", as: :destroy_items
-    delete "trash/empty", as: :empty_trash
+  get "trash/index", as: :trashcan
+  patch "trash/restore", as: :restore_items
+  patch "trash/restore_all", as: :restore_all
+  delete "trash/destroy", as: :destroy_items
+  delete "trash/empty", as: :empty_trash
 
 
   # Feedback

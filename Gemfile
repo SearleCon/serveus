@@ -150,7 +150,6 @@ gem 'browser'
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary"
 
-
 group :doc do
   gem 'sdoc', require: false
 end
@@ -173,8 +172,6 @@ group :test do
   gem 'json_spec'
   gem 'email_spec'
 end
-
-
 
 
 group :production do
