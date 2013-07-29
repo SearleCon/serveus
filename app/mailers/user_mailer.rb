@@ -7,4 +7,5 @@ class UserMailer < ActionMailer::Base
     mail(to: user.email,
          subject: "Welcome to ServUs")
   end
+
 end

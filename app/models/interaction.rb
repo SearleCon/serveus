@@ -12,6 +12,7 @@
 #  incident_id    :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  basket_id      :integer
 #
 
 class Interaction < ActiveRecord::Base
@@ -36,7 +37,11 @@ class Interaction < ActiveRecord::Base
   end
 
   def contact_info
-    "Contacted #{self.contact_person} via #{self.contact_detail}" if self.contact_person?
+    if self.contact_person?
+     "Contacted #{self.contact_person} via #{self.contact_detail}"
+    else
+      "Contacted #{self.contact_detail}"
+    end
   end
 
 

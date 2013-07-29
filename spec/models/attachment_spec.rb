@@ -2,16 +2,20 @@
 #
 # Table name: attachments
 #
-#  id                 :integer          not null, primary key
-#  name               :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  image_file_name    :string(255)
-#  image_content_type :string(255)
-#  image_file_size    :integer
-#  image_updated_at   :datetime
-#  interaction_id     :integer
-#  image_processing   :boolean
+#  id                       :integer          not null, primary key
+#  name                     :string(255)
+#  created_at               :datetime
+#  updated_at               :datetime
+#  image_file_name          :string(255)
+#  image_content_type       :string(255)
+#  image_file_size          :integer
+#  image_updated_at         :datetime
+#  interaction_id           :integer
+#  image_processing         :boolean
+#  local_image_file_name    :string(255)
+#  local_image_content_type :string(255)
+#  local_image_file_size    :integer
+#  local_image_updated_at   :datetime
 #
 
 require 'spec_helper'

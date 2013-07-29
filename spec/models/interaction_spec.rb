@@ -12,6 +12,7 @@
 #  incident_id    :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  basket_id      :integer
 #
 
 require 'spec_helper'

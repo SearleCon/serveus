@@ -9,6 +9,7 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  interactions_count :integer          default(0)
+#  trashed            :boolean          default(FALSE)
 #
 
 require 'spec_helper'

@@ -1,6 +1,10 @@
 Serveus::Application.routes.draw do
 
 
+  # Emails
+  resources :incidents, only: [:none] do
+   resources :emails, only: [:new, :create]
+  end
 
   #Basket
   controller :basket do
@@ -112,13 +116,26 @@ Serveus::Application.routes.draw do
   #   end
 end
 #== Route Map
-# Generated on 03 Jul 2013 08:08
+# Generated on 29 Jul 2013 08:14
 #
+#                    emails POST     /emails(.:format)                                       emails#create
+#                 new_email GET      /emails/new(.:format)                                   emails#new
+#                    basket GET      /basket/show(.:format)                                  basket#show
+#             update_basket PATCH    /basket/update(.:format)                                basket#update
+#                  trashcan GET      /trash/index(.:format)                                  trash#index
+#             restore_items PATCH    /trash/restore(.:format)                                trash#restore
+#               restore_all PATCH    /trash/restore_all(.:format)                            trash#restore_all
+#             destroy_items DELETE   /trash/destroy(.:format)                                trash#destroy
+#               empty_trash DELETE   /trash/empty(.:format)                                  trash#empty
+#                  feedback POST     /feedback(.:format)                                     feedback#create
+#              new_feedback GET      /feedback/new(.:format)                                 feedback#new
 #                      tags POST     /tags(.:format)                                         tags#index
 #           reopen_incident PATCH    /incidents/:id/reopen(.:format)                         incidents#reopen
 #            close_incident PATCH    /incidents/:id/close(.:format)                          incidents#close
 #      reopen_all_incidents PATCH    /incidents/reopen_all(.:format)                         incidents#reopen_all
 #       close_all_incidents PATCH    /incidents/close_all(.:format)                          incidents#close_all
+#            print_incident GET      /incidents/:id/print(.:format)                          incidents#print
+#       print_all_incidents GET      /incidents/print_all(.:format)                          incidents#print_all
 #     incident_interactions GET      /incidents/:incident_id/interactions(.:format)          interactions#index
 #                           POST     /incidents/:incident_id/interactions(.:format)          interactions#create
 #  new_incident_interaction GET      /incidents/:incident_id/interactions/new(.:format)      interactions#new
@@ -128,6 +145,7 @@ end
 #                           DELETE   /incidents/:incident_id/interactions/:id(.:format)      interactions#destroy
 #                 incidents GET      /incidents(.:format)                                    incidents#index
 #                           POST     /incidents(.:format)                                    incidents#create
+#             edit_incident GET      /incidents/:id/edit(.:format)                           incidents#edit
 #                  incident GET      /incidents/:id(.:format)                                incidents#show
 #                           PATCH    /incidents/:id(.:format)                                incidents#update
 #                           PUT      /incidents/:id(.:format)                                incidents#update
@@ -162,4 +180,5 @@ end
 #          new_contact_form GET      /contact_forms/new(.:format)                            contact_form#new
 #                                    /mail_view                                              MailPreview
 #                                    (/errors)/:status(.:format)                             errors#show {:status=>/\d{3}/}
+#           email_processor POST     /email_processor(.:format)                              griddler/emails#create
 #                      page GET      /pages/*id                                              high_voltage/pages#show
