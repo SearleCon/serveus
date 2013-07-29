@@ -15,19 +15,17 @@ module BootstrapHelper
     end
   end
 
-  def bootstrap_table(headers: [], types: [], html_options: {})
-    classes = []
-    classes << table_classes(types)
-    classes << html_options[:class]
-    haml_tag :table, id: html_options[:id], class: classes do
-      haml_tag :thead do
-        haml_tag :tr do
-          headers.each { |h| haml_tag :th, h }
-        end
-      end
-      haml_tag :tbody do
-        yield if block_given?
-      end
+
+  def bootstrap_table(*args)
+    options = args.extract_options!
+    options[:html_options] ? html_options = options[:html_options] : html_options = {}
+    html_options[:class] ||= []
+    html_options[:class] = table_classes(options[:types])  <<  html_options[:class].split
+    haml_tag :table, html_options do
+    table_headers(options[:headers])
+    haml_tag :tbody do
+      yield if block_given?
+    end
     end
 
   end
@@ -37,8 +35,6 @@ module BootstrapHelper
     classes.each do |c|
       if TABLE_CLASSES.has_key?(c)
        table_classes << TABLE_CLASSES[c]
-      else
-      table_classes << c.to_s
       end
     end
     table_classes
