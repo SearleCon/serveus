@@ -7,8 +7,9 @@ module BootstrapHelper
     content_tag :i, nil, class: names.map{|name| "icon-#{name.to_s.gsub('_','-')}" }
   end
 
-  def nav_list
-    haml_tag :ul, class: 'nav nav-list', data: {content: 'This is the menu' }, rel: 'popover' do
+  def nav_list(html_options = {})
+    html_options.merge!(class: 'nav nav-list')
+    haml_tag :ul, html_options do
       haml_tag :li, 'Menu' ,class: 'nav-header'
       yield if block_given?
     end
@@ -49,5 +50,9 @@ module BootstrapHelper
         headers.each { |h| haml_tag :th, h }
       end
     end
+  end
+
+  def popover(help_key)
+     simple_format(I18n.t help_key, scope: [:help])
   end
 end

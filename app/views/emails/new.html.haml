@@ -1,12 +1,12 @@
-= simple_form_for [incident, email] do |f|
+= simple_form_for [incident, email],defaults: { required: false } do |f|
   %legend
     Email
   %fieldset
     = errors_for (email)
-    = f.input :from, required: false, input_html: {size: 40}
-    = f.input :to, required: false
-    = f.input :contact_person, required: false
-    = f.input :cc, required: false
-    = f.input :subject, required: false
-    = f.input :body, as: :text, required: false, input_html: { rows: 12 ,class: 'input-xlarge' }
+    = f.input :from, input_html: {size: 40}
+    = f.input :to
+    = f.input :contact_person
+    = f.input :cc
+    = f.input :subject
+    = f.input :body, as: :text, input_html: { rows: 12 ,class: 'input-xlarge' }
     = f.submit 'Send Mail', class: 'btn btn-primary'

@@ -12,11 +12,11 @@
 %a.twitter-mention-button{data: {size: "large"}, href: "https://twitter.com/intent/tweet?screen_name=SearleCon"} Tweet to @SearleCon
 
 %h5 Let us get back to you:
-= simple_form_for contact_form do |f|
+= simple_form_for contact_form, defaults: { required: false } do |f|
   = errors_for contact_form
-  = f.input :name, error: false, required: false
-  = f.input :email, error: false, required: false
-  = f.input :message, as: :text, required: false
+  = f.input :name, error: false
+  = f.input :email, error: false
+  = f.input :message, as: :text
   .hidden
     = f.input :nickname, hint: 'Leave this field blank!'
   = f.button :submit, 'Send message', class: 'btn btn-primary'

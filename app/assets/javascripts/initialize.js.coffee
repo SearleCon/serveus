@@ -57,6 +57,7 @@ $ ->
 
 
 #Popovers
+$.fn.popover.defaults.html= true;
 $.fn.popover.defaults.placement='right';
 $.fn.popover.defaults.trigger='manual';
 

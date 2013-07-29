@@ -2,8 +2,8 @@
   .modal-header
     %button.close{aria_hidden: "true", data: {dismiss: "modal"}, type: "button"} ×
     %h3#editIncidentLabel Edit Incident
-  = simple_form_for incident, remote: true do |f|
+  = simple_form_for incident,defaults: { required: false }, remote: true do |f|
     .modal-body
-      = f.input :name, required: false, html: {class: 'input-xxlarge'}
+      = f.input :name, html: {class: 'input-xxlarge'}
     .modal-footer
       = f.button :submit, 'Update', class: 'btn btn-primary'
