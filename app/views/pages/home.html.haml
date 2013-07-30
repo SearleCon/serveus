@@ -1,29 +1,11 @@
 #landing.span11
   .row
     .span6
-      #myCarousel.carousel.slide
-        %ol.carousel-indicators
-          %li.active{data: {slide_to: "0", target: "#myCarousel"}}
-          %li{data: {slide_to: "1", target: "#myCarousel"}}
-          %li{data: {slide_to: "2", target: "#myCarousel"}}
-        .carousel-inner
-          .item.active
-            = placeholdit_image_tag "600"
-            .carousel-caption
-              %h4 First Thumbnail label
-              %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          .item
-            = placeholdit_image_tag "500"
-            .carousel-caption
-              %h4 Second Thumbnail label
-              %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          .item
-            = placeholdit_image_tag "500"
-            .carousel-caption
-              %h4 Third Thumbnail label
-              %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-        %a.left.carousel-control{data: {slide:  "prev", href: "#myCarousel"}} ‹
-        %a.right.carousel-control{data: {slide: "next", href: "#myCarousel"}} ›
+      - carousel('#myCarousel') do
+        - carousel_item(image: 'http://placehold.it/600', active: true)
+        - carousel_item(image: 'http://placehold.it/600') do
+          - carousel_caption(label: 'Jim', caption: 'Non')
+
     .span4.well
       = render partial: 'devise/sessions/form'
 

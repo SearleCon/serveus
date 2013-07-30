@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_many :incidents, -> { includes :interactions}
   has_many :tags
   has_one :basket
+  has_many :invitations, class_name: self.to_s, as: :invited_by
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -38,10 +39,7 @@ class User < ActiveRecord::Base
   devise :invitable, :async, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers:  [:google_oauth2]
 
-
   after_initialize :init
-  after_commit :send_welcome_mail, on: :create
-
 
   def self.from_omniauth(auth)
     user = find_by(email: auth.info.email)
@@ -66,9 +64,5 @@ class User < ActiveRecord::Base
    if new_record?
      self.time_zone = Time.zone.name
    end
-  end
-
-  def send_welcome_mail
-    Delayed::Job.enqueue WelcomeMailJob.new(self.id)
   end
 end

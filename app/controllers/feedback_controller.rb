@@ -4,7 +4,7 @@ class FeedbackController < ApplicationController
 
 
   def create
-    feedback.save
+    Delayed::Job.enqueue FeedbackMailJob.new(feedback.id) if feedback.save
     respond_with(feedback, location: root_url)
   end
 

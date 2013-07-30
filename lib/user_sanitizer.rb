@@ -1,4 +1,4 @@
-class User::ParameterSanitizer < Devise::ParameterSanitizer
+class UserSanitizer < Devise::ParameterSanitizer
   def sign_up
     default_params.permit(:name,:time_zone, :email, :password, :password_confirmation)
   end

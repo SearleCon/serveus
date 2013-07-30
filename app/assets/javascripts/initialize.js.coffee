@@ -54,6 +54,8 @@ $ ->
  setTimeout flashCallback, 3000
 
  $('.datetime').datetimepicker();
+ $('.carousel').carousel();
+
 
 
 #Popovers
