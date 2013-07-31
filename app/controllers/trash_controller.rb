@@ -1,6 +1,10 @@
 class TrashController < ApplicationController
   expose(:trashed, strategy: TrashCanStrategy)
 
+  def index
+    fresh_when(trashed, last_modified: trashed.maximum(:updated_at))
+  end
+
   def restore
     trashed.each(&:restore)
     respond_with trashed, location: trashcan_url

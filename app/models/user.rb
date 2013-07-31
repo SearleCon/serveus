@@ -28,9 +28,9 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :incidents, -> { includes :interactions}
+  has_many :incidents
   has_many :tags
-  has_one :basket
+  has_one :basket, -> { includes :interactions}
   has_many :invitations, class_name: self.to_s, as: :invited_by
 
   # Include default devise modules. Others available are:
