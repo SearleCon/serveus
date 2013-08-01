@@ -2,30 +2,31 @@
   - nav_list do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
     %li= link_to glyph(:ok).concat(" Restore All"), restore_all_path, method: :patch
-    %li= link_to glyph(:remove).concat(" Empty"), empty_trash_path, method: :delete
+    %li= link_to glyph(:remove).concat(" Empty All"), empty_trash_path, method: :delete, data: { confirm: 'This can not be undone. Are you sure?'}
     %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
   %br
   %br
 
 %h3.text-center Trash
-- if trashed.any?
-  = simple_form_for :trashed, html: {id: 'trashcan'} do |f|
-    %table.table.table-striped.sortable
-      %thead
-        %tr
-          %th Name
-          %th Trashed Date
-          %th
-        %tbody
-        - trashed.each do |item|
-          %tr[item]
-            %td= check_box_tag "item_ids[]", item.id
-            %td= item
-            %td= item.updated_at.to_s(:default)
+#trash
+  - if trashed.any?
+    = simple_form_for :trashed, html: {id: 'trashcan'} do |f|
+      %table.table.table-striped.sortable
+        %thead
+          %tr
+            %th Name
+            %th Trashed Date
+            %th
+          %tbody
+          - trashed.each do |item|
+            %tr[item]
+              %td= check_box_tag "item_ids[]", item.id
+              %td= item
+              %td= item.updated_at.to_s(:default)
 
-    = f.submit 'Restore', class: 'btn btn-success', data: { url: restore_items_path }, id: 'restore_trash'
-    = f.submit 'Destroy', class: 'btn btn-danger', data: { url: destroy_items_path }, id: 'empty_trash'
-- else
-  %h4.text-center Your trash can is currently empty
+      = f.submit 'Restore Selected', class: 'btn btn-success', data: { url: restore_items_path }, id: 'restore_trash'
+      = f.submit 'Empty Selected', class: 'btn btn-danger', data: { url: destroy_items_path }, id: 'empty_trash'
+  - else
+    = render 'trash/empty'
 
 

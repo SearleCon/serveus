@@ -2,7 +2,7 @@
   - nav_list do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
     %li= link_to glyph(:inbox).concat("Assign Interactions (#{current_user.basket.interactions.size})"), basket_path if current_user.basket
-    %li= link_to glyph(:print).concat(' Print'), print_all_incidents_path(format: :pdf), target: '_blank'
+    %li= link_to glyph(:print).concat(' Print/PDF'), print_all_incidents_path(format: :pdf), target: '_blank'
     %li= link_to glyph(:trash).concat(" Trash (#{incidents.trashed.size})"), trashcan_path
 
   %br

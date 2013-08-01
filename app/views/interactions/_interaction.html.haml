@@ -1,6 +1,6 @@
 - cache interaction do
   %div[interaction]
-    %h4= interaction.title.titleize
+    %h4= "#{interaction_counter + 1}. #{interaction.title.titleize}" rescue interaction.title.titleize
     %p= simple_format(interaction.content)
     %ul.inline{id: 'attachments'}
       - interaction.attachments.each do |a|

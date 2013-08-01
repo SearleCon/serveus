@@ -22,5 +22,7 @@
 //= require bootbox
 //= require temporal
 //= require serveus
+//= require images
 //= require initialize
+//= require interactions
 //= require turbolinks

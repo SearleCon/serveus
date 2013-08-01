@@ -31,7 +31,6 @@ class Interaction < ActiveRecord::Base
   scope :unassigned, -> { where(incident_id: nil) }
   scope :targeted, -> { where.not(target_date: nil) }
 
-
   def attachments_array=(array)
     array.each { |file| attachments.build(image: file) }
   end
@@ -39,15 +38,14 @@ class Interaction < ActiveRecord::Base
   def contact_info
     if self.contact_person?
      "Contacted #{self.contact_person} via #{self.contact_detail}"
-    else
+    elsif contact_detail?
       "Contacted #{self.contact_detail}"
     end
   end
 
-
   private
   def init_defaults
      self.start_at = Time.zone.now if self.start_at.blank?
-     self.title = "Interaction#{Time.zone.now.to_s(:default)}"  if self.title.blank?
+     self.title = Time.zone.now.to_s(:default) if self.title.blank?
   end
 end

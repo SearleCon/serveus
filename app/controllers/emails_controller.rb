@@ -4,9 +4,9 @@ class EmailsController < ApplicationController
 
   def create
     if email.valid?
-      incident.interactions.create!(title: email.subject, content: email.body, start_at: Time.zone.now, contact_person: email.contact_person ,contact_detail: email.to).tag('Email', current_user)
       Delayed::Job.enqueue OutgoingMailJob.new(email)
-      redirect_to incident, notice: "Email to #{email.to} was sent successfully"
+      interaction = incident.interactions.create!(title: email.subject, content: email.body, start_at: Time.zone.now, contact_detail: email.to) and interaction.tag('Email Sent', current_user)
+      redirect_to edit_incident_interaction_url(incident, interaction), notice: "Email to #{email.to} was sent successfully."
     else
       render :new
     end

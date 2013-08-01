@@ -1,3 +1,5 @@
 = simple_form_for :incident,defaults: { required: false }, html: {id: 'new_incident',class: 'form-search'} do |f|
+  #errors
+    = errors_for incident
   = f.input_field :name, class: 'input-xxlarge', placeholder: "Enter Name Here"
   = f.button :submit, 'Add incident', class: 'btn btn-small btn-primary'

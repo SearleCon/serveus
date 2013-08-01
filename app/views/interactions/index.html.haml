@@ -2,7 +2,7 @@
   - nav_list do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
     %li= link_to glyph(:filter).concat(' Show/Hide Search'), '#', id: 'toggle_search'
-    %li= link_to glyph(:refresh).concat(' Clear Results'), incident_interactions_path(incident)
+    %li= link_to glyph(:refresh).concat(' Remove Filters/Show All'), incident_interactions_path(incident)
     %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
 
   %br
@@ -13,7 +13,7 @@
   = render partial: 'search_form'
 
 .search-results
-  %h3= "Search Results (#{interactions.result.size})"
+  %h3= "Search Results (#{interactions.result(distinct: true).size})"
   %ul.inline
     %li.header Sort By:
     %li= sort_link interactions, :start_at, "Start At", default_order: :desc
@@ -24,7 +24,7 @@
     %li.divider
     %li= sort_link interactions, :title, "Title", default_order: :desc
     %hr
-  - interactions.result.each do |interaction|
+  - interactions.result(distinct: true).each do |interaction|
     = div_for interaction do
       %h4= interaction.title.titleize
       %p= simple_format(interaction.content)

@@ -37,6 +37,7 @@ $.rails.allowAction = (element) ->
 
 
 # BlockUI - Ajax and Turbolinks requests
+$.blockUI.defaults.message = "<img src=" + image_path('spinner.gif') + "/>";
 $(document).ajaxStart($.blockUI).ajaxStop $.unblockUI
 $(document).on "page:fetch", $.blockUI
 $(document).on "page:receive", $.unblockUI
@@ -47,12 +48,6 @@ Temporal.detect
 
 # Flash messages
 $ ->
- flashCallback = ->
-  $("#flash_message").fadeOut()
- $("#flash_message").on 'click', (ev) =>
-  $("#flash_message").fadeOut()
- setTimeout flashCallback, 3000
-
  $('.datetime').datetimepicker();
  $('.carousel').carousel();
 
@@ -87,7 +82,7 @@ $(document).on 'click', '#restore_trash',(evt) ->
 
 $(document).on 'click', '#empty_trash',(evt) ->
   evt.preventDefault()
-  bootbox.confirm "Are you sure?",(result) ->
+  bootbox.confirm "This cannot be undone, Are you sure?",(result) ->
    if result
     $.ajax
       type: 'DELETE'

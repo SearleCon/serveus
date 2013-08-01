@@ -1,6 +1,7 @@
+$('#announcement').fadeToggle("slow", "linear");
 $('#add_interaction').html("#{ j (render 'interactions/form')}");
 $('#add_interaction').slideDown("slow");
 $('html,body').animate({scrollTop: $('#add_interaction').offset().top},'slow');
-$(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', tagClass:'tm-tag-info', typeahead: true, prefilled: "#{j interaction.tag_names.join(',')}"});
+$(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', tagClass:'tm-tag-info', typeahead: true, hiddenTagListId: 'tags'});
 $('.datetime').datetimepicker();
 

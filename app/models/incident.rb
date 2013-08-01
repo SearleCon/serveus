@@ -16,7 +16,7 @@ class Incident < ActiveRecord::Base
   include Trashable
 
   belongs_to :user
-  has_many :interactions, -> { includes :attachments }, dependent: :destroy
+  has_many :interactions, -> { includes :attachments, :tags }, dependent: :destroy
 
   validates :name, presence: true
   validates :user, presence: true

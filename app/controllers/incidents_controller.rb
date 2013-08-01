@@ -12,13 +12,17 @@ class IncidentsController < ApplicationController
   end
 
   def show
+    sleep 5
     fresh_when(incident)
   end
 
 
   def create
-    incident.save
-    respond_with(incident)
+   if incident.save
+    redirect_to incident, notice: "Your Incident has been successfully added - You may now add Interactions to it."
+   else
+    render :index
+   end
   end
 
   def update

@@ -1,3 +1,7 @@
+#announcement.alert.alert-info.text-center
+  %strong  Sending email
+  = simple_format("Once your email has been successfully sent it will be added to your interactions tagged as an email. Please note you will be automatically sent a copy of the email as well.")
+
 = simple_form_for [incident, email],defaults: { required: false } do |f|
   %legend
     Email
@@ -5,7 +9,6 @@
     = errors_for (email)
     = f.input :from, input_html: {size: 40}
     = f.input :to
-    = f.input :contact_person
     = f.input :cc
     = f.input :subject
     = f.input :body, as: :text, input_html: { rows: 12 ,class: 'input-xlarge' }

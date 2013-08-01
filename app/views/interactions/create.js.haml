@@ -1,9 +1,9 @@
 - if interaction.errors.any?
   $('#errors').html("#{j errors_for(interaction)}");
 - else
+  $('#announcement').fadeToggle("slow", "linear");
   $('#add_interaction').slideUp("slow", function(){
-  $(this).html("");
-  $('#interactions').prepend("#{j render interaction }");
+  $('#interactions').html("#{j render incident.interactions}");
   $("##{dom_id(interaction)}").fadeIn('slow', function(){$(this).effect("highlight", {}, 1500);});
   });
 

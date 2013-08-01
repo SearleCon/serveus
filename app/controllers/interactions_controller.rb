@@ -14,16 +14,14 @@ class InteractionsController < ApplicationController
   end
 
   def create
-    interaction.save
-    interaction.tag(params['hidden-tags'], current_user) if interaction.errors.blank? && params['hidden-tags']
+    interaction.tag(params[:tags], current_user) if interaction.save && params[:tags]
     respond_with(interaction)
   end
 
   def update
-    interaction.save
-    interaction.update_tags(params['hidden-tags'], current_user) if interaction.errors.blank? && params['hidden-tags']
+    interaction.tag(params[:tags], current_user) if interaction.save && params[:tags]
     interaction.reload
-    respond_with(interaction)
+    respond_with(interaction, location: incident_url(incident))
   end
 
   def destroy
@@ -33,10 +31,14 @@ class InteractionsController < ApplicationController
 
   private
   def interaction_params
-    params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail, :attachments_array => [])
+    params.require(:interaction).permit(:title, :content, :start_at, :target_date, :contact_person, :contact_detail, attachments_array: [])
   end
 
   def search_params
-    params.require(:q).permit(:s,:title_cont, :content_cont, :start_at_lteq, :start_at_gteq,:target_date_lteq, :target_date_gteq,:attachments_id_present, :tags_name_in => []) if params[:q]
+    params.require(:q).permit(:s,:title_or_content_cont, :start_at_lteq, :start_at_gteq,:target_date_lteq, :target_date_gteq,:attachments_id_present, tags_name_in: []) if params[:q]
+  end
+
+  def interpolation_options
+    { resource_name: interaction.title }
   end
 end

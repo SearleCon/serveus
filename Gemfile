@@ -45,7 +45,7 @@ gem 'rush'
 
 # Turbolinks
 gem 'jquery-turbolinks'
-gem 'turbolinks', '~> 1.2.0'
+gem 'turbolinks', '~> 1.3.0'
 
 # Static Pages
 gem "high_voltage"

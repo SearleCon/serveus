@@ -1,13 +1,11 @@
 class TrashController < ApplicationController
-  expose(:trashed, strategy: TrashCanStrategy)
+  expose(:trashed) { current_user.incidents.trashed }
+  expose(:items) { params[:item_ids] ? trashed.find(params[:item_ids]) : trashed.none  }
 
-  def index
-    fresh_when(trashed, last_modified: trashed.maximum(:updated_at))
-  end
 
   def restore
-    trashed.each(&:restore)
-    respond_with trashed, location: trashcan_url
+    items.each(&:restore)
+    respond_with items, location: trashcan_url
   end
 
   def restore_all
@@ -16,8 +14,8 @@ class TrashController < ApplicationController
   end
 
   def destroy
-    trashed.each(&:destroy)
-    respond_with trashed, location: trashcan_url
+    items.each(&:destroy)
+    respond_with items, location: trashcan_url
   end
 
   def empty
