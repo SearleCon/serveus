@@ -19,6 +19,7 @@
 //= require bootstrap-datetimepicker
 //= require bootstrap-tagmanager
 //= require bootstrap-sortable
+//= require bootstrap-fileinput
 //= require bootbox
 //= require temporal
 //= require serveus
