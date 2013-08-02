@@ -1,7 +1,7 @@
 <%
 imgs = {}
 Dir.chdir("#{Rails.root}/app/assets/images/") do
-  imgs = Dir["**"].inject({}) {|h,f| h.merge! f => asset_path(f).chomp('/')}
+  imgs = Dir["**"].inject({}) {|h,f| h.merge! f => asset_url(f)}
 end
 %>
 
