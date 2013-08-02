@@ -12,7 +12,6 @@ class IncidentsController < ApplicationController
   end
 
   def show
-    sleep 5
     fresh_when(incident)
   end
 

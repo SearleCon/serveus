@@ -37,7 +37,7 @@ $.rails.allowAction = (element) ->
 
 
 # BlockUI - Ajax and Turbolinks requests
-$.blockUI.defaults.message = "<img src=" + image_path('spinner.gif') + "/>";
+$.blockUI.defaults.message = "<img src=" + image_path('loading.gif') + "/>";
 $(document).ajaxStart($.blockUI).ajaxStop $.unblockUI
 $(document).on "page:fetch", $.blockUI
 $(document).on "page:receive", $.unblockUI
