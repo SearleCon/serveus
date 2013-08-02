@@ -14,6 +14,7 @@
 - cache incident do
 
   %h2.text-center= "#{incident}"
+  %h5.text-center= "(#{incident.interactions.size} interactions in total)"
   - if incident.open?
     #announcement.alert.alert-info.text-center
       %strong New Interaction
@@ -22,3 +23,4 @@
     #add_interaction.well
   #interactions{ data: { title: "Interaction", content: "#{popover(:interaction)}" }, rel: 'popover' }
     = render incident.interactions
+    = link_to "Back to top", anchor: "top"

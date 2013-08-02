@@ -32,6 +32,8 @@
         -interaction.attachments.each do |a|
           %li= link_to glyph(:file).concat( a.name.titleize), download_attachment_path(a), target: '_blank'
       %div
+        = link_to "#{glyph(:edit)} Edit".html_safe, edit_incident_interaction_path(incident,interaction)
+        %br
         %contact_detail= interaction.contact_info.presence
         %start_date= "Started #{l Time.zone.at(interaction.start_at)}" if interaction.start_at
         .pull-right

@@ -26,7 +26,7 @@ class InteractionsController < ApplicationController
 
   def destroy
     interaction.destroy
-    respond_with(interaction)
+    respond_with(interaction, location: incident_url(incident))
   end
 
   private
