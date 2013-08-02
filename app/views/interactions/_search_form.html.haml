@@ -4,10 +4,10 @@
   %br
   = f.input :attachments_id_present, label: 'Has attached files',   as: :boolean
   %br
-  %p Start At between:
+  %p Occurred between:
   .row
-    = f.input :start_at_gteq, placeholder: 'Starting',  label: false, as: :date_time_picker, wrapper_html: {class: 'span3'}
-    = f.input :start_at_lteq, placeholder: 'Ending',  label: false,as: :date_time_picker, wrapper_html: {class: 'span3'}
+    = f.input :occurred_gteq, placeholder: 'Starting',  label: false, as: :date_time_picker, wrapper_html: {class: 'span3'}
+    = f.input :occurred_lteq, placeholder: 'Ending',  label: false,as: :date_time_picker, wrapper_html: {class: 'span3'}
   %p Target date between:
   .row
     = f.input :target_date_gteq, placeholder: 'Starting',  label: false, as: :date_time_picker, wrapper_html: {class: 'span3'}

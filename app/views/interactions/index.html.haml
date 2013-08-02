@@ -16,7 +16,7 @@
   %h3= "Search Results (#{interactions.result(distinct: true).size})"
   %ul.inline
     %li.header Sort By:
-    %li= sort_link interactions, :start_at, "Start At", default_order: :desc
+    %li= sort_link interactions, :occurred, "Occurred", default_order: :desc
     %li.divider
     %li= sort_link interactions, :target_date, "Target Date", default_order: :desc
     %li.divider
@@ -35,7 +35,7 @@
         = link_to "#{glyph(:edit)} Edit".html_safe, edit_incident_interaction_path(incident,interaction)
         %br
         %contact_detail= interaction.contact_info.presence
-        %start_date= "Started #{l Time.zone.at(interaction.start_at)}" if interaction.start_at
+        %start_date= "Occured on #{l Time.zone.at(interaction.occurred)}" if interaction.occurred
         .pull-right
           - interaction.tag_names.each do |tag_name|
             %tags

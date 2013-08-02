@@ -28,7 +28,7 @@ class Interaction < ActiveRecord::Base
 
   default_scope -> { order(created_at: :desc) }
 
-  scope :unassigned, -> { where(incident_id: nil) }
+  scope :unassigned, -> { where(incident: nil) }
   scope :targeted, -> { where.not(target_date: nil) }
 
   def attachments_array=(array)
@@ -45,7 +45,7 @@ class Interaction < ActiveRecord::Base
 
   private
   def init_defaults
-     self.start_at = Time.zone.now if self.start_at.blank?
+     self.occurred = Time.zone.now if self.occurred.blank?
      self.title = Time.zone.now.to_s(:default) if self.title.blank?
   end
 end

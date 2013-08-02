@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130724104702) do
+ActiveRecord::Schema.define(version: 20130802093412) do
 
   create_table "attachments", force: true do |t|
     t.string   "name"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20130724104702) do
   create_table "interactions", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "start_at"
+    t.datetime "occurred"
     t.string   "contact_person"
     t.string   "contact_detail"
     t.datetime "target_date"
