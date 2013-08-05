@@ -1,8 +1,8 @@
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
-    %li= link_to glyph(:ok).concat(" Restore All"), restore_all_path, method: :patch, data: { confirm: 'This action cannot be undone. Are you sure you want to restore all the items?'}
-    %li= link_to glyph(:remove).concat(" Empty All"), empty_trash_path, method: :delete, data: { confirm: 'This action cannot be undone. Are you sure you want to empty all the items?'}
+    %li= link_to glyph(:ok).concat(" Restore All"), restore_all_path, method: :patch, data: { confirm: "#{glyph(:exclamation_sign)} This action cannot be undone. Are you sure you want to restore all the items?"}
+    %li= link_to glyph(:remove).concat(" Empty All"), empty_trash_path, method: :delete, data: { confirm: "#{glyph(:exclamation_sign)} This action cannot be undone. Are you sure you want to empty all the items?"}
     %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
   %br
   %br
@@ -24,8 +24,8 @@
               %td= item
               %td= item.updated_at.to_s(:default)
 
-      = f.submit 'Restore Selected', class: 'btn btn-success', data: { url: restore_items_path }, id: 'restore_trash'
-      = f.submit 'Empty Selected', class: 'btn btn-danger', data: { url: destroy_items_path }, id: 'empty_trash'
+      = f.submit 'Restore Selected', class: 'btn btn-success', data: { url: restore_items_path }, id: 'restore_trash', data: { confirm: "#{glyph(:exclamation_sign)}This action cannot be undone. Are you sure you want to restore the selected items?"}
+      = f.submit 'Empty Selected', class: 'btn btn-danger', data: { url: destroy_items_path }, id: 'empty_trash', data: { confirm: "#{glyph(:exclamation_sign)} This action cannot be undone. Are you sure you want to delete the selected items?"}
   - else
     = render 'trash/empty'
 
