@@ -1,4 +1,4 @@
 - items.each do |item|
   $("##{dom_id(item)}").fadeOut('slow', function(){ $(this).remove();})
-- if items.count == 1
+- if trashed.empty?
   $('#trash').html("#{escape_javascript(render 'trash/empty')}")

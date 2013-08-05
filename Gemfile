@@ -150,6 +150,11 @@ gem 'browser'
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary"
 
+
+# Help
+gem 'bootstrap-tour-rails'
+
+
 group :doc do
   gem 'sdoc', require: false
 end

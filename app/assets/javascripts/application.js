@@ -21,9 +21,11 @@
 //= require bootstrap-sortable
 //= require bootstrap-fileinput
 //= require bootbox
+//= require bootstrap-tour
 //= require temporal
 //= require serveus
 //= require images
 //= require initialize
 //= require interactions
+//= require incidents
 //= require turbolinks

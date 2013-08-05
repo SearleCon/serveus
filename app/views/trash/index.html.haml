@@ -1,8 +1,8 @@
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
-    %li= link_to glyph(:ok).concat(" Restore All"), restore_all_path, method: :patch
-    %li= link_to glyph(:remove).concat(" Empty All"), empty_trash_path, method: :delete, data: { confirm: 'This can not be undone. Are you sure?'}
+    %li= link_to glyph(:ok).concat(" Restore All"), restore_all_path, method: :patch, data: { confirm: 'This action cannot be undone. Are you sure you want to restore all the items?'}
+    %li= link_to glyph(:remove).concat(" Empty All"), empty_trash_path, method: :delete, data: { confirm: 'This action cannot be undone. Are you sure you want to empty all the items?'}
     %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
   %br
   %br
