@@ -70,7 +70,7 @@ $(document).on 'click','#toggle_search',(e) ->
 
 $(document).on 'click', '#restore_trash',(evt) ->
   evt.preventDefault()
-  bootbox.confirm "Are you sure?",(result) ->
+  bootbox.confirm '<i class="icon-exclamation-sign"></i> This action cannot be undone, Are you sure you wish to restore the selected items?',(result) ->
    if result
      $.ajax
        type: 'PATCH'
@@ -81,7 +81,7 @@ $(document).on 'click', '#restore_trash',(evt) ->
 
 $(document).on 'click', '#empty_trash',(evt) ->
   evt.preventDefault()
-  bootbox.confirm "This cannot be undone, Are you sure?",(result) ->
+  bootbox.confirm '<i class="icon-exclamation-sign"></i> This action cannot be undone, Are you sure you wish to delete the selected items?',(result) ->
    if result
     $.ajax
       type: 'DELETE'

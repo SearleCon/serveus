@@ -9,11 +9,8 @@ class IncidentsController < ApplicationController
 
 
   def create
-   if incident.save
-    redirect_to incident, notice: "Your Incident has been successfully added - You may now add Interactions to it."
-   else
-    render :index
-   end
+   incident.save
+   respond_with(incident)
   end
 
   def update
@@ -23,7 +20,7 @@ class IncidentsController < ApplicationController
 
   def destroy
     incident.destroy
-    respond_with(incident, location: incidents_url, notice: 'Incident has been moved to trashcan.')
+    respond_with(incident, location: incidents_url)
   end
 
 

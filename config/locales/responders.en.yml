@@ -15,12 +15,20 @@ en:
         alert: '%{resource_name} could not be closed.'
     feedback:
       create:
-        notice: "Thank you for the feedback."
-        alert: "Feedback could not be created."
+        notice: 'Thank you for the feedback.'
+        alert: 'Feedback could not be created.'
     trash:
       restore_all:
-        notice: "All items successfully restored."
-        alert: "An error occurred, trash could not be restored."
+        notice: 'All items successfully restored.'
+        alert: 'An error occurred, trash could not be restored.'
       empty:
-        notice: "Trash was successfully emptied."
-        alert: "An error occurred, trash could not be emptied."
+        notice: 'Trash was successfully emptied.'
+        alert: 'An error occurred, trash could not be emptied.'
+    emails:
+      create:
+        notice: 'Email to #{resource_name} was sent successfully.'
+    incidents:
+      create:
+        notice: 'Your Incident has been successfully added - You may now add Interactions to it.'
+      destroy:
+        notice: '%{resource_name} has been moved to trashcan.'
