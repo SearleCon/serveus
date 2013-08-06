@@ -41,4 +41,8 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
+  def first_time_user?
+    current_user && current_user.sign_in_count == 1
+  end
+
 end

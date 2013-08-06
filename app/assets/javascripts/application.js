@@ -26,6 +26,4 @@
 //= require serveus
 //= require images
 //= require initialize
-//= require interactions
-//= require incidents
 //= require turbolinks
