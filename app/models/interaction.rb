@@ -22,6 +22,8 @@ class Interaction < ActiveRecord::Base
   belongs_to :incident, counter_cache: true, touch: true
   has_many :attachments, dependent: :destroy
 
+  accepts_nested_attributes_for :attachments, reject_if: :all_blank, allow_destroy: true
+
   validates  :content, presence: true
 
   before_validation :init_defaults

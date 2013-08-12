@@ -7,7 +7,7 @@
         %li= link_to glyph(:file).concat( a.name.titleize), download_attachment_path(a), target: '_blank'
     %div
       = link_to "#{glyph(:edit)} Edit".html_safe, edit_incident_interaction_path(incident,interaction), remote: true
-      = link_to "#{glyph(:remove_sign)} Delete".html_safe, incident_interaction_path(incident,interaction), method: :delete, data: {confirm: "#{glyph(:exclamation_sign)} Are you sure you want to delete this interaction?"}
+      = link_to "#{glyph(:remove_sign)} Delete".html_safe, incident_interaction_path(incident,interaction), method: :delete, data: {confirm: 'Are you sure you want to delete this interaction?'}
       %br
       %start_date= "Occurred on #{Time.zone.at(interaction.occurred).to_s(:default)}" if interaction.occurred
       %contact_detail= interaction.contact_info.presence

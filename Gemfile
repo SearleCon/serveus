@@ -17,7 +17,7 @@ gem 'nokogiri'
 
 
 # Search
-gem "ransack", git: "git://github.com/ernie/ransack.git", branch: 'rails-4'
+gem "ransack"
 
 # Authentication
 gem 'devise', "~> 3.0.0"
@@ -103,7 +103,7 @@ gem 'decent_exposure'
 # File uploads
 gem 'paperclip'
 gem 'aws-sdk'
-gem "remotipart", "~> 1.0"
+gem "remotipart", '~> 1.2.1'
 
 
 # Web Server
@@ -129,7 +129,6 @@ gem 'placeholdit'
 
 # Asset Management
 gem 'asset_sync'
-gem 'jquery-rails-cdn'
 gem 'asset-image-opt'
 
 # Deploy
@@ -149,6 +148,10 @@ gem 'browser'
 # PDF
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary"
+
+# Nested Form
+gem "nested_form"
+
 
 
 # Help

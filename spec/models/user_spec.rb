@@ -39,14 +39,14 @@ describe User do
  it {should have_one(:basket)}
 
  describe 'Callbacks' do
-   describe 'after_commit' do
-     it { described_class._commit_callbacks.select { |cb| cb.kind.eql?(:after) }.collect(&:filter).should include(:send_welcome_mail) }
+   describe 'after_initialize' do
+     it { described_class._initialize_callbacks.select { |cb| cb.kind.eql?(:after) }.collect(&:filter).should include(:init) }
 
-     describe '#send_welcome_mail' do
-       it 'should send a welcome email to the user' do
+     describe '#init' do
+       it 'should set the current time zone' do
          user = build(:user)
-         user.send(:send_welcome_mail)
-         expect(Delayed::Job.last.handler).to include(WelcomeMailJob.to_s)
+         user.send(:init)
+         expect(user.time_zone).to eq Time.zone.name
        end
      end
    end

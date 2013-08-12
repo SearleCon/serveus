@@ -4,4 +4,6 @@ FactoryGirl.define do
     name "MyString"
     user
   end
+
+
 end

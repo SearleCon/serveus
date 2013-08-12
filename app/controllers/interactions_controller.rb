@@ -20,7 +20,6 @@ class InteractionsController < ApplicationController
 
   def update
     interaction.tag(params[:tags], current_user) if interaction.save && params[:tags]
-    interaction.reload
     respond_with(interaction, location: incident_url(incident))
   end
 
@@ -31,7 +30,7 @@ class InteractionsController < ApplicationController
 
   private
   def interaction_params
-    params.require(:interaction).permit(:title, :content, :occurred, :target_date, :contact_person, :contact_detail, attachments_array: [])
+    params.require(:interaction).permit(:title, :content, :occurred, :target_date, :contact_person, :contact_detail, attachments_attributes: [:image,:id, '_destroy'])
   end
 
   def search_params

@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/ernie/ransack.git
-  revision: 8db7a3c1f4242305488a541267dd87c5397f5707
-  branch: rails-4
-  specs:
-    ransack (0.7.3)
-      actionpack (~> 4.0.0)
-      activerecord (~> 4.0.0)
-      polyamorous (~> 0.6.0)
-
-GIT
   remote: git://github.com/scambra/devise_invitable.git
   revision: 1c6a50bb29f8637b3bffb05c2ba32e927d105113
   branch: rails4
@@ -117,7 +107,7 @@ GEM
     delayed_job_active_record (4.0.0)
       activerecord (>= 3.0, < 4.1)
       delayed_job (>= 3.0, < 4.1)
-    devise (3.0.1)
+    devise (3.0.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -209,8 +199,6 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-rails-cdn (1.0.1)
-      jquery-rails
     jquery-turbolinks (1.0.0)
       railties (>= 3.1.0)
       turbolinks
@@ -238,8 +226,9 @@ GEM
     mime-types (1.23)
     mini_portile (0.5.1)
     minitest (4.7.5)
-    multi_json (1.7.8)
+    multi_json (1.7.9)
     multipart-post (1.2.0)
+    nested_form (0.3.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.8)
@@ -307,7 +296,7 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    puma (2.4.0)
+    puma (2.5.0)
       rack (>= 1.1, < 2.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -328,6 +317,10 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.0)
+    ransack (1.0.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
     remotipart (1.2.1)
@@ -339,9 +332,9 @@ GEM
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     rspec-core (2.14.4)
-    rspec-expectations (2.14.0)
+    rspec-expectations (2.14.1)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.14.2)
+    rspec-mocks (2.14.3)
     rspec-rails (2.14.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -361,7 +354,7 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
-    selenium-webdriver (2.33.0)
+    selenium-webdriver (2.34.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
       rubyzip
@@ -452,7 +445,6 @@ DEPENDENCIES
   jazz_hands
   jbuilder (~> 1.0.1)
   jquery-rails
-  jquery-rails-cdn
   jquery-turbolinks
   jquery-ui-rails
   json_spec
@@ -460,6 +452,7 @@ DEPENDENCIES
   mail_form (= 1.5.0.rc)
   mail_view (~> 1.0.3)
   memcachier
+  nested_form
   nokogiri
   normalize-rails
   omniauth
@@ -472,8 +465,8 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (~> 4.0.0)
-  ransack!
-  remotipart (~> 1.0)
+  ransack
+  remotipart (~> 1.2.1)
   responders (= 1.0.0.rc)
   rspec-rails (~> 2.0)
   rush

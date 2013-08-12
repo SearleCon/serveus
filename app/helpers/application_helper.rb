@@ -19,7 +19,7 @@ module ApplicationHelper
              content_tag(:li, msg)
           end.join().html_safe
           })
-      end.html_safe
+      end
     end
   end
 

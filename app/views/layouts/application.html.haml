@@ -6,7 +6,6 @@
     %meta{content: content_for?(:description) ? yield(:description) : "ServUs", name: "description"}
     %meta{content: content_for?(:keywords) ? yield(:keywords) : "ServUs", name: "keywords"}
     = stylesheet_link_tag :application, :media => "all"
-    = jquery_include_tag :google
     = javascript_include_tag :application
     = javascript_include_tag controller_path if Rails.application.assets.find_asset "#{controller_name}.js.coffee"
     :javascript

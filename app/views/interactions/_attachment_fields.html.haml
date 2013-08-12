@@ -1,0 +1,4 @@
+%tr.fields
+  %td= f.input :name, label: false
+  %td= f.file_field :image, label: false
+  %td.text-center= f.link_to_remove "#{glyph(:remove_sign)} Remove".html_safe
