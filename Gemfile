@@ -22,7 +22,7 @@ gem "ransack"
 # Authentication
 gem 'devise', "~> 3.0.0"
 gem "devise-async"
-gem 'devise_invitable', git: "git://github.com/scambra/devise_invitable.git", branch: 'rails4'
+gem 'devise_invitable', github: 'scambra/devise_invitable'
 
 
 # Form Builders
