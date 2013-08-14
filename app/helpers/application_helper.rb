@@ -23,6 +23,17 @@ module ApplicationHelper
     end
   end
 
+  def first_time_user?
+    current_user && current_user.sign_in_count == 1
+  end
+
+  def contact_information(interaction)
+    if interaction.contact_person?
+      interaction.contact_detail? ? "Contacted #{interaction.contact_person.titleize} via #{interaction.contact_detail}" :"Contacted #{interaction.contact_person.titleize}"
+    elsif interaction.contact_detail?
+      "Contacted #{interaction.contact_detail}"
+    end
+  end
 
   #Devise
   def resource_name
@@ -41,8 +52,5 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  def first_time_user?
-    current_user && current_user.sign_in_count == 1
-  end
 
 end

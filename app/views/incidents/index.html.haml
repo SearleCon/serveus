@@ -21,18 +21,12 @@
         #new_incident.well
           %h5 New Incident
           = render 'form'
-        = link_to glyph(:folder_close).concat(' Close All'), close_all_incidents_path,  method: :patch, data: {confirm: 'Are you sure you want to close this incident?'}
-        %br
-        %br
-        - bootstrap_table headers:['Name', 'Interactions', 'Created', 'Updated'], types: [:bordered, :striped], html_options: {class: 'sortable'} do
-          = render incidents.open
+        = render 'open_incidents'
       #closed.tab-pane
         %br
-        = link_to glyph(:folder_open).concat(' Reopen All'), reopen_all_incidents_path  ,method: :patch, data: {confirm: 'Are you sure you want to reopen this incident?'}
-        %br
-        %br
-        - bootstrap_table headers:['Name', 'Interactions', 'Created', 'Updated'], types: [:bordered, :striped], html_options: {class: 'sortable'} do
-          = render incidents.closed
+        = render 'closed_incidents'
+
+
 
 
 

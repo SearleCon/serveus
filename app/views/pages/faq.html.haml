@@ -1,1 +1,33 @@
-%h1 Faq
+%h3 Frequently Asked Questions
+#accordion.accordion
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{data: {parent: "#accordion", toggle:  "collapse"}, href: "#questionOne"}
+        %p
+          %i.icon-chevron-down
+          1. What is an incident?
+    #questionOne.accordion-body.collapse.in
+      .accordion-inner
+        = simple_format('An incident is any dealing that you would have with a company in order to resolve an issue.')
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{data: {parent: "#accordion", toggle:  "collapse"}, href: "#questionTwo"}
+        %p
+          %i.icon-chevron-right
+          2. What is the difference between an open and a closed incident?
+    #questionTwo.accordion-body.collapse
+      .accordion-inner
+        = simple_format('Open incidents are incidents which are currently in progress, one is still able to update and add interactions to them. Closed incidents are viewable but need to be reopened if you wish to make any changes.')
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{data: {parent: "#accordion", toggle:  "collapse"}, href: "#questionThree"}
+        %p
+          %i.icon-chevron-right
+          3. What are interactions?
+    #questionThree.accordion-body.collapse
+      .accordion-inner
+        = simple_format('Incidents are made up of interactions, the interactions being all the steps taken through the lifecycle of the issue. Examples might be speaking with an individual on the phone, sending an email etc.')
+%br/
+%hr.bs-docs-separator/
+For more information on how ServeUs works, check out the #{link_to 'About page', page_path('about')} or #{link_to 'Contact Us', new_contact_form_path}.
+

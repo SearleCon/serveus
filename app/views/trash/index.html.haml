@@ -11,21 +11,16 @@
 #trash
   - if trashed.any?
     = simple_form_for :trashed, html: {id: 'trashcan'} do |f|
-      %table.table.table-striped.sortable
-        %thead
-          %tr
-            %th Name
-            %th Trashed Date
-            %th
-          %tbody
-          - trashed.each do |item|
-            %tr[item]
-              %td= check_box_tag "item_ids[]", item.id
-              %td= item
-              %td= item.updated_at.to_s(:default)
+      - bootstrap_table headers:['','Name','Created On','Trashed On'], types: [:bordered,:condensed,:striped], html_options: {class: 'sortable'} do
+        - trashed.each do |item|
+          %tr[item]
+            %td{style: "text-align:center; padding: 0px;"}= check_box_tag 'item_ids[]', item.id
+            %td= item
+            %td= item.created_at.to_s(:default)
+            %td= item.updated_at.to_s(:default)
 
-      = f.submit 'Restore Selected', class: 'btn btn-success', data: { url: restore_items_path }, id: 'restore_trash'
-      = f.submit 'Empty Selected', class: 'btn btn-danger', data: { url: destroy_items_path }, id: 'empty_trash'
+      = f.submit 'Restore Selected', class: 'btn btn-success', data: { url: restore_items_path }, id: 'restore_trash', disabled: true
+      = f.submit 'Empty Selected', class: 'btn btn-danger', data: { url: destroy_items_path }, id: 'empty_trash',disabled: true
   - else
     = render 'trash/empty'
 

@@ -1,0 +1,8 @@
+- if incidents.closed.any?
+  = link_to glyph(:folder_open).concat(' Reopen All'), reopen_all_incidents_path  ,method: :patch, data: {confirm: 'Are you sure you want to reopen all incidents?'}
+  %br
+  %br
+  - bootstrap_table headers:['Name', 'Interactions', 'Created', 'Updated'], types: [:bordered, :striped, :condensed], html_options: {class: 'sortable'} do
+    = render incidents.closed
+- else
+  %h4 There are currently no closed incidents

@@ -1,0 +1,6 @@
+- if incidents.open.any?
+  = link_to glyph(:folder_close).concat(' Close All'), close_all_incidents_path,  method: :patch, data: {confirm: 'Are you sure you want to close all incidents?'}
+  %br
+  %br
+  - bootstrap_table headers:['Name', 'Interactions', 'Created', 'Updated'], types: [:bordered, :striped, :condensed], html_options: {class: 'sortable'} do
+    = render incidents.open

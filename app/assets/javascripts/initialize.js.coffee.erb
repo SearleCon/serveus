@@ -85,6 +85,10 @@ $(document).on 'click', '#empty_trash',(evt) ->
       dataType: 'script'
 
 
+$(document).on "show hide", ".accordion" , (e) ->
+    $(e.target).siblings(".accordion-heading").find(".accordion-toggle i").toggleClass "icon-chevron-down icon-chevron-right"
+
+
 
 
 
