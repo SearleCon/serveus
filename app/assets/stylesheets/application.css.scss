@@ -52,5 +52,14 @@ html, body {
   display: none;
 }
 
+#announcement{
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px#888;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+}
+
 
 

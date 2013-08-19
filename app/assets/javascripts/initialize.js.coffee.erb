@@ -89,6 +89,17 @@ $(document).on "show hide", ".accordion" , (e) ->
     $(e.target).siblings(".accordion-heading").find(".accordion-toggle i").toggleClass "icon-chevron-down icon-chevron-right"
 
 
+$(document).on 'shown', '.modal', (e) ->
+    $("body").css overflow: "hidden"
+
+$(document).on 'hidden', '.modal', (e) ->
+    $("body").css overflow: ""
+
+$(document).on 'show', '.modal', (e) ->
+    $(this).find('.modal-body').css({width:'auto', height:'auto','max-height':'100%'})
+
+
+
 
 
 

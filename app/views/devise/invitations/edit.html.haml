@@ -1,5 +1,5 @@
 %h4.text-center Welcome to ServeUs
-%p= simple_format("We acknowledge that you have accepted the invitation by <strong>#{resource.invited_by.name.humanize.titleize}</strong>. To complete the setup of your account, please provide a password. Thank you!")
+= simple_format("We acknowledge that you have accepted the invitation by <strong>#{resource.invited_by.name.humanize.titleize}</strong>. To complete the setup of your account, please provide a password. Thank you!")
 %br
 = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :patch } do |f|
   = errors_for resource

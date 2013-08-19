@@ -1,13 +1,9 @@
 class TrashController
   init: ->
   index: ->
-    checkboxes = $("input[type='checkbox']")
-    emptyButton = $('#empty_trash')
-    restoreButton = $('#restore_trash')
-
-    checkboxes.click ->
-      emptyButton.attr("disabled", !checkboxes.is(":checked"))
-      restoreButton.attr("disabled", !checkboxes.is(":checked"))
+    $("input[type='checkbox']").click ->
+      $('#empty_trash').attr("disabled", !$("input[type='checkbox']").is(":checked"))
+      $('#restore_trash').attr("disabled", !$("input[type='checkbox']").is(":checked"))
 
 
 

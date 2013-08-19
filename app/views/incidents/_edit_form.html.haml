@@ -4,6 +4,7 @@
     %h3#editIncidentLabel Edit Incident
   = simple_form_for incident,defaults: { required: false }, remote: true do |f|
     .modal-body
+      #edit_errors= errors_for incident
       = f.input :name, html: {class: 'input-xxlarge'}
     .modal-footer
       = f.button :submit, 'Update', class: 'btn btn-primary'

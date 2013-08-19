@@ -30,7 +30,7 @@ class InteractionsController < ApplicationController
 
   private
   def interaction_params
-    params.require(:interaction).permit(:title, :content, :occurred, :target_date, :contact_person, :contact_detail, attachments_attributes: [:image,:id, '_destroy'])
+    params.require(:interaction).permit(:title, :content, :occurred, :target_date, :contact_person, :contact_detail, attachments_attributes: [:name,:image,:id, '_destroy'])
   end
 
   def search_params

@@ -1,4 +1,4 @@
-= simple_nested_form_for [incident,interaction],defaults: { required: false },  html: {multipart: true}, remote: true do |f|
+= simple_nested_form_for [incident,interaction],defaults: { required: false },  html: {multipart: true} do |f|
   %h4= interaction.new_record? ? "New Interaction" : "Edit Interaction"
   #errors= render 'layouts/errors', object: interaction
   .row
@@ -19,7 +19,6 @@
     .span7
       %label Attachments
       - bootstrap_table headers:['Name', 'File'], types: [:bordered,:condensed], html_options: {id: 'attachments_table'} do
-        = f.simple_fields_for :attachments, wrapper: false do |attachment_form|
-          = render 'interactions/attachment_fields', f: attachment_form
+        = f.simple_fields_for :attachments, wrapper: false
       %br
       %p= f.link_to_add "#{glyph(:plus_sign)} Add Image".html_safe, :attachments, data: { target: "#attachments_table" }

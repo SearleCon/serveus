@@ -1,0 +1,12 @@
+- if email.errors.any?
+ $('#errors').html("#{j errors_for(email)}");
+- else
+ $('#send_email_modal').modal('hide');
+ $('body').remove('#send_email_modal');
+ $('#interactions').html("#{j render incident.interactions}");
+ $('#announcement').fadeToggle("slow", "linear");
+ $('#add_interaction').html("#{ j (render 'interactions/form')}");
+ $('#add_interaction').slideDown("slow");
+ $('html,body').animate({scrollTop: $('#add_interaction').offset().top},'slow');
+ $(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', tagClass:'tm-tag-info', typeahead: true, hiddenTagListId: 'tags'});
+ $('.datetime').datetimepicker();

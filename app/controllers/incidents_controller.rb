@@ -9,8 +9,11 @@ class IncidentsController < ApplicationController
 
 
   def create
-   incident.save
-   respond_with(incident)
+   if incident.save
+    redirect_to incident, notice: "#{incident.name} was created successfully"
+   else
+    render :index
+   end
   end
 
   def update

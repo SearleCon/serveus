@@ -1,6 +1,9 @@
-$('#edit_incident_modal').modal('hide');
-$('body').remove('#edit_incident_modal');
-new_row = $("#{j render incident }")
-row = $('##{dom_id(incident)}');
-row.replaceWith(new_row);
-new_row.children().effect('highlight', {}, 1500);
+- if incident.errors.any?
+ $('#edit_errors').html("#{j errors_for(incident)}");
+- else
+ $('#edit_incident_modal').modal('hide');
+ $('body').remove('#edit_incident_modal');
+ new_row = $("#{j render incident }")
+ row = $('##{dom_id(incident)}');
+ row.replaceWith(new_row);
+ new_row.children().effect('highlight', {}, 1500);

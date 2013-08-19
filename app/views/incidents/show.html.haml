@@ -2,22 +2,19 @@
   - nav_list(id: 'incidents_menu') do
     %li= link_to glyph(:home).concat(" Home"), incidents_path
     %li= link_to glyph(:plus_sign).concat(' New Interaction'), new_incident_interaction_path(incident), remote: true if incident.open?
-    %li= link_to glyph(:envelope).concat(' Send Email'), new_incident_email_path(incident)
+    %li= link_to glyph(:envelope).concat(' Send Email'), new_incident_email_path(incident), remote: true
     %li= link_to glyph(:search).concat(' Search Interactions'), incident_interactions_path(incident)
     %li= link_to glyph(:print).concat(' Print/PDF'), print_incident_path(incident, format: :pdf), target: '_blank'
     %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
-
   %br
   %br
-
-
 - cache incident do
   %h2.text-center= "#{incident}"
   %h5.text-center= "(#{incident.interactions.size} interactions in total)"
   - if incident.open?
     #announcement.alert.alert-info.text-center
       %strong New Interaction
-      =simple_format("To add a new interaction click the button below or select New Interaction from the menu.")
+      =simple_format("To add a new interaction click the button below or select the New Interaction option from the menu.")
       =link_to glyph(:plus_sign).concat(' New Interaction'), new_incident_interaction_path(incident), class: 'btn btn-small btn-primary' ,remote: true
     #add_interaction.well
   #interactions{ data: { title: "Interaction", content: "#{popover(:interaction)}" }, rel: 'popover' }

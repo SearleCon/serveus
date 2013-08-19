@@ -4,7 +4,7 @@
 %br
 %p= "Subject: #{@feedback.subject}"
 %br
-%p= simple_format(@feedback.comment)
+= simple_format(@feedback.comment)
 %br
 %p="Timestamp: #{l @feedback.created_at}"
 

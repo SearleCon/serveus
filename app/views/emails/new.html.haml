@@ -1,15 +1,10 @@
-#announcement.alert.alert-info.text-center
-  %strong  Sending email
-  = simple_format("Once your email has been successfully sent it will be added to your interactions tagged as an email. Please note you will be automatically sent a copy of the email as well.")
+%h2.text-center Email
+= simple_form_for [incident, email],html: {class: 'form-vertical'}, defaults: { required: false, wrapper: false } do |f|
+  = errors_for (email)
+  = f.input :from , input_html: {style: 'width: 100%;'}
+  = f.input :to, placeholder: 'recipient@example.com', input_html: {style: 'width: 100%;'}
+  = f.input :cc, placeholder: 'cc@example.com', input_html: {style: 'width: 100%;'}
+  = f.input :subject, input_html: {style: 'width: 100%;'}
+  = f.input :body, as: :text, input_html: { rows: 12 ,class: 'input-xlarge', style: 'width: 100%;' }
+  = f.submit 'Send Mail', class: 'btn btn-primary'
 
-= simple_form_for [incident, email],defaults: { required: false } do |f|
-  %legend
-    Email
-  %fieldset
-    = errors_for (email)
-    = f.input :from, input_html: {size: 40}
-    = f.input :to
-    = f.input :cc
-    = f.input :subject
-    = f.input :body, as: :text, input_html: { rows: 12 ,class: 'input-xlarge' }
-    = f.submit 'Send Mail', class: 'btn btn-primary'

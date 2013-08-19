@@ -1,14 +1,12 @@
 class EmailsController < ApplicationController
   expose(:incident)
+  expose(:interaction, ancestor: :incident)
   expose(:email,  strategy: EmailStrategy)
 
   def create
     if email.valid?
       Delayed::Job.enqueue OutgoingMailJob.new(email)
-      interaction = incident.interactions.create!(title: email.subject, content: email.body, contact_detail: email.to) and interaction.tag('Email Sent', current_user)
-      redirect_to edit_incident_interaction_url(incident, interaction)
-    else
-      render :new
+      self.interaction = incident.interactions.create!(title: email.subject, content: email.body, contact_detail: email.to) and interaction.tag('Email Sent', current_user)
     end
   end
 

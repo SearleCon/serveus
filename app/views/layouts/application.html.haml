@@ -25,11 +25,10 @@
           - if content_for?(:sidebar)
             .sidebar
               = yield(:sidebar)
-            .main-section-with-sidebar
-              = yield
-          - else
             .main-section
               = yield
+          - else
+            = yield
     %footer.navbar.navbar-fixed-bottom.navbar-inverse
       .navbar-inner
         .container

@@ -3,7 +3,7 @@
   - incident.interactions.each do |interaction|
     %div
       %h4= interaction.title.titleize
-      %p= simple_format(interaction.content)
+      = simple_format(interaction.content)
       %h5 Files
       %ul.inline{id: 'attachments'}
         - interaction.attachments.each do |a|

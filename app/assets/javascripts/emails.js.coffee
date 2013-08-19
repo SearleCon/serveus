@@ -1,10 +1,10 @@
-class InteractionsController
+class EmailsController
   init: ->
-  edit: ->
+  create: ->
     $(".tm-input").tagsManager({typeaheadAjaxSource: '/tags', tagClass:'tm-tag-info', typeahead: true, hiddenTagListId: 'tags' });
     $('.datetime').datetimepicker();
 
 
 
 
-this.ServeUs.interactions = new InteractionsController()
+this.ServeUs.emails = new EmailsController()

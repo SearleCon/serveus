@@ -1,0 +1,16 @@
+= div_for interaction do
+  %h4= interaction.title.titleize
+  = simple_format(interaction.content)
+  %ul.inline{id: 'attachments'}
+    -interaction.attachments.each do |a|
+      %li= link_to glyph(:file).concat( a.name.titleize), download_attachment_path(a), target: '_blank'
+  %div
+    = link_to "#{glyph(:edit)} Edit".html_safe, edit_incident_interaction_path(incident,interaction)
+    %br
+    %contact_detail= contact_information(interaction)
+    %start_date= "Occured on #{l Time.zone.at(interaction.occurred)}" if interaction.occurred
+    .pull-right
+      - interaction.tag_names.each do |tag_name|
+        %tags
+          =tag_name
+%hr
