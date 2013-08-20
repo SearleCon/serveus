@@ -1,8 +1,11 @@
 - if interaction.errors.any?
-  $('#errors').html("#{j errors_for(interaction)}");
+  $('#errors').html('#{j render 'layouts/errors', object: interaction}');
 - else
-  $('#announcement').fadeToggle('slow', 'linear');
-  $('#add_interaction').slideUp('slow');
-  $('html,body').animate({scrollTop: $('##{dom_id(interaction)}').offset().top},'slow');
-  $("##{dom_id(interaction)}").html('#{j render interaction}');
-  $("##{dom_id(interaction)}").effect("highlight", {}, 1500);
+  $('#announcement').fadeToggle("slow", "linear");
+  $('#add_interaction').slideUp("slow", function(){
+  $('#interactions').html('#{j render incident.interactions}');
+  $('html,body').animate({scrollTop: $("##{dom_id(interaction)}").offset().top},'slow');
+  $("##{dom_id(interaction)}").fadeIn('slow', function(){$(this).effect("highlight", {}, 1500);});
+  });
+
+

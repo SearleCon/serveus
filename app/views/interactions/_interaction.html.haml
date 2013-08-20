@@ -1,5 +1,5 @@
 - cache interaction do
-  %div[interaction]
+  %div.well.well-small[interaction]
     %h5= "#{interaction_counter + 1}. #{interaction.title.titleize}" rescue interaction.title.titleize
     = simple_format(interaction.content, class: 'italic')
     %ul.inline{id: 'attachments'}
@@ -15,5 +15,4 @@
         - interaction.tag_names.each do |tag_name|
           %tags
             =tag_name
-    %hr
 

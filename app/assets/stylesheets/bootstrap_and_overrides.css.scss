@@ -67,3 +67,14 @@ start_date{
   font-style: italic;
 }
 
+.modal{
+  background-color: #eee;
+
+}
+
+.interaction{
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+}
+
