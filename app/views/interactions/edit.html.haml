@@ -1,5 +1,14 @@
-= simple_form_for [incident,interaction],defaults: { required: false },  html: {multipart: true} do |f|
-  %h4= interaction.new_record? ? "New Interaction" : "Edit Interaction"
+= content_for :sidebar do
+  - nav_list(id: 'incidents_menu') do
+    %li= link_to glyph(:home).concat(" Home"), incidents_path
+    %li= link_to glyph(:share).concat(" Parent Incident"), incident
+    %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
+  %br
+  %br
+
+
+= simple_nested_form_for [incident,interaction],defaults: { required: false },  html: {multipart: true} do |f|
+  %h4 Edit Interaction
   #errors= errors_for interaction
   .row
     .span3
@@ -11,10 +20,18 @@
       %label Tags
       %input.span1{type: 'text', name: 'tags', class: 'tm-input'}
       = f.hidden_field :tags, value: interaction.tag_names.join(','), id: 'tags', name: 'tags'
-      %br
-      %br
-      = f.input :attachments_array, as: :file, input_html: { multiple: true}, label: "Attach Files"
+    %br
+    %br
     .span4
       = f.input :content, as: :text, input_html: { rows: 12 ,class: 'input-xlarge span4' }
       = token_tag
-      = f.button :submit, interaction.new_record? ? 'Create interaction' : 'Update interaction', class: 'btn btn-small btn-primary'
+      = f.button :submit, 'Update interaction', class: 'btn btn-small btn-primary'
+
+    .span7
+      %br
+      %label Attachments
+      - bootstrap_table headers:['Name', 'File'], types: [:bordered,:condensed], html_options: {id: 'attachments_table'} do
+        = f.simple_fields_for :attachments, wrapper: false do |attachment_form|
+          = render 'interactions/attachment_fields', f: attachment_form
+      %br
+      %p= f.link_to_add "#{glyph(:plus_sign)} Add Image".html_safe, :attachments, data: { target: "#attachments_table" }

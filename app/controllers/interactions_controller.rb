@@ -20,7 +20,7 @@ class InteractionsController < ApplicationController
 
   def update
     interaction.tag(params[:tags], current_user) if interaction.save && params[:tags]
-    respond_with(interaction, location: incident_url(incident))
+    respond_with(interaction, location: incident_interaction_url(incident, interaction))
   end
 
   def destroy

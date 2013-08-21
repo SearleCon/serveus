@@ -10,19 +10,6 @@
 
 .search.well
   %h3 Search Interactions
-  = render partial: 'search_form'
+  = render'search_form'
 
-.search-results
-  %h3= "Search Results (#{interactions.result(distinct: true).size})"
-  %ul.inline
-    %li.header Sort By:
-    %li= sort_link interactions, :occurred, "Occurred", default_order: :desc
-    %li.divider
-    %li= sort_link interactions, :target_date, "Target Date", default_order: :desc
-    %li.divider
-    %li= sort_link interactions, :created, "Creation Date", default_order: :desc
-    %li.divider
-    %li= sort_link interactions, :title, "Title", default_order: :desc
-    %hr
-  - interactions.result(distinct: true).each do |interaction|
-    = render 'search_result', interaction: interaction
+= render 'results'

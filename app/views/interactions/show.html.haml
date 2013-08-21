@@ -1,0 +1,48 @@
+= content_for :sidebar do
+  - nav_list(id: 'incidents_menu') do
+    %li= link_to glyph(:home).concat(" Home"), incidents_path
+    %li= link_to glyph(:share).concat(" Parent Incident"), incident
+    %li= link_to glyph(:search).concat(' Back to Search'), incident_interactions_path(incident)
+    %li= link_to glyph(:circle_arrow_left).concat(' Back'), :back
+  %br
+  %br
+
+- cache interaction do
+  %div.well.well-small
+    %h4.text-center= interaction.title.titleize
+    %hr
+    %h5 Content
+    = simple_format(interaction.content, class: 'italic')
+    %hr
+    %h5 Contact Details
+    - if contact_information(interaction)
+      %span.label.label-warning= contact_information(interaction)
+    - else
+      %h6 There are no contact details
+    %hr
+    %h5 Dates
+    %start_date= "Occurred: #{Time.zone.at(interaction.occurred).to_s(:default)}" if interaction.occurred
+    %start_date= "Last Updated: #{Time.zone.at(interaction.updated_at).to_s(:default)}"
+    %start_date= "Target: #{Time.zone.at(interaction.target_date).to_s(:default)}" if interaction.target_date
+
+  %h5 Attachments
+  %div.well.well-small
+    - if interaction.attachments.any?
+      %ul.inline{id: 'attachments'}
+        - interaction.attachments.each do |a|
+          %li= link_to "#{glyph(:file)} #{a.name.titleize}".html_safe, download_attachment_path(a), target: '_blank'
+    - else
+      %h6 There are no attached files
+  %h5 Tags
+  %div.well.well-small
+    - if interaction.tags.any?
+      - interaction.tag_names.each do |tag_name|
+        %tags= tag_name
+    - else
+      %h6 There are no tags
+
+
+  %div.text-center
+    = link_to "#{glyph(:edit)} Edit".html_safe, edit_incident_interaction_path(incident,interaction), class: 'btn btn-primary'
+    = link_to "#{glyph(:remove_sign)} Delete".html_safe, incident_interaction_path(incident,interaction), method: :delete, data: {confirm: 'Are you sure you want to delete this interaction?'}, class: 'btn btn-danger'
+

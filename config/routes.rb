@@ -36,7 +36,7 @@ Serveus::Application.routes.draw do
     patch :close_all, on: :collection
     get :print, on: :member
     get :print_all, on: :collection
-    resources :interactions, except: :show
+    resources :interactions
   end
 
   # Attachments

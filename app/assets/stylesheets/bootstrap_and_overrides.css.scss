@@ -37,7 +37,7 @@ tags {
 
 contact_detail{
   @extend .badge;
-  @extend .badge-info;
+  @extend .badge-warning;
 }
 
 start_date{

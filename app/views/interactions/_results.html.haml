@@ -1,0 +1,27 @@
+.search-results
+  %h3= "Search Results (#{interactions.result(distinct: true).size})"
+  %ul.inline
+    %li.header Sort By:
+    %li= sort_link interactions, :occurred, "Occurred", default_order: :desc
+    %li.divider
+    %li= sort_link interactions, :target_date, "Target Date", default_order: :desc
+    %li.divider
+    %li= sort_link interactions, :created, "Creation Date", default_order: :desc
+    %li.divider
+    %li= sort_link interactions, :title, "Title", default_order: :desc
+  - interactions.result(distinct: true).each do |interaction|
+    %div.well.well-small[interaction]
+      %h5= interaction.title.titleize
+      = simple_format(interaction.content, class: 'italic')
+      %ul.inline{id: 'attachments'}
+        -interaction.attachments.each do |a|
+          %li= link_to glyph(:file).concat( a.name.titleize), download_attachment_path(a), target: '_blank'
+      %div
+        = link_to "#{glyph(:eye_open)} View".html_safe, incident_interaction_path(incident,interaction)
+        %br
+        %contact_detail= contact_information(interaction)
+        %start_date= "Occured on #{l Time.zone.at(interaction.occurred)}" if interaction.occurred
+        .pull-right
+          - interaction.tag_names.each do |tag_name|
+            %tags
+              =tag_name
