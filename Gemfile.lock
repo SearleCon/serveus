@@ -427,8 +427,8 @@ DEPENDENCIES
   dalli
   database_cleaner (= 1.0.0.RC1)
   decent_exposure
-  delayed_job (~> 4.0.0.beta2)
-  delayed_job_active_record (~> 4.0.0.beta3)
+  delayed_job (~> 4.0.0)
+  delayed_job_active_record (~> 4.0.0)
   devise (~> 3.0.0)
   devise-async
   devise_invitable!

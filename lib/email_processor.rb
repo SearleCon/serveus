@@ -3,8 +3,8 @@ class EmailProcessor
    ActiveRecord::Base.transaction do
      user = User.find_by(email: mail.from.downcase)
      if user
-      user.create_basket! unless user.basket
-      user.basket.interactions.create!(title: mail.subject, content: mail.body)
+      basket = Basket.find_or_create_by!(user: user)
+      basket.interactions.create!(title: mail.subject, content: mail.body)
      end
    end
   end
